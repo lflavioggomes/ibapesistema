@@ -339,25 +339,25 @@ return [
         'submenu' => [
             [
                 'text' => 'Dados Pessoais',
-                'url'  => '#',
+                'url'  => 'dados',
             ],
             [
                 'text' => 'Requerimento ao Presidente do IBAPE',
-                'url'  => '#',
+                'url'  => 'requerimento',
             ],
             [
                 'text' => 'Atestado de regularidade',
-                'url'  => '#',
+                'url'  => 'atestado',
             ],
 
             [
                 'text' => 'Solicitação justificada',
-                'url'  => '#',
+                'url'  => 'solicitacao',
             ],
 
             [
                 'text' => 'Comprovante de pagamento',
-                'url'  => '#',
+                'url'  => 'comprovante',
             ],
         ],
     ],
