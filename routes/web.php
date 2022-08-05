@@ -21,10 +21,16 @@ Auth::routes();
 
 Route::namespace('Site')->group(function () {
     Route::get('home', 'HomeController@index')->name('site.home');
+
     Route::get('dados', 'DadosController@index')->name('site.dados');
+    Route::post('dados', 'DadosController@form')->name('site.dados.form');
+
     Route::get('requerimento', 'RequerimentoController@index')->name('site.requerimento');
+
     Route::get('atestado', 'AtestadoController@index')->name('site.atestado');
+
     Route::get('solicitacao', 'SolicitacaoController@index')->name('site.solicitacao');
+
     Route::get('comprovante', 'ComprovanteController@index')->name('site.comprovante');
 });
 
