@@ -37,15 +37,15 @@
                                 <label for="sexo">sexo</label>
                                 <select class="form-control" id="sexo" name="sexo">
                                     <option value="">Selecione</option>
-                                    <option value="Masculino">Masculino</option>
-                                    <option value="Feminino">Feminino</option>
+                                    <option value="Masculino" {{$result->sexo == 'Masculino' ? 'selected': ''}}>Masculino</option>
+                                    <option value="Feminino" {{$result->sexo == 'Feminino' ? 'selected': ''}}>Feminino</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="nascimento">Nascimento</label>
-                                <input type="text" class="form-control date" id="nascimento" name="nascimento" value="{{$result->nascimento}}">
+                                <input type="text" class="form-control date" id="nascimento" name="nascimento" value="{{date('d-m-Y', strtotime($result->nascimento))}}">
                             </div>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="dataemissao">Data de Emissão</label>
-                                <input type="text" class="form-control date" id="dataemissao" name="dataemissao" placeholder="" value="{{$result->dataemissao}}">
+                                <input type="text" class="form-control date" id="dataemissao" name="dataemissao" placeholder="" value="{{date('d-m-Y', strtotime($result->dataemissao))}}">
                             </div>
                         </div>
                         <div class="col-3">
@@ -94,6 +94,14 @@
                 </div>
 
                 <div class="card-body">
+                    <div class="row">
+                    <div class="col-3">
+                            <div class="form-group">
+                                <label for="sexo">CEP</label>
+                                <input type="text" class="form-control cep" id="cep" name="cep" placeholder="" value="{{$result->cep}}">
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="row">
                         <div class="col-8">
@@ -119,10 +127,11 @@
                         </div>
                         <div class="col-3">
                             <div class="form-group">
-                                <label for="sexo">CEP</label>
-                                <input type="text" class="form-control cep" id="cep" name="cep" placeholder="" value="{{$result->cep}}">
+                                <label for="naturalidade">Cidade</label>
+                                <input type="text" class="form-control" id="cidade" name="cidade" placeholder="" value="{{$result->cidade}}">
                             </div>
                         </div>
+                       
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="nascimento">Estado</label>
@@ -153,7 +162,7 @@
                         <div class="col-4">
                             <div class="form-group">
                                 <label for="dataemissao">Email</label>
-                                <input type="text" class="form-control" id="email" name="email" value="{{$email}}">
+                                <input type="text" class="form-control" id="email" name="email" value="{{$email}}" disabled>
                             </div>
                         </div>
                     </div>
@@ -180,7 +189,7 @@
 
 <script type="text/javascript">
     $(function() {
-        $('.date').mask('00/00/0000',{placeholder: "__/__/____"});
+        $('.date').mask('00-00-0000',{placeholder: "__-__-____"});
         $('.cep').mask('00000-000',{placeholder: "_____-___"});
         $('.cpf').mask('000.000.000-00',{placeholder: "___.___.___-__"});
         $('.phone_with_ddd').mask('(00) 00000-0000');
