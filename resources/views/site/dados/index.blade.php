@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 @section('content_header')
 
-<h1>Dados Pessoais</h1>
+<h1>Dados Pessoais Candidato</h1>
 @stop
 
 @section('content')
