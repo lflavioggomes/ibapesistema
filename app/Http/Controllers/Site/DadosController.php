@@ -76,7 +76,9 @@ class DadosController extends Controller
                     'pais'          => $post['pais'],
                     'telefone'      => $post['telefone'],
                     'fax'           => $post['fax'],
-                    'homepage'      => $post['homepage']
+                    'homepage'      => $post['homepage'],
+                    'crea'          => $post['crea'],
+                    'formacao'      => $post['formacao']
                 ]);
         } else {
              $exnascimento = explode('-', $post['nascimento']);
