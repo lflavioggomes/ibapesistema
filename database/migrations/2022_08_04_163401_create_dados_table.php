@@ -38,6 +38,8 @@ class CreateDadosTable extends Migration
             $table->string('fax')->nullable();
             $table->string('email')->nullable();
             $table->string('homepage')->nullable();
+            $table->string('crea')->nullable();
+            $table->string('formacao')->nullable();
             $table->timestamps();
         });
     }

@@ -36,7 +36,9 @@ class Dados extends Model
         'telefone',
         'fax',
         'email',
-        'homepage'
+        'homepage',
+        'crea',
+        'formacao'
     ];
 
     public function users()
