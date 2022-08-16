@@ -17,25 +17,25 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="name">Nome Completo</label>
-                        <input type="name" class="form-control" id="name" name="name" placeholder="" value="{{$name}}" onkeyup="maiuscula(this)" >
+                        <input type="name" class="form-control" id="name" name="name" placeholder="" value="{{$name}}" onkeyup="maiuscula(this)" required>
                     </div>
                     <div class="row">
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="nacionalidade">Nacionalidade</label>
-                                <input type="text" class="form-control" id="nacionalidade" name="nacionalidade" value="{{$result->nacionalidade}}" onkeyup="maiuscula(this)" >
+                                <input type="text" class="form-control" id="nacionalidade" name="nacionalidade" value="{{$result->nacionalidade}}" onkeyup="maiuscula(this)" required>
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="naturalidade">Naturalidade</label>
-                                <input type="text" class="form-control" id="naturalidade" name="naturalidade" placeholder="" value="{{$result->naturalidade}}" onkeyup="maiuscula(this)" >
+                                <input type="text" class="form-control" id="naturalidade" name="naturalidade" placeholder="" value="{{$result->naturalidade}}" onkeyup="maiuscula(this)" required>
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="sexo">sexo</label>
-                                <select class="form-control" id="sexo" name="sexo">
+                                <select class="form-control" id="sexo" name="sexo" required>
                                     <option value="">SELECIONE</option>
                                     <option value="MASCULINO" {{$result->sexo == 'MASCULINO' ? 'selected': ''}}>MASCULINO</option>
                                     <option value="FEMININO" {{$result->sexo == 'FEMININO' ? 'selected': ''}}>FEMININO</option>
@@ -45,7 +45,7 @@
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="nascimento">Nascimento</label>
-                                <input type="text" class="form-control date" id="nascimento" name="nascimento" value="{{$result->nascimento == '' ? '': date('d-m-Y', strtotime($result->nascimento))}}" >
+                                <input type="text" class="form-control date" id="nascimento" name="nascimento" value="{{$result->nascimento == '' ? '': date('d-m-Y', strtotime($result->nascimento))}}" required>
                             </div>
                         </div>
                     </div>
@@ -54,25 +54,25 @@
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="rg">RG</label>
-                                <input type="text" class="form-control" id="rg" name="rg" placeholder="" value="{{$result->rg}}" onkeyup="maiuscula(this)" >
+                                <input type="text" class="form-control" id="rg" name="rg" placeholder="" value="{{$result->rg}}" onkeyup="maiuscula(this)" required>
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="emissor">Órgão Emissor / UF</label>
-                                <input type="text" class="form-control" id="emissor" name="emissor" placeholder="" value="{{$result->emissor}}" onkeyup="maiuscula(this)" >
+                                <input type="text" class="form-control" id="emissor" name="emissor" placeholder="" value="{{$result->emissor}}" onkeyup="maiuscula(this)" required>
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="dataemissao">Data de Emissão</label>
-                                <input type="text" class="form-control date" id="dataemissao" name="dataemissao" placeholder="" value="{{$result->dataemissao == '' ? '': date('d-m-Y', strtotime($result->dataemissao)) }}">
+                                <input type="text" class="form-control date" id="dataemissao" name="dataemissao" placeholder="" value="{{$result->dataemissao == '' ? '': date('d-m-Y', strtotime($result->dataemissao)) }}" required>
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="cpf">CPF</label>
-                                <input type="text" class="form-control cpf" id="cpf" name="cpf" placeholder="" value="{{$result->cpf}}">
+                                <input type="text" class="form-control cpf" id="cpf" name="cpf" placeholder="" value="{{$result->cpf}}" required>
                             </div>
                         </div>
                     </div>
@@ -98,7 +98,7 @@
                     <div class="col-3">
                             <div class="form-group">
                                 <label for="sexo">CEP</label>
-                                <input type="text" class="form-control cep" id="cep" name="cep" placeholder="" value="{{$result->cep}}">
+                                <input type="text" class="form-control cep" id="cep" name="cep" placeholder="" value="{{$result->cep}}" required>
                             </div>
                         </div>
                     </div>
@@ -107,13 +107,13 @@
                         <div class="col-8">
                             <div class="form-group">
                                 <label for="name">Logradouro</label>
-                                <input type="name" class="form-control" id="endereco" name="endereco" placeholder="" value="{{$result->endereco}}" onkeyup="maiuscula(this)" >
+                                <input type="name" class="form-control" id="endereco" name="endereco" placeholder="" value="{{$result->endereco}}" onkeyup="maiuscula(this)" required>
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="form-group">
                                 <label for="nacionalidade">Número</label>
-                                <input type="text" class="form-control" id="numero" name="numero" placeholder="" value="{{$result->numero}}" onkeyup="maiuscula(this)" >
+                                <input type="text" class="form-control" id="numero" name="numero" placeholder="" value="{{$result->numero}}" onkeyup="maiuscula(this)" required>
                             </div>
                         </div>
                     </div>
@@ -122,26 +122,26 @@
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="naturalidade">Bairro</label>
-                                <input type="text" class="form-control" id="bairro" name="bairro" placeholder="" value="{{$result->bairro}}" onkeyup="maiuscula(this)" >
+                                <input type="text" class="form-control" id="bairro" name="bairro" placeholder="" value="{{$result->bairro}}" onkeyup="maiuscula(this)" required>
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="naturalidade">Cidade</label>
-                                <input type="text" class="form-control" id="cidade" name="cidade" placeholder="" value="{{$result->cidade}}" onkeyup="maiuscula(this)" >
+                                <input type="text" class="form-control" id="cidade" name="cidade" placeholder="" value="{{$result->cidade}}" onkeyup="maiuscula(this)" required>
                             </div>
                         </div>
                        
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="nascimento">Estado</label>
-                                <input type="text" class="form-control" id="estado" name="estado" value="{{$result->estado}}" onkeyup="maiuscula(this)" >
+                                <input type="text" class="form-control" id="estado" name="estado" value="{{$result->estado}}" onkeyup="maiuscula(this)" required>
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="nascimento">País</label>
-                                <input type="text" class="form-control" id="pais" name="pais" value="{{$result->pais}}" onkeyup="maiuscula(this)" >
+                                <input type="text" class="form-control" id="pais" name="pais" value="{{$result->pais}}" onkeyup="maiuscula(this)" required>
                             </div>
                         </div>
                     </div>
@@ -150,7 +150,7 @@
                         <div class="col-4">
                             <div class="form-group">
                                 <label for="rg">Telefone</label>
-                                <input type="text" class="form-control phone_with_ddd" id="telefone" name="telefone" placeholder="" value="{{$result->telefone}}">
+                                <input type="text" class="form-control phone_with_ddd" id="telefone" name="telefone" placeholder="" value="{{$result->telefone}}" required>
                             </div>
                         </div>
                         <div class="col-4">
@@ -172,7 +172,7 @@
                     </div>
                 </div>
 
-                <div class="card-header" style="background-color: #007bff !important; color:#fff;">
+                <div class="card-header" style="background-color: #007bff !important; color:#fff;" required>
                     <h3 class="card-title">Formação Profissional</h3>
                 </div>
 
@@ -181,7 +181,7 @@
                     <div class="col-4">
                             <div class="form-group">
                                 <label for="sexo">Profissão</label>
-                                <input type="text" class="form-control" id="formacao" name="formacao" placeholder="" value="{{$result->formacao}}" onkeyup="maiuscula(this)">
+                                <input type="text" class="form-control" id="formacao" name="formacao" placeholder="" value="{{$result->formacao}}" onkeyup="maiuscula(this)" >
                             </div>
                         </div>
                     </div>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Solicitacao;
+use Illuminate\Support\Facades\DB;
 
 class SolicitacaoController extends Controller
 {
@@ -25,72 +27,71 @@ class SolicitacaoController extends Controller
      */
     public function index()
     {
-        return view('site.solicitacao.index');
+        error_reporting(0);
+        $results = DB::table('dados')->where('user_id', auth()->user()->id)->first();
+        $solicitacao = DB::table('solicitacao')->where('user_id', auth()->user()->id)->first();
+
+        $valida = 0;
+
+        if($results->endereco != '')
+        {
+           $valida = 1;
+        }
+
+        if($results->numero != '' && $valida > 0)
+        {
+           $valida = 1;
+        }else{
+           $valida = 0;
+        }
+
+        if($results->bairro != '' && $valida  > 0)
+        {
+           $valida = 1;
+        }
+        else{
+           $valida = 0;
+        }
+
+        if($results->estado != '' && $valida > 0)
+        {
+           $valida = 1;
+        }
+        else{
+           $valida = 0;
+        }
+
+        if($results->crea != '' && $valida > 0)
+        {
+           $valida = 1;
+        }
+        else{
+           $valida = 0;
+        }
+
+        if($results->formacao != '' && $valida > 0)
+        {
+           $valida = 1;
+        }
+        else{
+           $valida = 0;
+        }
+
+
+        return view('site.solicitacao.index',[
+            'valida' => $valida,
+            'result' => $results,
+            'nome' => auth()->user()->name,
+            'solicitacao' => $solicitacao->id
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function form(Request $request)
     {
-        //
+        $post = $request->all();
+        $post['user_id'] = auth()->user()->id;
+        $dados = Solicitacao::create($post);
+        return redirect('/solicitacao');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
