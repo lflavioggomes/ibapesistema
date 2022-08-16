@@ -346,6 +346,10 @@ return [
                 'url'  => 'requerimento',
             ],
             [
+                'text' => 'Diploma de Graduação',
+                'url'  => 'diploma',
+            ],
+            [
                 'text' => 'Atestado de regularidade',
                 'url'  => 'atestado',
             ],
