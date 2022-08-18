@@ -342,25 +342,23 @@ return [
                 'url'  => 'dados',
             ],
             [
-                'text' => 'Requerimento ao Presidente do IBAPE',
+                'text' => 'Requerimento',
                 'url'  => 'requerimento',
+            ],
+            [
+                'text' => 'Declaração de regularidade',
+                'url'  => 'atestado',
             ],
             [
                 'text' => 'Diploma de Graduação',
                 'url'  => 'diploma',
             ],
             [
-                'text' => 'Atestado de regularidade',
-                'url'  => 'atestado',
-            ],
-
-            [
                 'text' => 'Solicitação justificada',
                 'url'  => 'solicitacao',
             ],
-
             [
-                'text' => 'Comprovante de pagamento',
+                'text' => 'Dados para Pagamento',
                 'url'  => 'comprovante',
             ],
         ],
