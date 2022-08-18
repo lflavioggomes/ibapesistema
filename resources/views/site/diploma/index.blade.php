@@ -4,10 +4,11 @@
 @stop
 
 @section('content')
-<div class="row">
+
 @php
     if($diploma == ''):
-@endphp        
+@endphp      
+<div class="row">  
     <div class="col-md-6">
 
         <div class="card card-primary">
@@ -43,23 +44,24 @@
             </form>
         </div>
     </div>
+</div>
     @php 
         else:
 @endphp
-
 <div class="row">
-    <div class="col-12">
-    <div class="callout callout-info">
-        <h5><i class="fas fa-info"></i> Atenção:</h5>
-        Seu Diploma foi enviado
-    </div>
-    </div>
-</div>
+    <div class="col-lg-12">
+        <div class="card card-primary card-outline">
+            <div class="card-header">
+                <h5 class="m-0">Seu Diploma foi enviado</h5>
+            </div>
+        </div>
+   </div>
 
+</div>
 @php 
         endif;
 @endphp
-</div>
+
 @stop
 @section('css')
 <!-- <link rel="stylesheet" href="/css/admin_custom.css"> -->

@@ -66,7 +66,7 @@ class DiplomaController extends Controller
                 }else{
                     return redirect('/diploma')
                     ->back()
-                    ->with('error', 'Falha ao fazer armazenas')
+                    ->with('error', 'Falha ao fazer armazenar')
                     ->withInput();
                 }
             }

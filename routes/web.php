@@ -28,8 +28,8 @@ Route::namespace('Site')->group(function () {
     Route::get('requerimento', 'RequerimentoController@index')->name('site.requerimento');
     Route::post('requerimento', 'RequerimentoController@form')->name('site.requerimento.form');
 
-    Route::get('diploma', 'diplomaController@index')->name('site.diploma');
-    Route::post('diploma', 'diplomaController@form')->name('site.diploma.form');
+    Route::get('diploma', 'DiplomaController@index')->name('site.diploma');
+    Route::post('diploma', 'DiplomaController@form')->name('site.diploma.form');
 
     Route::get('atestado', 'AtestadoController@index')->name('site.atestado');
     Route::post('atestado', 'AtestadoController@form')->name('site.atestado.form');
@@ -38,6 +38,7 @@ Route::namespace('Site')->group(function () {
     Route::post('solicitacao', 'SolicitacaoController@form')->name('site.solicitacao.form');
 
     Route::get('comprovante', 'ComprovanteController@index')->name('site.comprovante');
+    Route::post('comprovante', 'ComprovanteController@form')->name('site.comprovante.form');
 });
 
 
