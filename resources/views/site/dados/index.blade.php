@@ -293,7 +293,7 @@ endif;
         $('.phone_with_ddd').mask('(00) 00000-0000');
 
         $('input#cep').blur(function() {
-            $.get('/buscacep?cep=' + $(this).val(), function(data, status) {
+            $.get('buscacep?cep=' + $(this).val(), function(data, status) {
                 var obj = $.parseJSON(data);
                 if (obj.resultado == 1) {
                     $('#endereco').val(obj.tipo_logradouro.toUpperCase() + ' ' + obj.logradouro.toUpperCase());

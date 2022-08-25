@@ -120,7 +120,7 @@ endif;
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
             <h5><i class="icon fas fa-check"></i> Atenção!</h5>
             Por favor complete os seguintes dados para continuar com a solicitação <br>
-           <a href="/dados" style="text-decoration:none;"> - Dados Pessoais </a>
+           <a href="dados" style="text-decoration:none;"> - Dados Pessoais </a>
         </div>
     </div>
 </div>
