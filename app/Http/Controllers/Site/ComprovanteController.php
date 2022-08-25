@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Site;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Comprovante;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 
@@ -29,14 +30,19 @@ class ComprovanteController extends Controller
     public function index()
     {
         error_reporting(0);
-        $results = DB::table('comprovantes')->where('user_id', auth()->user()->id)->first();
+        $dados = DB::table('dados')->where('user_id', auth()->user()->id)->first();
+        $comprovante = DB::table('comprovantes')->where('user_id', auth()->user()->id)->first();
+
         return view('site.comprovante.index',[
-                    'comprovante' => $results->comprovante
+                    'dados' => $dados,
+                    'result' => $comprovante->id,
+                    'status' => $comprovante->status_id,
         ]);
     }
 
     public function form(Request $request)
     {
+        $results = DB::table('comprovantes')->where('user_id', auth()->user()->id)->first();
         $nameFile = null;
     
         if ($request->hasFile('comprovante') && $request->file('comprovante')->isValid())
@@ -56,20 +62,46 @@ class ComprovanteController extends Controller
                 ->with('error', 'Falha ao fazer upload')
                 ->withInput();
             }else{
+
                 $post = $request->all();
                 $post['comprovante'] = $nameFile;
                 $post['user_id'] = auth()->user()->id;
-                $dados = Comprovante::create($post);
 
-                if($dados)
-                {
-                    return redirect('/comprovante');
-                }else{
-                    return redirect('/comprovante')
-                    ->back()
-                    ->with('error', 'Falha ao fazer armazenar')
-                    ->withInput();
-                }
+                if ($results) {
+                
+                    $affected = DB::table('comprovantes')
+                       ->where('user_id', $post['user_id'])
+                       ->update([
+                          'status_id'   => 3,
+                          'comprovante'     => $post['comprovante'],
+                          'updated_at' => Carbon::now()
+                       ]);
+
+                       if($affected)
+                       {
+                           return redirect('/comprovante');
+                       }else{
+                           return redirect('/comprovante')
+                           ->back()
+                           ->with('error', 'Falha ao fazer armazenar')
+                           ->withInput();
+                       }
+                       
+                 } else {
+                    $post['status_id'] = 3; //Status Análise
+                    $dados = Comprovante::create($post);
+
+                    if($dados)
+                    {
+                        return redirect('/comprovante');
+                    }else{
+                        return redirect('/comprovante')
+                        ->back()
+                        ->with('error', 'Falha ao fazer armazenar')
+                        ->withInput();
+                    }
+                 }
+             
             }
         }
 

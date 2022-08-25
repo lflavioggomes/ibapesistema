@@ -5,91 +5,58 @@ namespace App\Http\Controllers\Site;
 use App\Http\Controllers\Controller;
 use App\Models\Requerimento;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class RequerimentoController extends Controller
 {
-     /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+   /**
+    * Create a new controller instance.
+    *
+    * @return void
+    */
+   public function __construct()
+   {
+      $this->middleware('auth');
+   }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        error_reporting(0);
-        $results = DB::table('dados')->where('user_id', auth()->user()->id)->first();
-        $requerimento = DB::table('requerimentos')->where('user_id', auth()->user()->id)->first();
-         
-        $valida = 0;
+   /**
+    * Display a listing of the resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
+   public function index()
+   {
+      error_reporting(0);
+      $dados = DB::table('dados')->where('user_id', auth()->user()->id)->first();
+      $requerimento = DB::table('requerimentos')->where('user_id', auth()->user()->id)->first();
 
-         if($results->endereco != '')
-         {
-            $valida = 1;
-         }
+      return view('site.requerimento.index', [
+         'dados' => $dados,
+         'nome' => auth()->user()->name,
+         'result' => $requerimento->id,
+         'status' => $requerimento->status_id
+      ]);
+   }
 
-         if($results->numero != '' && $valida > 0)
-         {
-            $valida = 1;
-         }else{
-            $valida = 0;
-         }
+   public function form(Request $request)
+   {
+      $results = DB::table('requerimentos')->where('user_id', auth()->user()->id)->first();
+      $post = $request->all();
+      $post['user_id'] = auth()->user()->id;
 
-         if($results->bairro != '' && $valida  > 0)
-         {
-            $valida = 1;
-         }
-         else{
-            $valida = 0;
-         }
+      if ($results) {
+         $affected = DB::table('requerimentos')
+            ->where('user_id', $post['user_id'])
+            ->update([
+               'status_id'   => 3,
+               'updated_at' => Carbon::now()
+            ]);
+      } else {
+         $post['status_id'] = 3; //Status Análise
+         $dados = Requerimento::create($post);
+      }
 
-         if($results->estado != '' && $valida > 0)
-         {
-            $valida = 1;
-         }
-         else{
-            $valida = 0;
-         }
-
-         if($results->crea != '' && $valida > 0)
-         {
-            $valida = 1;
-         }
-         else{
-            $valida = 0;
-         }
-
-         if($results->formacao != '' && $valida > 0)
-         {
-            $valida = 1;
-         }
-         else{
-            $valida = 0;
-         }
-
-
-        return view('site.requerimento.index', [
-                    'valida' => $valida,
-                    'result' => $results,
-                    'nome' => auth()->user()->name,
-                    'requerimento' => $requerimento->id
-                ]);
-    }
-
-    public function form(Request $request)
-    {
-       $post = $request->all();
-       $post['user_id'] = auth()->user()->id;
-       $dados = Requerimento::create($post);
-       return redirect('/requerimento');
-    }
+      return redirect('/requerimento');
+   }
 }

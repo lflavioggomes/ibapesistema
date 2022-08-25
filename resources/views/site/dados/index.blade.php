@@ -5,6 +5,24 @@
 @stop
 
 @section('content')
+@php
+if( empty($result->status_id) || $result->status_id == 2 ):
+@endphp
+@php
+if( $result->status_id == 2 ):
+@endphp
+<div class="row">
+    <div class="col-lg-12">
+        <div class="alert alert-warning alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fas fa-exclamation-triangle"></i> Atenção!</h5>
+            Dados Pessoais Reprovados
+        </div>
+    </div>
+</div>
+@php
+endif;
+@endphp
 <div class="row">
     <div class="col-md-12">
 
@@ -39,6 +57,7 @@
                                     <option value="">SELECIONE</option>
                                     <option value="MASCULINO" {{$result->sexo == 'MASCULINO' ? 'selected': ''}}>MASCULINO</option>
                                     <option value="FEMININO" {{$result->sexo == 'FEMININO' ? 'selected': ''}}>FEMININO</option>
+                                    <option value="NÃO QUERO INFORMAR" {{$result->sexo == 'NÃO QUERO INFORMAR' ? 'selected': ''}}>NÃO QUERO INFORMAR</option>
                                 </select>
                             </div>
                         </div>
@@ -76,17 +95,6 @@
                             </div>
                         </div>
                     </div>
-
-
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Nome do Pai</label>
-                        <input type="text" class="form-control" id="pai" name="pai" placeholder="" value="{{$result->pai}}" onkeyup="maiuscula(this)" >
-                    </div>
-
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Nome da Mãe</label>
-                        <input type="text" class="form-control" id="mae" name="mae" placeholder="" value="{{$result->mae}}" onkeyup="maiuscula(this)" >
-                    </div>
                 </div>
 
                 <div class="card-header" style="background-color: #007bff !important; color:#fff;">
@@ -95,16 +103,16 @@
 
                 <div class="card-body">
                     <div class="row">
-                    <div class="col-3">
+                        <div class="col-3">
                             <div class="form-group">
-                                <label for="sexo">CEP</label>
+                                <label for="cep">CEP</label>
                                 <input type="text" class="form-control cep" id="cep" name="cep" placeholder="" value="{{$result->cep}}" required>
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-8">
+                        <div class="col-4">
                             <div class="form-group">
                                 <label for="name">Logradouro</label>
                                 <input type="name" class="form-control" id="endereco" name="endereco" placeholder="" value="{{$result->endereco}}" onkeyup="maiuscula(this)" required>
@@ -114,6 +122,12 @@
                             <div class="form-group">
                                 <label for="nacionalidade">Número</label>
                                 <input type="text" class="form-control" id="numero" name="numero" placeholder="" value="{{$result->numero}}" onkeyup="maiuscula(this)" required>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="nacionalidade">Complemento</label>
+                                <input type="text" class="form-control" id="complemento" name="complemento" placeholder="" value="{{$result->complemento}}" onkeyup="maiuscula(this)">
                             </div>
                         </div>
                     </div>
@@ -131,7 +145,7 @@
                                 <input type="text" class="form-control" id="cidade" name="cidade" placeholder="" value="{{$result->cidade}}" onkeyup="maiuscula(this)" required>
                             </div>
                         </div>
-                       
+
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="nascimento">Estado</label>
@@ -149,7 +163,7 @@
                     <div class="row">
                         <div class="col-4">
                             <div class="form-group">
-                                <label for="rg">Telefone</label>
+                                <label for="rg">Telefone Celular</label>
                                 <input type="text" class="form-control phone_with_ddd" id="telefone" name="telefone" placeholder="" value="{{$result->telefone}}" required>
                             </div>
                         </div>
@@ -166,10 +180,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Home Page</label>
-                        <input type="text" class="form-control" id="homepage" name="homepage" placeholder="" value="{{$result->homepage}}">
-                    </div>
                 </div>
 
                 <div class="card-header" style="background-color: #007bff !important; color:#fff;" required>
@@ -178,10 +188,31 @@
 
                 <div class="card-body">
                     <div class="row">
-                    <div class="col-4">
+                        <div class="col-4">
                             <div class="form-group">
                                 <label for="sexo">Profissão</label>
-                                <input type="text" class="form-control" id="formacao" name="formacao" placeholder="" value="{{$result->formacao}}" onkeyup="maiuscula(this)" >
+                                <select class="form-control" id="formacao" name="formacao" required>
+                                    <option value="">SELECIONE</option>
+                                    <option value="ENGENHEIRO CIVIL" {{$result->formacao == 'ENGENHEIRO CIVIL' ? 'selected': ''}}>ENGENHEIRO CIVIL</option>
+                                    <option value="ARQUITETO URBANISTA" {{$result->formacao == 'ARQUITETO URBANISTA' ? 'selected': ''}}>ARQUITETO URBANISTA</option>
+                                    <option value="ENGENHEIRO AGRIMENSOR" {{$result->formacao == 'ENGENHEIRO AGRIMENSOR' ? 'selected': ''}}>ENGENHEIRO AGRIMENSOR</option>
+                                    <option value="ENGENHEIRO AGRÔNOMO" {{$result->formacao == 'ENGENHEIRO AGRÔNOMO' ? 'selected': ''}}>ENGENHEIRO AGRÔNOMO</option>
+                                    <option value="ENGENHEIRO AGRÍCULA" {{$result->formacao == 'ENGENHEIRO AGRÍCULA' ? 'selected': ''}}>ENGENHEIRENGENHEIRO AGRÍCULA</option>
+                                    <option value="ENGENHEIRO CARTÓGRAFO" {{$result->formacao == 'ENGENHEIRO CARTÓGRAFO' ? 'selected': ''}}>ENGENHEIRO CARTÓGRAFO</option>
+                                    <option value="ENGENHEIRO COMPUTAÇÃO" {{$result->formacao == 'ENGENHEIRO COMPUTAÇÃO' ? 'selected': ''}}>ENGENHEIRO COMPUTAÇÃO</option>
+                                    <option value="ENGENHEIRO ELETRECISTA" {{$result->formacao == 'ENGENHEIRO ELETRECISTA' ? 'selected': ''}}>ENGENHEIRO ELETRECISTA</option>
+                                    <option value="ENGENHEIRO MECÂNICO" {{$result->formacao == 'ENGENHEIRO MECÂNICO' ? 'selected': ''}}>ENGENHEIRO MECÂNICO</option>
+                                    <option value="ENGENHEIRO SANITARISTA" {{$result->formacao == 'ENGENHEIRO SANITARISTA' ? 'selected': ''}}>ENGENHEIRO SANITARISTA</option>
+                                    <option value="ENGENHEIRO SEGURANÇA DO TRABALHO" {{$result->formacao == 'ENGENHEIRO SEGURANÇA DO TRABALHO' ? 'selected': ''}}>Engenheiro SEGURANÇA</option>
+                                    <option value="ENGENHEIRO TÊXTIL" {{$result->formacao == 'ENGENHEIRO TÊXTIL' ? 'selected': ''}}>ENGENHEIRO TÊXTIL</option>
+                                    <option value="ENGENHEIRO PRODUÇÃO - MÊCANICA" {{$result->formacao == 'ENGENHEIRO PRODUÇÃO - MÊCANICA' ? 'selected': ''}}>ENGENHEIRO PRODUÇÃO - MÊCANICA</option>
+                                    <option value="ENGENHEIRO OPERAÇÃO - REFRIGERAÇÃO E AR CO" {{$result->formacao == 'ENGENHEIRO OPERAÇÃO - REFRIGERAÇÃO E AR CO' ? 'selected': ''}}>ENGENHEIRO OPERAÇÃO - REFRIGERAÇÃO E AR CO</option>
+                                    <option value="ENGENHEIRO INSDUSTRIAL - ELÉTRICA" {{$result->formacao == 'ENGENHEIRO INSDUSTRIAL - ELÉTRICA' ? 'selected': ''}}>ENGENHEIRO INSDUSTRIAL - ELÉTRICA</option>
+                                    <option value="ENGENHEIRO ELETRECISTA - ELETRÔNICA" {{$result->formacao == 'ENGENHEIRO ELETRECISTA - ELETRÔNICA' ? 'selected': ''}}>ENGENHEIRO ELETRECISTA - ELETRÔNICA</option>
+                                    <option value="ENGENHEIRO SANITARISTA E AMBIENTAL" {{$result->formacao == 'ENGENHEIRO SANITARISTA E AMBIENTAL' ? 'selected': ''}}>ENGENHEIRO SANITARISTA E AMBIENTAL</option>
+                                    <option value="TECNÓLOGO EDIFICAÇÕES" {{$result->formacao == 'TECNÓLOGO EDIFICAÇÕES' ? 'selected': ''}}>TECNÓLOGO EDIFICAÇÕES</option>
+                                    <option value="EMPRESA OUTROS" {{$result->formacao == 'EMPRESA OUTROS' ? 'selected': ''}}>EMPRESA OUTROS</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -189,8 +220,8 @@
                     <div class="row">
                         <div class="col-4">
                             <div class="form-group">
-                                <label for="name">CREA/CAU</label>
-                                <input type="name" class="form-control" id="crea" name="crea" placeholder="" value="{{$result->crea}}" onkeyup="maiuscula(this)" >
+                                <label for="name">CREA/CAU - <small>Coloque conforme consta em registro profissional</small></label>
+                                <input type="name" class="form-control" id="crea" name="crea" placeholder="" value="{{$result->crea}}" onkeyup="maiuscula(this)">
                             </div>
                         </div>
                     </div>
@@ -203,6 +234,43 @@
         </div>
     </div>
 </div>
+@php
+else:
+@endphp
+@php
+if( $result->status_id == 1 ):
+@endphp
+<div class="row">
+    <div class="col-lg-12">
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fas fa-check"></i> Atenção!</h5>
+            Dados Pessoais Aprovados
+        </div>
+    </div>
+</div>
+@php
+endif;
+@endphp
+
+@php
+if( $result->status_id == 3 ):
+@endphp
+<div class="row">
+    <div class="col-lg-12">
+        <div class="alert alert-info alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fas fa-info"></i> Atenção!</h5>
+            Dados Pessoais estão Em Análise
+        </div>
+    </div>
+</div>
+@php
+endif;
+@endphp
+@php
+endif;
+@endphp
 @stop
 @section('css')
 <!-- <link rel="stylesheet" href="/css/admin_custom.css"> -->
@@ -213,14 +281,38 @@
 
 <script type="text/javascript">
     $(function() {
-        $('.date').mask('00-00-0000',{placeholder: "__-__-____"});
-        $('.cep').mask('00000-000',{placeholder: "_____-___"});
-        $('.cpf').mask('000.000.000-00',{placeholder: "___.___.___-__"});
+        $('.date').mask('00-00-0000', {
+            placeholder: "__-__-____"
+        });
+        $('.cep').mask('00000-000', {
+            placeholder: "_____-___"
+        });
+        $('.cpf').mask('000.000.000-00', {
+            placeholder: "___.___.___-__"
+        });
         $('.phone_with_ddd').mask('(00) 00000-0000');
-        console.log('hi');
+
+        $('input#cep').blur(function() {
+            $.get('/buscacep?cep=' + $(this).val(), function(data, status) {
+                var obj = $.parseJSON(data);
+                if (obj.resultado == 1) {
+                    $('#endereco').val(obj.tipo_logradouro.toUpperCase() + ' ' + obj.logradouro.toUpperCase());
+                    $('#bairro').val(obj.bairro.toUpperCase());
+                    $('#cidade').val(obj.cidade.toUpperCase());
+                    $('#estado').val(obj.uf.toUpperCase());
+                    $('#numero').focus();
+                } else {
+                    $('#endereco').val('');
+                    $('#bairro').val('');
+                    $('#cidade').val('');
+                    $('#estado').val('');
+                    $('#endereco').focus();
+                }
+            });
+        });
     });
 
-    function maiuscula(z){
+    function maiuscula(z) {
         v = z.value.toUpperCase();
         z.value = v;
     }

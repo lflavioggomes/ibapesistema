@@ -1,13 +1,33 @@
 @extends('adminlte::page')
 @section('content_header')
-<h1>Atestado de regularidade nos sistemas CONFEA/CREA ou CAU-BR;</h1>
+<h1>Declaração de Regularidade</h1>
 @stop
 
 @section('content')
 @php
-if( $atestado == '' ):
-    if( $valida > 0 ): 
+if( !empty($dados) ): 
 @endphp
+
+@php
+if( empty($result) || $status == 2): 
+@endphp
+
+@php
+if( $status == 2 ):
+@endphp
+<div class="row">
+    <div class="col-lg-12">
+        <div class="alert alert-warning alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fas fa-exclamation-triangle"></i> Atenção!</h5>
+            Declaração de Regularidade Reprovado
+        </div>
+    </div>
+</div>
+@php
+endif;
+@endphp
+
 <div class="row">
     <div class="col-lg-12">
         <div class="card card-primary card-outline">
@@ -17,10 +37,10 @@ if( $atestado == '' ):
             <div class="card-body">
                 <h6 class="card-title"></h6>
                 <p class="card-text">Eu <strong>{{$nome}},</strong> </p>
-                <p class="card-text">{{$result->formacao}} CREA/CAU {{$result->crea}}, CPF {{$result->cpf}}</p>
-                <p class="card-text">residente {{$result->cidade.' - '.$result->estado}}, </p>
+                <p class="card-text">{{$dados->formacao}} CREA/CAU {{$dados->crea}}, CPF {{$result->cpf}}</p>
+                <p class="card-text">residente {{$dados->cidade.' - '.$dados->estado}}, </p>
                 <p class="card-text">declaro que não existem processos administrativos, judiciais ou disciplinares   </p>
-                <p class="card-text">decorrentes do exercício da minha atividade como {{$result->formacao}}, e, </p>
+                <p class="card-text">decorrentes do exercício da minha atividade como {{$dados->formacao}}, e, </p>
                 <p class="card-text">em particular, no exercício de funções na área de Engenharia de Avaliações. </p>
                 <form method="POST" action="{{route('site.atestado.form')}}">
                 @csrf
@@ -32,32 +52,65 @@ if( $atestado == '' ):
    </div>
 
 </div>
+
 @php
     else: 
 @endphp
+
+<!-- Mensagem que foi solicitado con seus status-->
+@php
+if( $status == 1 ):
+@endphp
+
 <div class="row">
     <div class="col-lg-12">
-        <div class="card card-primary card-outline">
-            <div class="card-header">
-                <h5 class="m-0">Por favor complete seus dados pessoais para continuar com a solicitação <a href="dados">Clique Aqui</a></h5>
-            </div>
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fas fa-info"></i> Atenção!</h5>
+            Declaração de Regularidade Aprovada
         </div>
-   </div>
-
+    </div>
 </div>
+
 @php
-    endif; 
-else:    
+endif;
+@endphp
+
+@php
+if( $status == 3 ):
 @endphp
 <div class="row">
     <div class="col-lg-12">
-        <div class="card card-primary card-outline">
-            <div class="card-header">
-                <h5 class="m-0">Sua solicitação foi enviada</h5>
-            </div>
+        <div class="alert alert-info alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fas fa-info"></i> Atenção!</h5>
+            Declaração de Regularidade Em Análise
         </div>
-   </div>
+    </div>
+</div>
+@php
+endif;
+@endphp
+<!-- Fim da Mensagem de solicitação -->
 
+<!-- Fim se existe registro no requerimento -->
+@php
+endif;
+@endphp
+
+@php
+    else:
+@endphp
+<!-- Mensagem que dados pessoais não preenchidos -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="alert alert-warning alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fas fa-check"></i> Atenção!</h5>
+            Por favor complete os seguintes dados para continuar com a solicitação <br>
+           <a href="/dados" style="text-decoration:none;"> - Dados Pessoais </a>
+        </div>
+    </div>
 </div>
 
 @php

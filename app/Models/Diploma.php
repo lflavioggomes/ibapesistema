@@ -11,6 +11,7 @@ class Diploma extends Model
 
     protected $fillable = [
         'user_id',
+        'status_id',
         'graduacao',
         'diploma',
         'confirma'

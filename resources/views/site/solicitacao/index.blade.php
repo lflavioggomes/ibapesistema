@@ -1,12 +1,31 @@
 @extends('adminlte::page')
 @section('content_header')
-<h1>Solicitação Justificada para a acomodação de necessidades especiais no local do exame</h1>
+<h1>Solicitação para necessidades especiais durante a prova</h1>
 @stop
 
 @section('content')
 @php
-if( $solicitacao == '' ):
-    if( $valida > 0 ): 
+if( !empty($dados) ): 
+@endphp
+
+@php
+if( empty($result) || $status == 2): 
+@endphp
+
+@php
+if( $status == 2 ):
+@endphp
+<div class="row">
+    <div class="col-lg-12">
+        <div class="alert alert-warning alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fas fa-exclamation-triangle"></i> Atenção!</h5>
+            Solicitação Reprovada
+        </div>
+    </div>
+</div>
+@php
+endif;
 @endphp
 <div class="row">
     <div class="col-lg-12">
@@ -17,60 +36,134 @@ if( $solicitacao == '' ):
             <div class="card-body">
                 <h6 class="card-title"></h6>
                 <p class="card-text">Eu <strong>{{$nome}},</strong> </p>
-                <p class="card-text">{{$result->formacao}} CREA/CAU {{$result->crea}}</p>
-                <p class="card-text">residente {{$result->cidade.' - '.$result->estado}}, </p>
+                <p class="card-text">{{$dados->formacao}} CREA/CAU {{$dados->crea}}</p>
+                <p class="card-text">residente {{$dados->cidade.' - '.$dados->estado}}, </p>
                 <p class="card-text">vem na oportunidade solicitar</p>
                 <p class="card-text">acomodação de necessidades especiais no local do exame. </p>
-                <form method="POST" action="{{route('site.solicitacao.form')}}">
+                <form method="POST" action="{{route('site.solicitacao.form')}}" id="enviasolicitacao">
                 @csrf
-                <input type="hidden" name="solicitacao" value="1">
-                    <button type="submit" class="btn btn-primary">Solicitar</button>
+                <input type="hidden" name="aceita" value="" id="solicitacao">
+                <div class="form-group" style="display:none;" id="necessidade">
+                    <label>Qual é a sua necessidade?</label>
+                        <textarea class="form-control col-lg-6" rows="3" cols="1" placeholder="" name="solicitacao" id="campo"></textarea>
+                    </div>
+                    <button type="button" class="btn btn-danger" id="naoaplica">Não se aplica</button>
+                    <button type="button" class="btn btn-success" id="solicitar">Solicitar</button><br><br>
+                    <button type="button" class="btn btn-primary" id="enviar" style="display:none;">Enviar</button>
                 </form>
             </div>
         </div>
    </div>
 
 </div>
+
 @php
     else: 
 @endphp
-<div class="row">
-    <div class="col-lg-12">
-        <div class="card card-primary card-outline">
-            <div class="card-header">
-                <h5 class="m-0">Por favor complete seus dados pessoais para continuar com a solicitação <a href="dados">Clique Aqui</a></h5>
-            </div>
-        </div>
-   </div>
 
-</div>
+<!-- Mensagem que foi solicitado con seus status-->
 @php
-    endif; 
-else:    
+if( $status == 1 ):
 @endphp
+
 <div class="row">
     <div class="col-lg-12">
-        <div class="card card-primary card-outline">
-            <div class="card-header">
-                <h5 class="m-0">Sua solicitação foi enviada</h5>
-            </div>
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fas fa-info"></i> Atenção!</h5>
+            Solicitação Aprovada
         </div>
-   </div>
-
+    </div>
 </div>
 
 @php
-    endif; 
+endif;
 @endphp
 
+@php
+if( $status == 3 ):
+@endphp
+<div class="row">
+    <div class="col-lg-12">
+        <div class="alert alert-info alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fas fa-info"></i> Atenção!</h5>
+            Solicitação Em Análise
+        </div>
+    </div>
+</div>
+@php
+endif;
+@endphp
+<!-- Fim da Mensagem de solicitação -->
+
+<!-- Fim se existe registro no requerimento -->
+@php
+endif;
+@endphp
+
+@php
+    else:
+@endphp
+<!-- Mensagem que dados pessoais não preenchidos -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="alert alert-warning alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fas fa-check"></i> Atenção!</h5>
+            Por favor complete os seguintes dados para continuar com a solicitação <br>
+           <a href="/dados" style="text-decoration:none;"> - Dados Pessoais </a>
+        </div>
+    </div>
+</div>
+
+@php
+    endif; 
+@endphp
 
 @stop
 @section('css')
-<link rel="stylesheet" href="/css/admin_custom.css">
+<!-- <link rel="stylesheet" href="/css/admin_custom.css"> -->
 @stop
 
 @section('js')
 <script>
-    console.log('Hi!');
+    $(function(){
+        $("#solicitar").click(function(){
+            $("#solicitacao").val(1);
+            $("#necessidade").show('slow');
+            $("#enviar").show('slow');
+            $("#naoaplica").css("background","#4444");
+            $("#solicitar").css("background","#218838");
+            $("#campo").val('');
+        });
+
+        $("#naoaplica").click(function(){
+            $("#solicitacao").val(0);
+            $("#necessidade").hide('slow');
+            $("#enviar").show('slow');
+            $("#naoaplica").css("background","#dc3545");
+            $("#solicitar").css("background","#4444");
+            $("#campo").val('');
+        }); 
+
+        $("#enviar").click(function(){
+            let necessidade = $("#campo").val();
+            let solicitacao = $("#solicitacao").val();
+            if( solicitacao == 0)
+            {
+                $("#enviasolicitacao").submit();
+            }else{
+                if(necessidade == '')
+                {
+                    alert('Descreva a necessidade');
+                }else{
+                    $("#enviasolicitacao").submit();
+                }
+            }
+           
+        })
+    });
+  
 </script>
 @stop
