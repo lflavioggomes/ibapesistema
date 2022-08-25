@@ -45,6 +45,7 @@ class DadosController extends Controller
         $results = DB::table('dados')->where('user_id', auth()->user()->id)->first();
         $post = $request->all();
         $post['user_id'] = auth()->user()->id;
+        $post['status_id'] = 3; //Status Análise
 
         if($post['name'] != auth()->user()->name)
         {
@@ -57,6 +58,7 @@ class DadosController extends Controller
             $affected = DB::table('dados')
                 ->where('user_id', $post['user_id'])
                 ->update([
+                    'status_id'     => 3,
                     'nacionalidade' => $post['nacionalidade'],
                     'naturalidade'  => $post['naturalidade'],
                     'sexo'          => $post['sexo'],
@@ -65,8 +67,6 @@ class DadosController extends Controller
                     'emissor'       => $post['emissor'],
                     'dataemissao'   => date('Y-m-d', strtotime($post['dataemissao'])), 
                     'cpf'           => $post['cpf'],
-                    'pai'           => $post['pai'],
-                    'mae'           => $post['mae'],
                     'endereco'      => $post['endereco'],
                     'numero'        => $post['numero'],
                     'bairro'        => $post['bairro'],
@@ -76,7 +76,6 @@ class DadosController extends Controller
                     'pais'          => $post['pais'],
                     'telefone'      => $post['telefone'],
                     'fax'           => $post['fax'],
-                    'homepage'      => $post['homepage'],
                     'crea'          => $post['crea'],
                     'formacao'      => $post['formacao']
                 ]);
@@ -89,5 +88,21 @@ class DadosController extends Controller
         }
 
         return redirect('/dados');
+    }
+
+    public function buscacep()
+    {
+        try{
+            $ch = curl_init();
+            curl_setopt ($ch, CURLOPT_URL, 'http://cep.republicavirtual.com.br/web_cep.php?cep='.urlencode($_GET['cep']).'&formato=json');
+            curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
+            $file_contents = curl_exec($ch);
+            curl_close($ch);
+        }catch(Exception $e){
+            $file_contents = '{"resultado":"0","resultado_txt":"erro"}';
+        }
+        // display file
+        echo $file_contents;
+        exit;
     }
 }

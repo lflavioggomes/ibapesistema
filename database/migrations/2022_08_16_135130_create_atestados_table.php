@@ -17,6 +17,8 @@ class CreateAtestadosTable extends Migration
             $table->id();
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
+            $table->bigInteger('status_id')->unsigned();
+            $table->foreign('status_id')->references('id')->on('statuses');
             $table->string('solicitacao')->nullable();
             $table->string('aceita')->nullable();
             $table->timestamps();

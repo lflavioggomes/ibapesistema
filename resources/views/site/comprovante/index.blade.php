@@ -4,9 +4,7 @@
 @stop
 
 @section('content')
-@php
-    if($comprovante == ''):
-@endphp
+
 <div class="invoice p-3 mb-3">
     <div class="row">
     <div class="col-12">
@@ -43,6 +41,29 @@
         </div>
     </div>
 </div>
+@php
+if( !empty($dados) ): 
+@endphp
+
+@php
+if( empty($result) || $status == 2): 
+@endphp
+
+@php
+if( $status == 2 ):
+@endphp
+<div class="row">
+    <div class="col-lg-12">
+        <div class="alert alert-warning alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fas fa-exclamation-triangle"></i> Atenção!</h5>
+            Comprovante Reprovado
+        </div>
+    </div>
+</div>
+@php
+endif;
+@endphp
 
 <div class="row">
     <div class="col-lg-12">
@@ -71,22 +92,71 @@
    </div>
 
 </div>
-@php 
-    else:
+
+@php
+    else: 
+@endphp
+
+<!-- Mensagem que foi solicitado con seus status-->
+@php
+if( $status == 1 ):
+@endphp
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fas fa-info"></i> Atenção!</h5>
+            Comprovante Aprovado
+        </div>
+    </div>
+</div>
+
+@php
+endif;
+@endphp
+
+@php
+if( $status == 3 ):
 @endphp
 <div class="row">
     <div class="col-lg-12">
-        <div class="card card-primary card-outline">
-            <div class="card-header">
-                <h5 class="m-0">Comprovante enviado</h5>
-            </div>
+        <div class="alert alert-info alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fas fa-info"></i> Atenção!</h5>
+            Comprovante Em Análise
         </div>
-   </div>
-
+    </div>
 </div>
-@php 
-    endif;
+@php
+endif;
 @endphp
+<!-- Fim da Mensagem de solicitação -->
+
+<!-- Fim se existe registro no requerimento -->
+@php
+endif;
+@endphp
+
+@php
+    else:
+@endphp
+<!-- Mensagem que dados pessoais não preenchidos -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="alert alert-warning alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fas fa-check"></i> Atenção!</h5>
+            Por favor complete os seguintes dados para continuar com a solicitação <br>
+           <a href="/dados" style="text-decoration:none;"> - Dados Pessoais </a>
+        </div>
+    </div>
+</div>
+
+@php
+    endif; 
+@endphp
+
 @stop
 @section('css')
 <!-- <link rel="stylesheet" href="/css/admin_custom.css"> -->
