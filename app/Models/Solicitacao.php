@@ -9,10 +9,11 @@ class Solicitacao extends Model
 {
     use HasFactory;
     
-    protected $table = 'atestados';
+    protected $table = 'solicitacao';
 
     protected $fillable = [
         'user_id',
+        'status_id',
         'solicitacao',
         'aceita'
     ];

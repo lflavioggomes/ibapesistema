@@ -16,6 +16,7 @@ class Atestado extends Model
      */
     protected $fillable = [
         'user_id',
+        'status_id',
         'solicitacao',
         'aceita'
     ];

@@ -45,12 +45,13 @@ return [
     |
     */
 
-    'logo' => '<b>Ibape Nacional</b>',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => 'IBAPE NACIONAL',
+    //'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    //'logo_img' => '',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'AdminLTE',
+    'logo_img_alt' => '',
 
     /*
     |--------------------------------------------------------------------------
@@ -340,26 +341,32 @@ return [
             [
                 'text' => 'Dados Pessoais',
                 'url'  => 'dados',
+                'icon'    => 'fas fa-fw fa-user',
             ],
             [
                 'text' => 'Requerimento',
                 'url'  => 'requerimento',
+                'icon'    => 'fas fa-fw fa-book',
             ],
             [
                 'text' => 'Declaração de regularidade',
                 'url'  => 'atestado',
+                'icon'    => 'fas fa-clone',
             ],
             [
                 'text' => 'Diploma de Graduação',
                 'url'  => 'diploma',
+                'icon'    => 'fas fa-fw fa-university',
             ],
             [
                 'text' => 'Solicitação justificada',
                 'url'  => 'solicitacao',
+                'icon'    => 'fas fa-wheelchair',
             ],
             [
                 'text' => 'Dados para Pagamento',
                 'url'  => 'comprovante',
+                'icon'    => 'fas fa-fw fa-barcode',
             ],
         ],
     ],

@@ -16,6 +16,7 @@ class Dados extends Model
      */
     protected $fillable = [
         'user_id',
+        'status_id',
         'nacionalidade',
         'naturalidade',
         'sexo',
@@ -24,10 +25,9 @@ class Dados extends Model
         'emissor',
         'dataemissao',
         'cpf',
-        'pai',
-        'mae',
         'endereco',
         'numero',
+        'complemento',
         'bairro',
         'cep',
         'cidade',
@@ -36,7 +36,6 @@ class Dados extends Model
         'telefone',
         'fax',
         'email',
-        'homepage',
         'crea',
         'formacao'
     ];

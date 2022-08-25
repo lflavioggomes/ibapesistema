@@ -24,6 +24,7 @@ Route::namespace('Site')->group(function () {
 
     Route::get('dados', 'DadosController@index')->name('site.dados');
     Route::post('dados', 'DadosController@form')->name('site.dados.form');
+    Route::get('buscacep', 'DadosController@buscacep')->name('site.dados.buscacep');
 
     Route::get('requerimento', 'RequerimentoController@index')->name('site.requerimento');
     Route::post('requerimento', 'RequerimentoController@form')->name('site.requerimento.form');

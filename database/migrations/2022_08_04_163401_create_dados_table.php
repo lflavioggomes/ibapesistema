@@ -17,6 +17,8 @@ class CreateDadosTable extends Migration
             $table->id();
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
+            $table->bigInteger('status_id')->unsigned();
+            $table->foreign('status_id')->references('id')->on('statuses');
             $table->string('nacionalidade')->nullable();
             $table->string('naturalidade')->nullable();
             $table->string('sexo')->nullable();
@@ -25,10 +27,9 @@ class CreateDadosTable extends Migration
             $table->string('emissor')->nullable();
             $table->date('dataemissao')->nullable();
             $table->string('cpf')->nullable();
-            $table->string('pai')->nullable();
-            $table->string('mae')->nullable();
             $table->string('endereco')->nullable();
             $table->string('numero')->nullable();
+            $table->string('complemento')->nullable();
             $table->string('bairro')->nullable();
             $table->string('cep')->nullable();
             $table->string('cidade')->nullable();
@@ -37,7 +38,6 @@ class CreateDadosTable extends Migration
             $table->string('telefone')->nullable();
             $table->string('fax')->nullable();
             $table->string('email')->nullable();
-            $table->string('homepage')->nullable();
             $table->string('crea')->nullable();
             $table->string('formacao')->nullable();
             $table->timestamps();
