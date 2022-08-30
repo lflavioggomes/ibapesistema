@@ -46,7 +46,7 @@ return [
     */
 
     'logo' => 'IBAPE NACIONAL',
-    //'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     //'logo_img' => '',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -189,7 +189,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => '/',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -261,7 +261,7 @@ return [
       
         [
             'text' => 'profile',
-            'url'  => 'admin/settings',
+            'url'  => 'perfil',
             'icon' => 'fas fa-fw fa-user',
             'can'  => 'admin'
         ],
@@ -277,11 +277,11 @@ return [
             'submenu' => [
                 [
                     'text' => 'Candidatos',
-                    'url'  => '#',
+                    'url'  => 'candidato',
                 ],
                 [
                     'text' => 'Julgadores',
-                    'url'  => '#',
+                    'url'  => 'julgador',
                 ],
                 // [
                 //     'text'    => 'Julgadores',
@@ -496,7 +496,7 @@ return [
     'iframe' => [
         'default_tab' => [
             'url' => null,
-            'title' => null,
+            'title' => 'null',
         ],
         'buttons' => [
             'close' => true,

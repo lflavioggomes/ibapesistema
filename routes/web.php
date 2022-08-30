@@ -40,6 +40,20 @@ Route::namespace('Site')->group(function () {
 
     Route::get('comprovante', 'ComprovanteController@index')->name('site.comprovante');
     Route::post('comprovante', 'ComprovanteController@form')->name('site.comprovante.form');
+
+  
 });
+
+Route::namespace('Admin')->group(function () {
+
+    Route::get('candidato', 'CandidatoController@index')->name('admin.candidato');
+    Route::get('candidato/list', 'CandidatoController@list')->name('admin.candidato.list');
+
+
+    Route::get('julgador', 'JulgadorController@index')->name('admin.julgador');
+    Route::get('perfil', 'PerfilController@index')->name('admin.perfil');
+
+});
+
 
 

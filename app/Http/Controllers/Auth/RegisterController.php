@@ -68,7 +68,8 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'status_id' => 4,
+            'tipo_id' => 2,
             'password' => Hash::make($data['password']),
-        ])->givePermissionTo('candidato');;
+        ])->givePermissionTo('candidato');
     }
 }
