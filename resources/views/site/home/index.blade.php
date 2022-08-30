@@ -6,14 +6,15 @@
 
 @section('content')
 @can('admin')
-<p>Bem vindo admin.</p>
+<p>Bem vindo {{$name}}</p>
 
 <div class="row">
+    
     <div class="col-lg-4 col-6">
 
         <div class="small-box bg-info">
             <div class="inner">
-                <h3>5</h3>
+                <h3>{{count($candidato)}}</h3>
                 <p>Candidatos</p>
             </div>
             <div class="icon">
@@ -24,10 +25,11 @@
     </div>
 
     <div class="col-lg-4 col-6">
+        
 
         <div class="small-box bg-success">
             <div class="inner">
-                <h3>4<sup style="font-size: 20px"></sup></h3>
+                <h3>{{count($julgador)}}<sup style="font-size: 20px"></sup></h3>
                 <p>Julgadores</p>
             </div>
             <div class="icon">
@@ -89,69 +91,18 @@
                     <thead>
                         <tr>
                             <th>Nome</th>
-                            <th>User</th>
-                            <th>Date</th>
-                            <th>Status</th>
-                            <th>Reason</th>
+                            <th>Formação</th>
+                            <th>Pré Qualificação</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @php foreach( $candidato as $value ): @endphp
                         <tr>
-                            <td>183</td>
-                            <td>John Doe</td>
-                            <td>11-7-2014</td>
-                            <td><span class="tag tag-success">Approved</span></td>
-                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                            <td>@php echo $value->name @endphp</td>
+                            <td>Engenheiro Civil</td>
+                            <td> <i class="fas  fa-edit"></i></td>
                         </tr>
-                        <tr>
-                            <td>219</td>
-                            <td>Alexander Pierce</td>
-                            <td>11-7-2014</td>
-                            <td><span class="tag tag-warning">Pending</span></td>
-                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                        </tr>
-                        <tr>
-                            <td>657</td>
-                            <td>Bob Doe</td>
-                            <td>11-7-2014</td>
-                            <td><span class="tag tag-primary">Approved</span></td>
-                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                        </tr>
-                        <tr>
-                            <td>175</td>
-                            <td>Mike Doe</td>
-                            <td>11-7-2014</td>
-                            <td><span class="tag tag-danger">Denied</span></td>
-                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                        </tr>
-                        <tr>
-                            <td>134</td>
-                            <td>Jim Doe</td>
-                            <td>11-7-2014</td>
-                            <td><span class="tag tag-success">Approved</span></td>
-                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                        </tr>
-                        <tr>
-                            <td>494</td>
-                            <td>Victoria Doe</td>
-                            <td>11-7-2014</td>
-                            <td><span class="tag tag-warning">Pending</span></td>
-                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                        </tr>
-                        <tr>
-                            <td>832</td>
-                            <td>Michael Doe</td>
-                            <td>11-7-2014</td>
-                            <td><span class="tag tag-primary">Approved</span></td>
-                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                        </tr>
-                        <tr>
-                            <td>982</td>
-                            <td>Rocky Doe</td>
-                            <td>11-7-2014</td>
-                            <td><span class="tag tag-danger">Denied</span></td>
-                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                        </tr>
+                        @php endforeach; @endphp
                     </tbody>
                 </table>
             </div>
@@ -178,3 +129,4 @@
     console.log('Hi!');
 </script>
 @stop
+

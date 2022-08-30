@@ -45,4 +45,8 @@ class Dados extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function statuses()
+    {
+        return $this->belongsTo(Status::class);
+    }
 }

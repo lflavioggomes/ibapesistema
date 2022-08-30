@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
-use App\Models\Solicitacao;
+use App\Models\Atestado;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
@@ -54,8 +54,9 @@ class AtestadoController extends Controller
                'updated_at' => Carbon::now()
             ]);
       } else {
-         $post['status_id'] = 3; //Status Análise
-         $dados = Solicitacao::create($post);
+          $post['status_id'] = 3; //Status Análise
+          $post['aceita'] = '0';
+         $dados = Atestado::create($post);
       }
 
        return redirect('/atestado');
