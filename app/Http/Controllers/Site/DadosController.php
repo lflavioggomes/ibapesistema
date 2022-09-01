@@ -65,7 +65,6 @@ class DadosController extends Controller
                     'nascimento'    => date('Y-m-d', strtotime($post['nascimento'])),
                     'rg'            => $post['rg'],
                     'emissor'       => $post['emissor'],
-                    'dataemissao'   => date('Y-m-d', strtotime($post['dataemissao'])), 
                     'cpf'           => $post['cpf'],
                     'endereco'      => $post['endereco'],
                     'numero'        => $post['numero'],
@@ -75,15 +74,12 @@ class DadosController extends Controller
                     'estado'        => $post['estado'],
                     'pais'          => $post['pais'],
                     'telefone'      => $post['telefone'],
-                    'fax'           => $post['fax'],
                     'crea'          => $post['crea'],
                     'formacao'      => $post['formacao']
                 ]);
         } else {
              $exnascimento = explode('-', $post['nascimento']);
-             $exemissao = explode('-', $post['dataemissao']);
              $post['nascimento'] = $exnascimento['2'].'-'.$exnascimento['1'].'-'.$exnascimento['0'];
-             $post['dataemissao'] = $exemissao['2'].'-'.$exemissao['1'].'-'.$exemissao['0'];
              $dados = Dados::create($post);
         }
 

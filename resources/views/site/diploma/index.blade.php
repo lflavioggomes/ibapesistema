@@ -17,7 +17,7 @@ if( $status == 2 ):
 @endphp
 <div class="row">
     <div class="col-lg-12">
-        <div class="alert alert-warning alert-dismissible">
+        <div class="alert bg-danger alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
             <h5><i class="icon fas fa-exclamation-triangle"></i> Atenção!</h5>
             Diploma Reprovado
@@ -76,7 +76,7 @@ if( $status == 1 ):
 
 <div class="row">
     <div class="col-lg-12">
-        <div class="alert alert-success alert-dismissible">
+        <div class="alert bg-success alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
             <h5><i class="icon fas fa-info"></i> Atenção!</h5>
             Diploma Aprovado
@@ -93,7 +93,7 @@ if( $status == 3 ):
 @endphp
 <div class="row">
     <div class="col-lg-12">
-        <div class="alert alert-info alert-dismissible">
+        <div class="alert bg-warning alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
             <h5><i class="icon fas fa-info"></i> Atenção!</h5>
             Diploma Em Análise
@@ -116,7 +116,7 @@ endif;
 <!-- Mensagem que dados pessoais não preenchidos -->
 <div class="row">
     <div class="col-lg-12">
-        <div class="alert alert-warning alert-dismissible">
+        <div class="alert bg-warning alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
             <h5><i class="icon fas fa-check"></i> Atenção!</h5>
             Por favor complete os seguintes dados para continuar com a solicitação <br>
@@ -128,7 +128,7 @@ endif;
 @php
     endif; 
 @endphp
-
+@include('layouts.footer')
 @stop
 @section('css')
 <!-- <link rel="stylesheet" href="/css/admin_custom.css"> -->

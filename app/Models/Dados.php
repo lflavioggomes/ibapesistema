@@ -37,7 +37,8 @@ class Dados extends Model
         'fax',
         'email',
         'crea',
-        'formacao'
+        'formacao',
+        'outro'
     ];
 
     public function users()
