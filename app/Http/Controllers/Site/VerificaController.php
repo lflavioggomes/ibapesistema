@@ -34,12 +34,12 @@ class VerificaController extends Controller
         $solicitacao = DB::table('solicitacao')->where('user_id', auth()->user()->id)->first();
         $comprovante = DB::table('comprovantes')->where('user_id', auth()->user()->id)->first();
 
-        $file_contents = '{"dados":"'.$dados->status_id.'",
-                           "requerimento":"'.$requerimento->status_id.'",
-                           "declaracao":"'.$declaracao->status_id.'",
-                           "diploma":"'.$diploma->status_id.'",
-                           "solicitacao":"'.$solicitacao->status_id.'",
-                           "comprovante":"'.$comprovante->status_id.'"
+        $file_contents = '{"dados":"'.isset($dados->status_id).'",
+                           "requerimento":"'.isset($requerimento->status_id).'",
+                           "declaracao":"'.isset($declaracao->status_id).'",
+                           "diploma":"'.isset($diploma->status_id).'",
+                           "solicitacao":"'.isset($solicitacao->status_id).'",
+                           "comprovante":"'.isset($comprovante->status_id).'"
                         }';
 
         echo $file_contents;

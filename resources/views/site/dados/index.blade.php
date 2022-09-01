@@ -248,7 +248,7 @@ if( $result->status_id == 3 ):
 @endphp
 <div class="row">
     <div class="col-lg-12">
-        <div class="alert alert-warning alert-dismissible">
+        <div class="alert bg-warning alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
             <h5><i class="icon fas fa-info"></i> Atenção!</h5>
             Dados Pessoais estão Em Análise
