@@ -41,6 +41,8 @@ Route::namespace('Site')->group(function () {
     Route::get('comprovante', 'ComprovanteController@index')->name('site.comprovante');
     Route::post('comprovante', 'ComprovanteController@form')->name('site.comprovante.form');
 
+    Route::get('verifica', 'VerificaController@index')->name('site.comprovante');
+
   
 });
 

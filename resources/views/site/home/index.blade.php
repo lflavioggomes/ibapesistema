@@ -117,7 +117,7 @@
 <p>Bem vindo julgador.</p>
 @endcan
 
-
+@include('layouts.footer')
 @stop
 
 @section('css')

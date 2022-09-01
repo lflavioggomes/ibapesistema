@@ -13,7 +13,7 @@ if( $result->status_id == 2 ):
 @endphp
 <div class="row">
     <div class="col-lg-12">
-        <div class="alert alert-warning alert-dismissible">
+        <div class="alert bg-danger info alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
             <h5><i class="icon fas fa-exclamation-triangle"></i> Atenção!</h5>
             Dados Pessoais Reprovados
@@ -70,25 +70,19 @@ endif;
                     </div>
 
                     <div class="row">
-                        <div class="col-3">
+                        <div class="col-4">
                             <div class="form-group">
                                 <label for="rg">RG</label>
                                 <input type="text" class="form-control" id="rg" name="rg" placeholder="" value="{{$result->rg}}" onkeyup="maiuscula(this)" required>
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-4">
                             <div class="form-group">
-                                <label for="emissor">Órgão Emissor / UF</label>
-                                <input type="text" class="form-control" id="emissor" name="emissor" placeholder="" value="{{$result->emissor}}" onkeyup="maiuscula(this)" required>
+                                <label for="dataemissao">Orgão Emissor</label>
+                                <input type="text" class="form-control" id="emmissor" name="emmissor" placeholder="" value="{{$result->emmissor}}" required>
                             </div>
                         </div>
-                        <div class="col-3">
-                            <div class="form-group">
-                                <label for="dataemissao">Data de Emissão</label>
-                                <input type="text" class="form-control date" id="dataemissao" name="dataemissao" placeholder="" value="{{$result->dataemissao == '' ? '': date('d-m-Y', strtotime($result->dataemissao)) }}" required>
-                            </div>
-                        </div>
-                        <div class="col-3">
+                        <div class="col-4">
                             <div class="form-group">
                                 <label for="cpf">CPF</label>
                                 <input type="text" class="form-control cpf" id="cpf" name="cpf" placeholder="" value="{{$result->cpf}}" required>
@@ -133,44 +127,39 @@ endif;
                     </div>
 
                     <div class="row">
-                        <div class="col-3">
+                        <div class="col-4">
                             <div class="form-group">
                                 <label for="naturalidade">Bairro</label>
                                 <input type="text" class="form-control" id="bairro" name="bairro" placeholder="" value="{{$result->bairro}}" onkeyup="maiuscula(this)" required>
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-4">
                             <div class="form-group">
                                 <label for="naturalidade">Cidade</label>
                                 <input type="text" class="form-control" id="cidade" name="cidade" placeholder="" value="{{$result->cidade}}" onkeyup="maiuscula(this)" required>
                             </div>
                         </div>
 
-                        <div class="col-3">
+                        <div class="col-4">
                             <div class="form-group">
                                 <label for="nascimento">Estado</label>
                                 <input type="text" class="form-control" id="estado" name="estado" value="{{$result->estado}}" onkeyup="maiuscula(this)" required>
                             </div>
                         </div>
-                        <div class="col-3">
-                            <div class="form-group">
-                                <label for="nascimento">País</label>
-                                <input type="text" class="form-control" id="pais" name="pais" value="{{$result->pais}}" onkeyup="maiuscula(this)" required>
-                            </div>
-                        </div>
+
                     </div>
 
                     <div class="row">
                         <div class="col-4">
                             <div class="form-group">
-                                <label for="rg">Telefone Celular</label>
-                                <input type="text" class="form-control phone_with_ddd" id="telefone" name="telefone" placeholder="" value="{{$result->telefone}}" required>
+                                <label for="nascimento">País</label>
+                                <input type="text" class="form-control" id="pais" name="pais" value="{{$result->pais}}" onkeyup="maiuscula(this)" required>
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="form-group">
-                                <label for="emissor">Fax</label>
-                                <input type="text" class="form-control" id="fax" name="fax" placeholder="" value="{{$result->fax}}">
+                                <label for="rg">Telefone Celular</label>
+                                <input type="text" class="form-control phone_with_ddd" id="telefone" name="telefone" placeholder="" value="{{$result->telefone}}" required>
                             </div>
                         </div>
                         <div class="col-4">
@@ -188,39 +177,40 @@ endif;
 
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col-5">
                             <div class="form-group">
                                 <label for="sexo">Profissão</label>
                                 <select class="form-control" id="formacao" name="formacao" required>
                                     <option value="">SELECIONE</option>
-                                    <option value="ENGENHEIRO CIVIL" {{$result->formacao == 'ENGENHEIRO CIVIL' ? 'selected': ''}}>ENGENHEIRO CIVIL</option>
-                                    <option value="ARQUITETO URBANISTA" {{$result->formacao == 'ARQUITETO URBANISTA' ? 'selected': ''}}>ARQUITETO URBANISTA</option>
-                                    <option value="ENGENHEIRO AGRIMENSOR" {{$result->formacao == 'ENGENHEIRO AGRIMENSOR' ? 'selected': ''}}>ENGENHEIRO AGRIMENSOR</option>
-                                    <option value="ENGENHEIRO AGRÔNOMO" {{$result->formacao == 'ENGENHEIRO AGRÔNOMO' ? 'selected': ''}}>ENGENHEIRO AGRÔNOMO</option>
-                                    <option value="ENGENHEIRO AGRÍCULA" {{$result->formacao == 'ENGENHEIRO AGRÍCULA' ? 'selected': ''}}>ENGENHEIRENGENHEIRO AGRÍCULA</option>
-                                    <option value="ENGENHEIRO CARTÓGRAFO" {{$result->formacao == 'ENGENHEIRO CARTÓGRAFO' ? 'selected': ''}}>ENGENHEIRO CARTÓGRAFO</option>
-                                    <option value="ENGENHEIRO COMPUTAÇÃO" {{$result->formacao == 'ENGENHEIRO COMPUTAÇÃO' ? 'selected': ''}}>ENGENHEIRO COMPUTAÇÃO</option>
-                                    <option value="ENGENHEIRO ELETRECISTA" {{$result->formacao == 'ENGENHEIRO ELETRECISTA' ? 'selected': ''}}>ENGENHEIRO ELETRECISTA</option>
-                                    <option value="ENGENHEIRO MECÂNICO" {{$result->formacao == 'ENGENHEIRO MECÂNICO' ? 'selected': ''}}>ENGENHEIRO MECÂNICO</option>
-                                    <option value="ENGENHEIRO SANITARISTA" {{$result->formacao == 'ENGENHEIRO SANITARISTA' ? 'selected': ''}}>ENGENHEIRO SANITARISTA</option>
-                                    <option value="ENGENHEIRO SEGURANÇA DO TRABALHO" {{$result->formacao == 'ENGENHEIRO SEGURANÇA DO TRABALHO' ? 'selected': ''}}>Engenheiro SEGURANÇA</option>
-                                    <option value="ENGENHEIRO TÊXTIL" {{$result->formacao == 'ENGENHEIRO TÊXTIL' ? 'selected': ''}}>ENGENHEIRO TÊXTIL</option>
-                                    <option value="ENGENHEIRO PRODUÇÃO - MÊCANICA" {{$result->formacao == 'ENGENHEIRO PRODUÇÃO - MÊCANICA' ? 'selected': ''}}>ENGENHEIRO PRODUÇÃO - MÊCANICA</option>
-                                    <option value="ENGENHEIRO OPERAÇÃO - REFRIGERAÇÃO E AR CO" {{$result->formacao == 'ENGENHEIRO OPERAÇÃO - REFRIGERAÇÃO E AR CO' ? 'selected': ''}}>ENGENHEIRO OPERAÇÃO - REFRIGERAÇÃO E AR CO</option>
-                                    <option value="ENGENHEIRO INSDUSTRIAL - ELÉTRICA" {{$result->formacao == 'ENGENHEIRO INSDUSTRIAL - ELÉTRICA' ? 'selected': ''}}>ENGENHEIRO INSDUSTRIAL - ELÉTRICA</option>
-                                    <option value="ENGENHEIRO ELETRECISTA - ELETRÔNICA" {{$result->formacao == 'ENGENHEIRO ELETRECISTA - ELETRÔNICA' ? 'selected': ''}}>ENGENHEIRO ELETRECISTA - ELETRÔNICA</option>
-                                    <option value="ENGENHEIRO SANITARISTA E AMBIENTAL" {{$result->formacao == 'ENGENHEIRO SANITARISTA E AMBIENTAL' ? 'selected': ''}}>ENGENHEIRO SANITARISTA E AMBIENTAL</option>
-                                    <option value="TECNÓLOGO EDIFICAÇÕES" {{$result->formacao == 'TECNÓLOGO EDIFICAÇÕES' ? 'selected': ''}}>TECNÓLOGO EDIFICAÇÕES</option>
-                                    <option value="EMPRESA OUTROS" {{$result->formacao == 'EMPRESA OUTROS' ? 'selected': ''}}>EMPRESA OUTROS</option>
+                                    <option value="ENGENHEIRO(A) CIVIL" {{$result->formacao == 'ENGENHEIRO(A) CIVIL' ? 'selected': ''}}>ENGENHEIRO(A) CIVIL</option>
+                                    <option value="ARQUITETO(A) URBANISTA" {{$result->formacao == 'ARQUITETO(A) URBANISTA' ? 'selected': ''}}>ARQUITETO(A) URBANISTA</option>
+                                    <option value="ENGENHEIRO(A) AGRIMENSOR" {{$result->formacao == 'ENGENHEIRO(A) AGRIMENSOR' ? 'selected': ''}}>ENGENHEIRO(A) AGRIMENSOR</option>
+                                    <option value="ENGENHEIRO(A) AGRÔNOMO" {{$result->formacao == 'ENGENHEIRO(A) AGRÔNOMO' ? 'selected': ''}}>ENGENHEIRO(A) AGRÔNOMO</option>
+                                    <option value="ENGENHEIRO(A) AGRÍCULA" {{$result->formacao == 'ENGENHEIRO(A) AGRÍCULA' ? 'selected': ''}}>ENGENHEIRO(A) AGRÍCULA</option>
+                                    <option value="ENGENHEIRO(A) CARTÓGRAFO" {{$result->formacao == 'ENGENHEIRO(A) CARTÓGRAFO' ? 'selected': ''}}>ENGENHEIRO(A) CARTÓGRAFO</option>
+                                    <option value="ENGENHEIRO(A) COMPUTAÇÃO" {{$result->formacao == 'ENGENHEIRO(A) COMPUTAÇÃO' ? 'selected': ''}}>ENGENHEIRO(A) COMPUTAÇÃO</option>
+                                    <option value="ENGENHEIRO(A) ELETRECISTA" {{$result->formacao == 'ENGENHEIRO(A) ELETRECISTA' ? 'selected': ''}}>ENGENHEIRO(A) ELETRECISTA</option>
+                                    <option value="ENGENHEIRO(A) MECÂNICO" {{$result->formacao == 'ENGENHEIRO(A) MECÂNICO' ? 'selected': ''}}>ENGENHEIRO(A) MECÂNICO</option>
+                                    <option value="ENGENHEIRO(A) SANITARISTA" {{$result->formacao == 'ENGENHEIRO(A) SANITARISTA' ? 'selected': ''}}>ENGENHEIRO(A) SANITARISTA</option>
+                                    <option value="ENGENHEIRO(A) SEGURANÇA DO TRABALHO" {{$result->formacao == 'ENGENHEIRO(A) SEGURANÇA DO TRABALHO' ? 'selected': ''}}>ENGENHEIRO(A) SEGURANÇA</option>
+                                    <option value="ENGENHEIRO(A) TÊXTIL" {{$result->formacao == 'ENGENHEIRO(A) TÊXTIL' ? 'selected': ''}}>ENGENHEIRO(A) TÊXTIL</option>
+                                    <option value="ENGENHEIRO(A) QUÍMICO" {{$result->formacao == 'ENGENHEIRO(A) QUÍMICO' ? 'selected': ''}}>ENGENHEIRO(A) QUÍMICO</option>
+                                    <option value="ENGENHEIRO(A) PRODUÇÃO - MÊCANICA" {{$result->formacao == 'ENGENHEIRO(A) PRODUÇÃO - MÊCANICA' ? 'selected': ''}}>ENGENHEIRO(A) PRODUÇÃO - MÊCANICA</option>
+                                    <option value="ENGENHEIRO(A) OPERAÇÃO - REFRIGERAÇÃO E AR CO" {{$result->formacao == 'ENGENHEIRO(A) OPERAÇÃO - REFRIGERAÇÃO E AR CO' ? 'selected': ''}}>ENGENHEIRO(A) OPERAÇÃO - REFRIGERAÇÃO E AR CO</option>
+                                    <option value="ENGENHEIRO(A) INSDUSTRIAL - ELÉTRICA" {{$result->formacao == 'ENGENHEIRO(A) INSDUSTRIAL - ELÉTRICA' ? 'selected': ''}}>ENGENHEIRO(A) INSDUSTRIAL - ELÉTRICA</option>
+                                    <option value="ENGENHEIRO(A) ELETRECISTA - ELETRÔNICA" {{$result->formacao == 'ENGENHEIRO(A) ELETRECISTA - ELETRÔNICA' ? 'selected': ''}}>ENGENHEIRO(A) ELETRECISTA - ELETRÔNICA</option>
+                                    <option value="ENGENHEIRO(A) SANITARISTA E AMBIENTAL" {{$result->formacao == 'ENGENHEIRO(A) SANITARISTA E AMBIENTAL' ? 'selected': ''}}>ENGENHEIRO(A) SANITARISTA E AMBIENTAL</option>
+                                    <option value="TECNÓLOGO(A) EDIFICAÇÕES" {{$result->formacao == 'TECNÓLOGO(A) EDIFICAÇÕES' ? 'selected': ''}}>TECNÓLOGO(A) EDIFICAÇÕES</option>
+                                    <option value="EMPRESA OUTROS" {{$result->formacao == 'EMPRESA OUTROS' ? 'selected': ''}}>OUTROS</option>
                                 </select>
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col-5">
                             <div class="form-group">
-                                <label for="name">CREA/CAU - <small>Coloque conforme consta em registro profissional</small></label>
+                                <label for="name">Registro no CREA/CAU - <small>(Coloque conforme consta em registro profissional)</small></label>
                                 <input type="name" class="form-control" id="crea" name="crea" placeholder="" value="{{$result->crea}}" onkeyup="maiuscula(this)">
                             </div>
                         </div>
@@ -242,7 +232,7 @@ if( $result->status_id == 1 ):
 @endphp
 <div class="row">
     <div class="col-lg-12">
-        <div class="alert alert-success alert-dismissible">
+        <div class="alert bg-success alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
             <h5><i class="icon fas fa-check"></i> Atenção!</h5>
             Dados Pessoais Aprovados
@@ -258,7 +248,7 @@ if( $result->status_id == 3 ):
 @endphp
 <div class="row">
     <div class="col-lg-12">
-        <div class="alert alert-info alert-dismissible">
+        <div class="alert alert-warning alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
             <h5><i class="icon fas fa-info"></i> Atenção!</h5>
             Dados Pessoais estão Em Análise
@@ -271,14 +261,9 @@ endif;
 @php
 endif;
 @endphp
+@include('layouts.footer')
 @stop
-@section('css')
-<!-- <link rel="stylesheet" href="/css/admin_custom.css"> -->
-@stop
-
 @section('js')
-<script type="text/javascript" src="{{asset('js/jquery.mask.js')}}"></script>
-
 <script type="text/javascript">
     $(function() {
         $('.date').mask('00-00-0000', {
