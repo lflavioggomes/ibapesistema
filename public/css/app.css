@@ -10903,3 +10903,20 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+
+.navbar-blue{
+  background-image: linear-gradient(to right, #546f92 , #275289);
+  color: #fff;
+}
+
+.brand-link{
+  text-decoration: none !important;
+}
+
+.navbar-expand .navbar-nav .nav-link{
+  color: #fff;
+}
+
+.content-header h1 {
+  font-size: 1.2rem;
+}
