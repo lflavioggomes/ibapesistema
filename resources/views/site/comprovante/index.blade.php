@@ -5,9 +5,9 @@
 
 @section('content')
 
-<div class="invoice p-3 mb-3">
+<div class="invoice  mb-3 col-lg-5">
     <div class="row">
-    <div class="col-12">
+    <div class="col-lg-12">
             <div class="table-responsive">
                 <table class="table">
                     <tbody>
@@ -53,7 +53,7 @@ if( empty($result) || $status == 2):
 if( $status == 2 ):
 @endphp
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-6">
         <div class="alert bg-danger alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
             <h5><i class="icon fas fa-exclamation-triangle"></i> Atenção!</h5>
@@ -66,7 +66,7 @@ endif;
 @endphp
 
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-6">
     <div class="card card-primary">
             <div class="card-header">
                 <h3 class="card-title">Envio de Comprovante</h3>
@@ -103,7 +103,7 @@ if( $status == 1 ):
 @endphp
 
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-6">
         <div class="alert bg-success alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
             <h5><i class="icon fas fa-info"></i> Atenção!</h5>
@@ -120,7 +120,7 @@ endif;
 if( $status == 3 ):
 @endphp
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-6">
         <div class="alert bg-warning alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
             <h5><i class="icon fas fa-info"></i> Atenção!</h5>
@@ -143,7 +143,7 @@ endif;
 @endphp
 <!-- Mensagem que dados pessoais não preenchidos -->
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-6">
         <div class="alert bg-warning alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
             <h5><i class="icon fas fa-check"></i> Atenção!</h5>

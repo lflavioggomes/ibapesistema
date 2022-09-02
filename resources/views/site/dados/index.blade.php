@@ -12,7 +12,7 @@ if( empty($result->status_id) || $result->status_id == 2 ):
 if( $result->status_id == 2 ):
 @endphp
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-6">
         <div class="alert bg-danger info alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
             <h5><i class="icon fas fa-exclamation-triangle"></i> Atenção!</h5>
@@ -38,19 +38,19 @@ endif;
                         <input type="name" class="form-control" id="name" name="name" placeholder="" value="{{$name}}" onkeyup="maiuscula(this)" required>
                     </div>
                     <div class="row">
-                        <div class="col-3">
+                        <div class="col-3 mobileform">
                             <div class="form-group">
                                 <label for="nacionalidade">Nacionalidade</label>
                                 <input type="text" class="form-control" id="nacionalidade" name="nacionalidade" value="{{$result->nacionalidade}}" onkeyup="maiuscula(this)" required>
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-3 mobileform">
                             <div class="form-group">
                                 <label for="naturalidade">Naturalidade</label>
                                 <input type="text" class="form-control" id="naturalidade" name="naturalidade" placeholder="" value="{{$result->naturalidade}}" onkeyup="maiuscula(this)" required>
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-3 mobileform">
                             <div class="form-group">
                                 <label for="sexo">sexo</label>
                                 <select class="form-control" id="sexo" name="sexo" required>
@@ -61,7 +61,7 @@ endif;
                                 </select>
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-3 mobileform">
                             <div class="form-group">
                                 <label for="nascimento">Nascimento</label>
                                 <input type="text" class="form-control date" id="nascimento" name="nascimento" value="{{$result->nascimento == '' ? '': date('d-m-Y', strtotime($result->nascimento))}}" required>
@@ -70,19 +70,19 @@ endif;
                     </div>
 
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col-4 mobileform">
                             <div class="form-group">
                                 <label for="rg">RG</label>
                                 <input type="text" class="form-control" id="rg" name="rg" placeholder="" value="{{$result->rg}}" onkeyup="maiuscula(this)" required>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-4 mobileform">
                             <div class="form-group">
-                                <label for="dataemissao">Orgão Emissor</label>
-                                <input type="text" class="form-control" id="emmissor" name="emmissor" placeholder="" value="{{$result->emmissor}}" required>
+                                <label for="emissor">Orgão Emissor</label>
+                                <input type="text" class="form-control" id="emissor" name="emissor" placeholder="" value="{{$result->emmissor}}" required>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-4 mobileform">
                             <div class="form-group">
                                 <label for="cpf">CPF</label>
                                 <input type="text" class="form-control cpf" id="cpf" name="cpf" placeholder="" value="{{$result->cpf}}" required>
@@ -91,13 +91,13 @@ endif;
                     </div>
                 </div>
 
-                <div class="card-header" style="background-color: #007bff !important; color:#fff;">
+                <div class="card-header" style="color:#fff;">
                     <h3 class="card-title">Endereço Residencial</h3>
                 </div>
 
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-3">
+                        <div class="col-3 mobileform">
                             <div class="form-group">
                                 <label for="cep">CEP</label>
                                 <input type="text" class="form-control cep" id="cep" name="cep" placeholder="" value="{{$result->cep}}" required>
@@ -106,19 +106,19 @@ endif;
                     </div>
 
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col-4 mobileform">
                             <div class="form-group">
                                 <label for="name">Logradouro</label>
                                 <input type="name" class="form-control" id="endereco" name="endereco" placeholder="" value="{{$result->endereco}}" onkeyup="maiuscula(this)" required>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-4 mobileform">
                             <div class="form-group">
                                 <label for="nacionalidade">Número</label>
                                 <input type="text" class="form-control" id="numero" name="numero" placeholder="" value="{{$result->numero}}" onkeyup="maiuscula(this)" required>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-4 mobileform">
                             <div class="form-group">
                                 <label for="nacionalidade">Complemento</label>
                                 <input type="text" class="form-control" id="complemento" name="complemento" placeholder="" value="{{$result->complemento}}" onkeyup="maiuscula(this)">
@@ -127,20 +127,20 @@ endif;
                     </div>
 
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col-4 mobileform">
                             <div class="form-group">
                                 <label for="naturalidade">Bairro</label>
                                 <input type="text" class="form-control" id="bairro" name="bairro" placeholder="" value="{{$result->bairro}}" onkeyup="maiuscula(this)" required>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-4 mobileform">
                             <div class="form-group">
                                 <label for="naturalidade">Cidade</label>
                                 <input type="text" class="form-control" id="cidade" name="cidade" placeholder="" value="{{$result->cidade}}" onkeyup="maiuscula(this)" required>
                             </div>
                         </div>
 
-                        <div class="col-4">
+                        <div class="col-4 mobileform">
                             <div class="form-group">
                                 <label for="nascimento">Estado</label>
                                 <input type="text" class="form-control" id="estado" name="estado" value="{{$result->estado}}" onkeyup="maiuscula(this)" required>
@@ -150,19 +150,19 @@ endif;
                     </div>
 
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col-4 mobileform">
                             <div class="form-group">
                                 <label for="nascimento">País</label>
                                 <input type="text" class="form-control" id="pais" name="pais" value="{{$result->pais}}" onkeyup="maiuscula(this)" required>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-4 mobileform">
                             <div class="form-group">
                                 <label for="rg">Telefone Celular</label>
                                 <input type="text" class="form-control phone_with_ddd" id="telefone" name="telefone" placeholder="" value="{{$result->telefone}}" required>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-4 mobileform">
                             <div class="form-group">
                                 <label for="dataemissao">Email</label>
                                 <input type="text" class="form-control" id="email" name="email" value="{{$email}}" disabled>
@@ -171,13 +171,13 @@ endif;
                     </div>
                 </div>
 
-                <div class="card-header" style="background-color: #007bff !important; color:#fff;" required>
+                <div class="card-header" style="color:#fff;" required>
                     <h3 class="card-title">Formação Profissional</h3>
                 </div>
 
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-5">
+                        <div class="col-6 mobileform">
                             <div class="form-group">
                                 <label for="sexo">Profissão</label>
                                 <select class="form-control" id="formacao" name="formacao" required>
@@ -208,9 +208,9 @@ endif;
                     </div>
 
                     <div class="row">
-                        <div class="col-5">
+                        <div class="col-6 mobileform">
                             <div class="form-group">
-                                <label for="name">Registro no CREA/CAU - <small>(Coloque conforme consta em registro profissional)</small></label>
+                                <label for="name">Número de Registro no CREA/CAU - <small>(Coloque conforme consta em registro profissional)</small></label>
                                 <input type="name" class="form-control" id="crea" name="crea" placeholder="" value="{{$result->crea}}" onkeyup="maiuscula(this)">
                             </div>
                         </div>
@@ -231,7 +231,7 @@ else:
 if( $result->status_id == 1 ):
 @endphp
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-6">
         <div class="alert bg-success alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
             <h5><i class="icon fas fa-check"></i> Atenção!</h5>
@@ -247,7 +247,7 @@ endif;
 if( $result->status_id == 3 ):
 @endphp
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-6">
         <div class="alert bg-warning alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
             <h5><i class="icon fas fa-info"></i> Atenção!</h5>
