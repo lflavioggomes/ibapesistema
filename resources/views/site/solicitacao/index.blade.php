@@ -16,7 +16,7 @@ if( empty($result) || $status == 2):
 if( $status == 2 ):
 @endphp
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-6">
         <div class="alert bg-danger alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
             <h5><i class="icon fas fa-exclamation-triangle"></i> Atenção!</h5>
@@ -28,7 +28,7 @@ if( $status == 2 ):
 endif;
 @endphp
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-6">
         <div class="card card-primary card-outline">
             <div class="card-header">
                 <h5 class="m-0">Prezados,</h5>
@@ -67,7 +67,7 @@ if( $status == 1 ):
 @endphp
 
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-6">
         <div class="alert bg-success alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
             <h5><i class="icon fas fa-info"></i> Atenção!</h5>
@@ -80,11 +80,9 @@ if( $status == 1 ):
 endif;
 @endphp
 
-@php
-if( $status == 3 ):
-@endphp
+@if( $status == 3 )
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-6">
         <div class="alert bg-warning alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
             <h5><i class="icon fas fa-info"></i> Atenção!</h5>
@@ -92,9 +90,7 @@ if( $status == 3 ):
         </div>
     </div>
 </div>
-@php
-endif;
-@endphp
+@endif
 <!-- Fim da Mensagem de solicitação -->
 
 <!-- Fim se existe registro no requerimento -->
@@ -107,7 +103,7 @@ endif;
 @endphp
 <!-- Mensagem que dados pessoais não preenchidos -->
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-6">
         <div class="alert bg-warning alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
             <h5><i class="icon fas fa-check"></i> Atenção!</h5>
@@ -121,49 +117,4 @@ endif;
     endif; 
 @endphp
 @include('layouts.footer')
-@stop
-@section('css')
-<!-- <link rel="stylesheet" href="/css/admin_custom.css"> -->
-@stop
-
-@section('js')
-<script>
-    $(function(){
-        $("#solicitar").click(function(){
-            $("#solicitacao").val(1);
-            $("#necessidade").show('slow');
-            $("#enviar").show('slow');
-            $("#naoaplica").css("background","#4444");
-            $("#solicitar").css("background","#218838");
-            $("#campo").val('');
-        });
-
-        $("#naoaplica").click(function(){
-            $("#solicitacao").val(0);
-            $("#necessidade").hide('slow');
-            $("#enviar").show('slow');
-            $("#naoaplica").css("background","#dc3545");
-            $("#solicitar").css("background","#4444");
-            $("#campo").val('');
-        }); 
-
-        $("#enviar").click(function(){
-            let necessidade = $("#campo").val();
-            let solicitacao = $("#solicitacao").val();
-            if( solicitacao == 0)
-            {
-                $("#enviasolicitacao").submit();
-            }else{
-                if(necessidade == '')
-                {
-                    alert('Descreva a necessidade');
-                }else{
-                    $("#enviasolicitacao").submit();
-                }
-            }
-           
-        })
-    });
-  
-</script>
 @stop

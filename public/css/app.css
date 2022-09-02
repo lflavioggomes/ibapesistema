@@ -10905,7 +10905,7 @@ textarea.form-control-lg {
 }
 
 .navbar-blue{
-  background-image: linear-gradient(to right, #546f92 , #275289);
+  background-image: linear-gradient(to right, #275289 , #275289);
   color: #fff;
 }
 
@@ -10920,3 +10920,70 @@ textarea.form-control-lg {
 .content-header h1 {
   font-size: 1.2rem;
 }
+
+.sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active, .sidebar-light-primary .nav-sidebar > .nav-item > .nav-link.active {
+  background-color: #275289;
+  color: #fff;
+}
+
+ .card-header {
+  background-color: #275289 !important;
+  color: #fff !important;
+  border-color: #275289 !important;
+}
+
+.card-primary.card-outline {
+
+    border-top: 3px solid #275289;
+
+}
+
+.btn-primary
+{
+  background-color: #275289 !important;
+  border-color: #275289 !important;
+}
+
+.content-wrapper {
+  background-image: url(/image/interna.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-danger{
+  background-color: #c0001296 !important;
+  color: #000 !important;
+}
+
+.bg-warning {
+  background-color: #ffc1076e !important;
+  color: #000 !important;
+}
+
+.bg-success{
+  background-color: #03b22a6b !important;
+  color: #000 !important;
+}
+
+.badge-success{
+  background-color: #03b22a6b !important;
+  color: #000 !important;
+}
+
+.badge-danger{
+  background-color: #c0001296 !important;
+  color: #000 !important;
+}
+
+.badge-warning{
+  background-color: #ffc1076e !important;
+  color: #000 !important;
+}
+
+@media (max-width:1000px){
+  .mobileform{
+    width: 100% !important;
+  }
+}
+
+

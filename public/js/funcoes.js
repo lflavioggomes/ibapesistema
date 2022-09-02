@@ -1,95 +1,76 @@
 $(function () {
-    $.get('verifica', function (data, status) {
 
-        //1 - Aprovado (green)
-        //2 - Reprovado (red)
-        //3 - Análise (yellow)
+        // Trecho de código para dados pessoais
 
-        let obj = $.parseJSON(data);
+        $('.date').mask('00-00-0000', {
+            placeholder: "__-__-____"
+        });
+        $('.cep').mask('00000-000', {
+            placeholder: "_____-___"
+        });
+        $('.cpf').mask('000.000.000-00', {
+            placeholder: "___.___.___-__"
+        });
+        $('.phone_with_ddd').mask('(00) 00000-0000');
 
-        // Dados Pessoais
+        $('input#cep').blur(function() {
+            $.get('buscacep?cep=' + $(this).val(), function(data, status) {
+                var obj = $.parseJSON(data);
+                if (obj.resultado == 1) {
+                    $('#endereco').val(obj.tipo_logradouro.toUpperCase() + ' ' + obj.logradouro.toUpperCase());
+                    $('#bairro').val(obj.bairro.toUpperCase());
+                    $('#cidade').val(obj.cidade.toUpperCase());
+                    $('#estado').val(obj.uf.toUpperCase());
+                    $('#numero').focus();
+                } else {
+                    $('#endereco').val('');
+                    $('#bairro').val('');
+                    $('#cidade').val('');
+                    $('#estado').val('');
+                    $('#endereco').focus();
+                }
+            });
+        });
 
-        if (obj.dados == 1) {
-            $('.fa-user').addClass('text-green');
-        }
+        //Trecho de código para solicitação justificada
 
-        if (obj.dados == 2) {
-            $('.fa-user').addClass('text-red');
-        }
+        $("#solicitar").click(function(){
+            $("#solicitacao").val(1);
+            $("#necessidade").show('slow');
+            $("#enviar").show('slow');
+            $("#naoaplica").css("background","#4444");
+            $("#solicitar").css("background","#218838");
+            $("#campo").val('');
+        });
 
-        if (obj.dados == 3) {
-            $('.fa-user').addClass('text-yellow');
-        }
+        $("#naoaplica").click(function(){
+            $("#solicitacao").val(0);
+            $("#necessidade").hide('slow');
+            $("#enviar").show('slow');
+            $("#naoaplica").css("background","#dc3545");
+            $("#solicitar").css("background","#4444");
+            $("#campo").val('');
+        }); 
 
-        // Requerimento
+        $("#enviar").click(function(){
+            let necessidade = $("#campo").val();
+            let solicitacao = $("#solicitacao").val();
+            if( solicitacao == 0)
+            {
+                $("#enviasolicitacao").submit();
+            }else{
+                if(necessidade == '')
+                {
+                    alert('Descreva a necessidade');
+                }else{
+                    $("#enviasolicitacao").submit();
+                }
+            }
+           
+        })
 
-        if (obj.requerimento == 1) {
-            $('.fa-book').addClass('text-green');
-        }
-
-        if (obj.requerimento == 2) {
-            $('.fa-book').addClass('text-red');
-        }
-
-        if (obj.requerimento == 3) {
-            $('.fa-book').addClass('text-yellow');
-        }
-
-        // Declaração
-
-        if (obj.declaracao == 1) {
-            $('.fa-clone').addClass('text-green');
-        }
-
-        if (obj.declaracao == 2) {
-            $('.fa-clone').addClass('text-red');
-        }
-
-        if (obj.declaracao == 3) {
-            $('.fa-clone').addClass('text-yellow');
-        }
-
-        // diploma
-
-        if (obj.diploma == 1) {
-            $('.fa-university').addClass('text-green');
-        }
-
-        if (obj.diploma == 2) {
-            $('.fa-university').addClass('text-red');
-        }
-
-        if (obj.diploma == 3) {
-            $('.fa-university').addClass('text-yellow');
-        }
-
-        // solicitacao
-
-        if (obj.solicitacao == 1) {
-            $('.fa-wheelchair').addClass('text-green');
-        }
-
-        if (obj.solicitacao == 2) {
-            $('.fa-wheelchair').addClass('text-red');
-        }
-
-        if (obj.solicitacao == 3) {
-            $('.fa-wheelchair').addClass('text-yellow');
-        }
-
-        // comprovante
-
-        if (obj.comprovante == 1) {
-            $('.fa-barcode').addClass('text-green');
-        }
-
-        if (obj.comprovante == 2) {
-            $('.fa-barcode').addClass('text-red');
-        }
-
-        if (obj.comprovante == 3) {
-            $('.fa-barcode').addClass('text-yellow');
-        }
-
-    });
+    function maiuscula(z) {
+        v = z.value.toUpperCase();
+        z.value = v;
+    }
 });
