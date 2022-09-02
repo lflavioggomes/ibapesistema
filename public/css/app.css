@@ -10945,7 +10945,7 @@ textarea.form-control-lg {
 }
 
 .content-wrapper {
-  background-image: url(../image/interna.jpg)
+  background-image: url(../image/interna.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
