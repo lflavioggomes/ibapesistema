@@ -14168,10 +14168,6 @@ body:not(.layout-fixed) .main-sidebar .sidebar {
   visibility: visible;
 }
 
-.brand-image-xs{
-  width: 100% !important;
-}
-
 .logo-xs.brand-image-xs,
 .logo-xl.brand-image-xs {
   left: 18px;

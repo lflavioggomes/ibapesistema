@@ -14,8 +14,8 @@ return [
     |
     */
 
-    'title' => 'Ibape Nacional',
-    'title_prefix' => 'Ibape',
+    'title' => 'IBAPE NACIONAL',
+    'title_prefix' => '',
     'title_postfix' => '',
 
     /*
@@ -35,7 +35,25 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Logo
+    | Google Fonts
+    |--------------------------------------------------------------------------
+    |
+    | Here you can allow or not the use of external google fonts. Disabling the
+    | google fonts may be useful if your admin panel internet access is
+    | restricted somehow.
+    |
+    | For detailed instructions you can look the google fonts section here:
+    | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Basic-Configuration
+    |
+    */
+
+    'google_fonts' => [
+        'allowed' => true,
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Admin Panel Logo
     |--------------------------------------------------------------------------
     |
     | Here you can change the logo of your admin panel.
@@ -45,13 +63,59 @@ return [
     |
     */
 
-    'logo' => 'IBAPE NACIONAL',
+    'logo' => '<b style="font-weight: 900; color:#275289 !important;">IBAPE NACIONAL</b>',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-    //'logo_img' => '',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => '',
+    'logo_img_alt' => 'Admin Logo',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Authentication Logo
+    |--------------------------------------------------------------------------
+    |
+    | Here you can setup an alternative logo to use on your login and register
+    | screens. When disabled, the admin panel logo will be used instead.
+    |
+    | For detailed instructions you can look the auth logo section here:
+    | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Basic-Configuration
+    |
+    */
+
+    'auth_logo' => [
+        'enabled' => false,
+        'img' => [
+            'path' => 'vendor/adminlte/dist/img/AdminLTELogonovo.png',
+            'alt' => 'Auth Logo',
+            'class' => '',
+            'width' => 100,
+            'height' => 100,
+        ],
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Preloader Animation
+    |--------------------------------------------------------------------------
+    |
+    | Here you can change the preloader animation configuration.
+    |
+    | For detailed instructions you can look the preloader section here:
+    | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Basic-Configuration
+    |
+    */
+
+    'preloader' => [
+        'enabled' => true,
+        'img' => [
+            'path' => 'vendor/adminlte/dist/img/AdminLTELogonovo.png',
+            'alt' => 'AdminLTE Preloader Image',
+            'effect' => 'animation__shake',
+            'width' => 365,
+            'height' => 134,
+        ],
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -87,7 +151,7 @@ return [
     'layout_topnav' => null,
     'layout_boxed' => null,
     'layout_fixed_sidebar' => null,
-    'layout_fixed_navbar' => true,
+    'layout_fixed_navbar' => null,
     'layout_fixed_footer' => true,
     'layout_dark_mode' => null,
 
@@ -106,7 +170,7 @@ return [
     'classes_auth_card' => 'card-outline card-primary',
     'classes_auth_header' => '',
     'classes_auth_body' => '',
-    'classes_auth_footer' => 'card-footer',
+    'classes_auth_footer' => '',
     'classes_auth_icon' => '',
     'classes_auth_btn' => 'btn-flat btn-primary',
 
@@ -128,15 +192,15 @@ return [
     'classes_content_wrapper' => '',
     'classes_content_header' => '',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-light-primary elevation-4',
+    'classes_sidebar' => 'sidebar-white-primary elevation-4',
     'classes_sidebar_nav' => '',
-    'classes_topnav' => 'navbar-blue navbar-light',
+    'classes_topnav' => 'navbar-azul',
     'classes_topnav_nav' => 'navbar-expand',
     'classes_topnav_container' => 'container',
 
     /*
     |--------------------------------------------------------------------------
-    | Sidebar24735675000147
+    | Sidebar
     |--------------------------------------------------------------------------
     |
     | Here we can modify the sidebar of the admin panel.
@@ -147,7 +211,7 @@ return [
     */
 
     'sidebar_mini' => 'lg',
-    'sidebar_collapse' => true,
+    'sidebar_collapse' => false,
     'sidebar_collapse_auto_size' => false,
     'sidebar_collapse_remember' => false,
     'sidebar_collapse_remember_no_transition' => true,
@@ -496,7 +560,7 @@ return [
     'iframe' => [
         'default_tab' => [
             'url' => null,
-            'title' => 'null',
+            'title' => null,
         ],
         'buttons' => [
             'close' => true,
