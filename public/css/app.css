@@ -10916,6 +10916,10 @@ textarea.form-control-lg {
 .navbar-expand .navbar-nav .nav-link{
   color: #fff;
 }
+.navbar-azul{
+  background-color: #275289 !important;
+}
+
 
 .content-header h1 {
   font-size: 1.2rem;
@@ -10945,7 +10949,7 @@ textarea.form-control-lg {
 }
 
 .content-wrapper {
-  background-image: url(/image/interna.jpg);
+  background-image: url(../image/interna.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -10980,10 +10984,20 @@ textarea.form-control-lg {
   color: #000 !important;
 }
 
+.active{
+  background-color: #275289 !important;
+}
+
+.main-sidebar {
+  background-color: #fff !important;
+}
+
+
 @media (max-width:1000px){
   .mobileform{
     width: 100% !important;
   }
-}
+
+
 
 
