@@ -10954,6 +10954,19 @@ textarea.form-control-lg {
   background-size: cover;
 }
 
+.register-page{
+  background-image: url(../image/login.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.login-page {
+  background-image: url(../image/login.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
 .bg-danger{
   background-color: #c0001296 !important;
   color: #000 !important;
@@ -10990,6 +11003,14 @@ textarea.form-control-lg {
 
 .main-sidebar {
   background-color: #fff !important;
+}
+
+.login-logo a{
+  text-decoration: none !important;
+}
+
+.register-logo a{
+  text-decoration: none !important;
 }
 
 

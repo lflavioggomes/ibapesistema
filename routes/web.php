@@ -42,7 +42,7 @@ Route::namespace('Site')->group(function () {
     Route::post('comprovante', 'ComprovanteController@form')->name('site.comprovante.form');
 
     Route::get('verifica', 'VerificaController@index')->name('site.comprovante');
-
+    Route::post('verifica', 'VerificaController@confirma')->name('site.verifica.confirma');
   
 });
 
