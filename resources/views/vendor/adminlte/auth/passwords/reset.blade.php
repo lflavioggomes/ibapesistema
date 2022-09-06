@@ -79,4 +79,11 @@
         </button>
 
     </form>
+
+    
+@section('css')
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+@stop
+
+
 @stop

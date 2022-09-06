@@ -397,6 +397,13 @@ return [
          'can' => 'candidato'    
         ],
 
+        [
+            'text' => ' Dashboard',
+            'url'  => '/',
+            'icon' => 'fas fa-fw fa-tv',
+            'can'  => 'candidato'
+        ],
+
        [
         'text'    => 'Pré-Qualificação',
         'icon'    => 'fas fa-fw fa-share',

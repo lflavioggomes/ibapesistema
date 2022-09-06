@@ -69,8 +69,15 @@ $(function () {
            
         })
 
-    function maiuscula(z) {
-        v = z.value.toUpperCase();
-        z.value = v;
-    }
+        $.get('verifica', function(data, status) {
+            var obj = $.parseJSON(data);
+            if (obj.valida == 0) {
+               $("#modalconfirma").modal();
+            }
+        });
 });
+
+function maiuscula(z) {
+    v = z.value.toUpperCase();
+    z.value = v;
+}
