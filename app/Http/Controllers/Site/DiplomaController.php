@@ -52,7 +52,7 @@ class DiplomaController extends Controller
     
             $nameFile = "{$name}.{$extension}";
     
-            $upload = $request->diploma->storeAs('public/diploma', $nameFile);
+            $upload = $request->diploma->storeAs('diploma', $nameFile, 'public');
     
             if ( !$upload )
             {
