@@ -53,7 +53,7 @@ class ComprovanteController extends Controller
     
             $nameFile = "{$name}.{$extension}";
     
-            $upload = $request->comprovante->storeAs('public/comprovante', $nameFile);
+            $upload = $request->comprovante->storeAs('comprovante', $nameFile, 'public');
     
             if ( !$upload )
             {
