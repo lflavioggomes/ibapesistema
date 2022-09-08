@@ -128,5 +128,5 @@ endif;
 @php
     endif; 
 @endphp
-@include('layouts.footer')x
+@include('layouts.footer')
 @stop
