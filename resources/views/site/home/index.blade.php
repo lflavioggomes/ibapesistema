@@ -113,7 +113,7 @@
 @elsecan('candidato')
 <p class="mt-3">Bem vindo candidato(a).</p>
 
-<div class="col-md-6">
+<div class="col-md-12">
     <div class="card card-default">
         <div class="card-header">
             <h3 class="card-title">
@@ -124,18 +124,14 @@
 
         <div class="card-body">
             <div class="callout callout-danger">
-                <h5>- Para realizar a prova o candidato(a) deverá completar as seguintes informações</h5>
-                <ul>
-    <li>Dados Pessoais; </li>
-    <li>Requerimento; </li>
-    <li>Declaração de Regularidade; </li>
-    <li>Diploma de Graduação; </li>
-    <li>Solicitação Justificada; </li>
-    <li>Comprovante de Pagamento; </li>
-</ul>
+                <p>Para realizar a prova o candidato(a) deverá completar as seguintes informações <strong>no menu lateral deste site:</strong></p>
+               <p>Dados Pessoais; Requerimento; Declaração de Regularidade; Diploma de Graduação; Solicitação Justificada e
+Comprovante de Pagamento.</p>
+<p><strong>O status de cada informação deverá ser acompanhado no resumo abaixo.</strong></p>
 
-<p>- Após o preenchimento os dados serão enviados para análise, e você poderá acompanhar o status abaixo;</p>
-<p>- Após aprovação, você receberá um email com as orientações para realização da prova</p>
+<p>Após aprovação, você receberá um e-mail com as orientações para realização da prova.</p>
+
+<p><strong><a href="dados">Clique aqui para iniciar sua inscrição</a></strong></p>
                 
             </div>
         </div>
