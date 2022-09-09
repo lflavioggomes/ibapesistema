@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Dados;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -81,6 +82,54 @@ class CandidatoController extends Controller
                     'solicitacao' => $solicitacao,
                     'comprovantes' => $comprovantes,
         ]);
+    }
+
+    public function status()
+    {
+        error_reporting(0);
+        $id =  $_GET['id'];
+        $results = DB::table('dados')->where('user_id', $id)->first();
+
+        return view('admin.candidato.status', [
+            'id' => auth()->user()->id,
+            'name' => auth()->user()->name,
+            'email' => auth()->user()->email,
+            'result' => $results
+        ]);
+    }
+
+    public static function prequalificacao($id) {
+        error_reporting(0);
+        $dados = DB::table('dados')->where('user_id', $id)->first();
+        $requerimento = DB::table('requerimentos')->where('user_id',$id)->first();
+        $declaracao = DB::table('atestados')->where('user_id', $id)->first();
+        $diploma = DB::table('diplomas')->where('user_id', $id)->first();
+        $solicitacao = DB::table('solicitacao')->where('user_id', $id)->first();
+        $comprovante = DB::table('comprovantes')->where('user_id', $id)->first();
+        $confirm = DB::table('confirms')->where('user_id', $id)->first();
+
+            if(!empty($dados) && !empty($requerimento) && !empty($declaracao) && !empty($diploma) && !empty($solicitacao) && !empty($comprovante))
+            {
+                $valida = 'Completa';
+            }else{
+                $valida = 'Incompleta';
+            }
+
+        return $valida;
+    }
+
+    public static function profissao($id) 
+    {
+        error_reporting(0);
+        $profissao =  DB::table('dados')->where('user_id', $id)->first();
+
+        if($profissao->formacao)
+        {
+            $return = $profissao->formacao;
+        }else{
+            $return = '-';
+        }
+        return $return;
     }
 
 }

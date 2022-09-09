@@ -50,10 +50,14 @@ Route::namespace('Admin')->group(function () {
 
     Route::get('candidato', 'CandidatoController@index')->name('admin.candidato');
     Route::get('candidato/list', 'CandidatoController@list')->name('admin.candidato.list');
+    Route::get('candidato/status', 'CandidatoController@status')->name('admin.candidato.status');
+    Route::get('prequalificacao', 'CandidatoController@prequalificacao')->name('site.verifica.prequalificacao');
 
 
     Route::get('julgador', 'JulgadorController@index')->name('admin.julgador');
     Route::get('perfil', 'PerfilController@index')->name('admin.perfil');
+
+    
 
 });
 

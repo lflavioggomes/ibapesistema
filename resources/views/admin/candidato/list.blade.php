@@ -1,7 +1,7 @@
 <tr class="odd">
     <td>Dados Pessoais</td>
     <td>{{(isset($dados[0]->status) ? $dados[0]->status : ' - ')}}</td>
-    <td><i data-toggle="modal" data-target="#exampleModal" class="fas  fa-edit"></i></td>
+    <td><a target="_blank" href="{{route('admin.candidato.status')}}?id={{$dados[0]->id}}"><i data-toggle="modal" data-target="#exampleModal" class="fas  fa-edit"></i></a></td>
 </tr>
 <tr class="odd">
     <td>Requerimento</td>

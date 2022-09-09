@@ -340,7 +340,7 @@ if( $result->status_id == 3 ):
                         <div class="col-4 mobileform">
                             <div class="form-group">
                                 <label for="nacionalidade">Número</label>
-                               <p>{$result->numero}}</p>
+                               <p>{{$result->numero}}</p>
                             </div>
                         </div>
                         <div class="col-4 mobileform">

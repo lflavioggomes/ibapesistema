@@ -75,7 +75,42 @@ $(function () {
                $("#modalconfirma").modal();
             }
         });
+
+         // candidato painel admin 
+
+        $('#example1').DataTable({
+            language: {
+                lengthMenu: '_MENU_ quantidade por página',
+                zeroRecords: 'Não encontrado',
+                info: 'Mostrando _PAGE_ de _PAGES_',
+                infoEmpty: 'Sem Registros',
+                infoFiltered: '(filtrado de _MAX_ total de registros)',
+                search:      'Procurar:',
+                paginate: {
+                            "first":      "Primeiro",
+                            "last":       "Último",
+                            "next":       "Próximo",
+                            "previous":   "Anterior"
+                        },
+            },
+        });
+        
+            $('#exampleModal').on('show.bs.modal', function(event) {
+                let button = $(event.relatedTarget);
+                var modal = $(this);
+                let id = button.data('candidato');
+                $.get("candidato/list", {
+                        id: id
+                    })
+                    .done(function(data) {
+                        modal.find('.modalbody').html(data);
+                    });
+            })
+            
+         
+
 });
+
 
 function maiuscula(z) {
     v = z.value.toUpperCase();

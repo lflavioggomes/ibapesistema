@@ -291,16 +291,31 @@ return [
 
     'menu' => [
         // Navbar items:
-        [
-            'type'         => 'navbar-search',
-            'text'         => 'search',
-            'topnav_right' => true,
-            'can'  => 'admin'
-        ],
+        // [
+        //     'type'         => 'navbar-search',
+        //     'text'         => 'Procurar Candidato',
+        //     'topnav_right' => true,
+        //     'can'  => 'admin'
+        // ],
         [
             'type'         => 'fullscreen-widget',
             'topnav_right' => true,
         ],
+        // [
+        //     'type'         => 'navbar-notification',
+        //     'id'           => 'my-notification',      // An ID attribute (required).
+        //     'icon'         => 'fas fa-bell',          // A font awesome icon (required).
+        //     'label_color'  => 'danger-sucess',               // The initial badge color (optional).
+        //     'url'          => 'notifications/show',   // The url to access all notifications/elements (required).
+        //     'label'        => 0,
+        //     'topnav_right' => true,                   // Or "topnav => true" to place on the left (required).
+        //     'dropdown_mode'   => true,                // Enables the dropdown mode (optional).
+        //     'dropdown_flabel' => 'Ver todas Notificações', // The label for the dropdown footer link (optional).
+        //     'update_cfg'   => [
+        //         'url' => 'notifications/get',         // The url to periodically fetch new data (optional).
+        //         'period' => 30,                       // The update period for get new data (in seconds, optional).
+        //     ],
+        // ],
 
         // Sidebar items:
         // [
@@ -313,11 +328,12 @@ return [
             'can'  => 'manage-blog',
         ],
         // [
-        //     'text'        => 'pages',
+        //     'text'        => 'Notificações',
         //     'url'         => 'admin/pages',
-        //     'icon'        => 'far fa-fw fa-file',
-        //     'label'       => 4,
+        //     'icon'        => 'far fa-fw fa-file sera',
+        //     'label'       => 0,
         //     'label_color' => 'success',
+        //     'classes' => 'test',
         // ],
         ['header' => 'Painel do Admin',
          'can' => 'admin'    
