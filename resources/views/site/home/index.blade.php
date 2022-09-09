@@ -72,44 +72,78 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Candidatos Recentes</h3>
-                <div class="card-tools">
-                    <div class="input-group input-group-sm" style="width: 150px;">
-                        <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-                        <div class="input-group-append">
-                            <button type="submit" class="btn btn-default">
-                                <i class="fas fa-search"></i>
-                            </button>
+                <!-- <h3 class="card-title"></h3> -->
+            </div>
+
+            <div class="card-body">
+                <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6"></div>
+                        <div class="col-sm-12 col-md-6"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table id="example1" class="table table-bordered table-hover dataTable dtr-inline" aria-describedby="example2_info">
+                                <thead>
+                                    <tr>
+                                        <th class="sorting sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Nome</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" >Formação</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" >Pré-Qualificação</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @php foreach( $candidato as $value ): @endphp
+                                    <tr class="odd">
+                                        <td>@php echo strtoupper($value->name) @endphp</td>
+                                        <td>{{ App\Http\Controllers\Admin\CandidatoController::profissao($value->id) }} </td>
+                                        <td>{{ App\Http\Controllers\Admin\CandidatoController::prequalificacao($value->id) }} </td>
+                                    </tr>
+                                    @php endforeach; @endphp
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="card-body table-responsive p-0" style="height: 300px;">
-                <table class="table table-head-fixed text-nowrap">
-                    <thead>
-                        <tr>
-                            <th>Nome</th>
-                            <th>Formação</th>
-                            <th>Pré Qualificação</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @php foreach( $candidato as $value ): @endphp
-                        <tr>
-                            <td>@php echo $value->name @endphp</td>
-                            <td>Engenheiro Civil</td>
-                            <td> <i class="fas  fa-edit"></i></td>
-                        </tr>
-                        @php endforeach; @endphp
-                    </tbody>
-                </table>
-            </div>
-
         </div>
 
+
+    </div>
+
+</div>
+
+<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel"></h4>
+            </div>
+            <div class="modal-body">
+                <div class="col-sm-12">
+                    <table id="example1" class="table table-bordered table-hover dataTable dtr-inline" aria-describedby="example2_info">
+                        <thead>
+                            <tr>
+                                <th>Pré-qualificação</th>
+                                <th>Status</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody class="modalbody">
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
     </div>
 </div>
+
+
 @elsecan('candidato')
 <p class="mt-3">Bem vindo candidato(a).</p>
 
@@ -395,6 +429,7 @@ Comprovante de Pagamento.</p>
     </div>
 
 </div>
+
 @elsecan('julgador')
 <p>Bem vindo julgador.</p>
 @endcan

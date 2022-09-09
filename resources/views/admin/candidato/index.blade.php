@@ -7,6 +7,13 @@
 @section('content')
 @can('admin')
 
+<script>
+function verificastatus()
+{
+    teste();
+    
+}
+ </script>
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -25,16 +32,18 @@
                             <table id="example1" class="table table-bordered table-hover dataTable dtr-inline" aria-describedby="example2_info">
                                 <thead>
                                     <tr>
-                                        <th class="sorting sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Nome</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Formação</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Pré-Qualificação</th>
+                                        <th class="sorting sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Nome</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" >Formação</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" >Pré-Qualificação</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" >Ver</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @php foreach( $candidato as $value ): @endphp
                                     <tr class="odd">
-                                        <td>@php echo $value->name @endphp</td>
-                                        <td>Engenheiro Civil</td>
+                                        <td>@php echo strtoupper($value->name) @endphp</td>
+                                        <td>{{ App\Http\Controllers\Admin\CandidatoController::profissao($value->id) }} </td>
+                                        <td>{{ App\Http\Controllers\Admin\CandidatoController::prequalificacao($value->id) }} </td>
                                         <td><i data-candidato="@php echo $value->id @endphp" data-toggle="modal" data-target="#exampleModal" class="fas  fa-edit"></i></td>
                                     </tr>
                                     @php endforeach; @endphp
@@ -70,14 +79,7 @@
                             </tr>
                         </thead>
                         <tbody class="modalbody">
-                            <tr class="odd">
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><i data-toggle="modal" data-target="#exampleModal" class="fas  fa-edit"></i></td>
-                            </tr>
+                            
                         </tbody>
                     </table>
                 </div>
@@ -88,47 +90,10 @@
         </div>
     </div>
 </div>
+
 @endcan
 
-
+@include('layouts.footer')
 @stop
 
-@section('css')
-<!-- <link rel="stylesheet" href="/css/admin_custom.css"> -->
-@stop
 
-@section('js')
-<script>
-    $(document).ready(function() {
-        $('#example1').DataTable({
-        language: {
-            lengthMenu: '_MENU_ quantidade por página',
-            zeroRecords: 'Não encontrado',
-            info: 'Mostrando _PAGE_ de _PAGES_',
-            infoEmpty: 'Sem Registros',
-            infoFiltered: '(filtrado de _MAX_ total de registros)',
-            search:      'Procurar:',
-            paginate: {
-                        "first":      "Primeiro",
-                        "last":       "Último",
-                        "next":       "Próximo",
-                        "previous":   "Anterior"
-                    },
-        },
-    });
-    
-        $('#exampleModal').on('show.bs.modal', function(event) {
-            let button = $(event.relatedTarget);
-            var modal = $(this);
-            let id = button.data('candidato');
-            $.get("candidato/list", {
-                    id: id
-                })
-                .done(function(data) {
-                    modal.find('.modalbody').html(data);
-                });
-        })
-    });
-    console.log('Hi!');
-</script>
-@stop

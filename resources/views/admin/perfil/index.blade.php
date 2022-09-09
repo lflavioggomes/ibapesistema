@@ -7,7 +7,7 @@
 @section('content')
 @can('admin')
 
-dasdas
+Em Breve
 @endcan
 
 

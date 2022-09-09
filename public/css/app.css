@@ -11013,6 +11013,17 @@ textarea.form-control-lg {
   text-decoration: none !important;
 }
 
+#my-notification span{
+  margin: -6px -3px 1px 0;
+  color: #fff;
+  font-size: 13px !important;
+  font-weight: 900;
+  background: red;
+  /* background-size: 83% !important; */
+  /* width: 30%; */
+  padding: 2px 3px 1px 3px;
+}
+
 
 @media (max-width:1000px){
   .mobileform{
