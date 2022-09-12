@@ -11024,6 +11024,10 @@ textarea.form-control-lg {
   padding: 2px 3px 1px 3px;
 }
 
+.form-control-sm {
+    padding: 0.25rem 1rem !important;
+}
+
 
 @media (max-width:1000px){
   .mobileform{
