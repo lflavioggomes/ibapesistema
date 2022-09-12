@@ -50,7 +50,15 @@ Route::namespace('Admin')->group(function () {
 
     Route::get('candidato', 'CandidatoController@index')->name('admin.candidato');
     Route::get('candidato/list', 'CandidatoController@list')->name('admin.candidato.list');
-    Route::get('candidato/status', 'CandidatoController@status')->name('admin.candidato.status');
+    Route::get('candidato/dado', 'CandidatoController@dado')->name('admin.candidato.dado');
+    Route::get('candidato/requerimento', 'CandidatoController@requerimento')->name('admin.candidato.requerimento');
+    Route::get('candidato/atestado', 'CandidatoController@atestado')->name('admin.candidato.atestado');
+    Route::get('candidato/diploma', 'CandidatoController@diploma')->name('admin.candidato.diploma');
+    Route::get('candidato/solicitacao', 'CandidatoController@solicitacao')->name('admin.candidato.solicitacao');
+    Route::get('candidato/comprovante', 'CandidatoController@comprovante')->name('admin.candidato.comprovante');
+
+    Route::post('statusdado', 'CandidatoController@statusdado')->name('admin.candidato.statusdado');
+
     Route::get('prequalificacao', 'CandidatoController@prequalificacao')->name('site.verifica.prequalificacao');
 
 

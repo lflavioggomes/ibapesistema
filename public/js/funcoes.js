@@ -69,12 +69,12 @@ $(function () {
            
         })
 
-        $.get('verifica', function(data, status) {
-            var obj = $.parseJSON(data);
-            if (obj.valida == 0) {
-               $("#modalconfirma").modal();
-            }
-        });
+        // $.get('verifica', function(data, status) {
+        //     var obj = $.parseJSON(data);
+        //     if (obj.valida == 0) {
+        //        $("#modalconfirma").modal();
+        //     }
+        // });
 
          // candidato painel admin 
 
@@ -99,15 +99,38 @@ $(function () {
                 let button = $(event.relatedTarget);
                 var modal = $(this);
                 let id = button.data('candidato');
+                modal.find('.modalbody').html(' ');
                 $.get("candidato/list", {
                         id: id
                     })
                     .done(function(data) {
                         modal.find('.modalbody').html(data);
+                    })
+                    .fail(function() {
+                        modal.find('.modalbody').html('Nenhuma Informação preenchida.');
                     });
             })
             
-         
+        // Admin dados pessoais
+
+        $(".statusmuda").click(function(){
+            let statusmuda = $(this).attr('id');
+            
+            $("#modalstatustexto").html(statusmuda);
+
+            if(statusmuda == 'reprovar')
+            {
+                $("#status_id_admin").val(2);
+            }
+            if(statusmuda == 'aprovar')
+            {
+                $("#status_id_admin").val(1);
+            }
+        });
+
+        $("#enviaformstatusdado").click(function(){
+           $("#formdadosadmin").submit();
+        });
 
 });
 
