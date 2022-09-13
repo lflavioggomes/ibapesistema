@@ -62,7 +62,7 @@ endif;
                 <div class="card-body">
                     <div class="form-group">
                         <label for="name">Nome Completo</label>
-                        <p> {{$result->name}}</p>
+                        <p> {{$user->name}}</p>
                     </div>
                     <div class="row">
                         <div class="col-3 mobileform">
@@ -187,7 +187,7 @@ endif;
                         <div class="col-4 mobileform">
                             <div class="form-group">
                                 <label for="dataemissao">Email</label>
-                               <p>{{$result->email}}</p>
+                               <p>{{$user->email}}</p>
                             </div>
                         </div>
                     </div>
