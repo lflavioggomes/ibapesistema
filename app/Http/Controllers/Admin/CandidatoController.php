@@ -37,6 +37,7 @@ class CandidatoController extends Controller
 
     public function list()
     {
+        error_reporting(0);
         $id = $_GET['id'];
         $dados = DB::table('dados')
             ->leftJoin('statuses', 'statuses.id', '=', 'dados.status_id')
