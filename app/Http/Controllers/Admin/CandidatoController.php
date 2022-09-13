@@ -89,7 +89,7 @@ class CandidatoController extends Controller
         error_reporting(0);
         $id =  $_GET['id'];
 
-        $dados = DB::table('dados')->where('user_id', $id)->first();
+        $dados = DB::table('dados')->where('id', $id)->first();
 
         if (empty($dados)) {
             return redirect('candidato');
