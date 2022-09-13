@@ -91,7 +91,7 @@ class CandidatoController extends Controller
         $results = DB::table('dados')
             ->leftJoin('users', 'users.id', '=', 'dados.user_id')
             ->select('users.name', 'dados.*')
-            ->where('user_id', $id)
+            ->where('dados.id', $id)
             ->first();
 
         return view('admin.candidato.dado', [
