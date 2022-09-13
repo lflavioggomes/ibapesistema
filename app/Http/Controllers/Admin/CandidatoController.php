@@ -246,7 +246,7 @@ class CandidatoController extends Controller
     public function comprovante()
     {
         error_reporting(0);
-        $comprovante = DB::table('comprovantes')->where('id', auth()->user()->id)->first();
+        $comprovante = DB::table('comprovantes')->where('id', $_GET['id'])->first();
         $dados = DB::table('dados')->where('user_id', $comprovante->user_id)->first();
         $user = DB::table('users')->where('id', $comprovante->user_id)->first();
 
