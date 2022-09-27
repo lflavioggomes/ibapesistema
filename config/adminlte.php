@@ -475,11 +475,11 @@ return [
                 'icon'    => 'fas fa-fw fa-graduation-cap',
                 'active' => ['formacao/cadastro', 'regex:@^content/[0-9]+$@'],
             ],
-            // [
-            //     'text' => 'Divulgação de Material Técnico',
-            //     'url'  => '',
-            //     'icon'    => 'fas fa-fw fa-file',
-            // ],
+            [
+                'text' => 'Divulgação de Material Técnico',
+                'url'  => 'divulgacao',
+                'icon'    => 'fas fa-fw fa-file',
+            ],
             // [
             //     'text' => 'Trabalhos e Palestras Apresentados em Congressos e Correlatos',
             //     'url'  => '',
