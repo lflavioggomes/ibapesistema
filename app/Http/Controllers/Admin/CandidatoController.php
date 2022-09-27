@@ -37,6 +37,7 @@ class CandidatoController extends Controller
 
     public function list()
     {
+        error_reporting(0);
         $id = $_GET['id'];
         $dados = DB::table('dados')
             ->leftJoin('statuses', 'statuses.id', '=', 'dados.status_id')
@@ -88,14 +89,18 @@ class CandidatoController extends Controller
     {
         error_reporting(0);
         $id =  $_GET['id'];
-        $results = DB::table('dados')
-            ->leftJoin('users', 'users.id', '=', 'dados.user_id')
-            ->select('users.name', 'dados.*')
-            ->where('dados.id', $id)
-            ->first();
+
+        $dados = DB::table('dados')->where('id', $id)->first();
+
+        if (empty($dados)) {
+            return redirect('candidato');
+        }
+
+        $user = DB::table('users')->where('id', $dados->user_id)->first();
 
         return view('admin.candidato.dado', [
-            'result' => $results
+            'result' => $dados,
+            'user' => $user
         ]);
     }
 
@@ -157,10 +162,9 @@ class CandidatoController extends Controller
                 $tabela = 'solicitacao';
                 break;
 
-                case 'comprovante':
-                    $tabela = 'comprovantes';
-                    break;    
-
+            case 'comprovante':
+                $tabela = 'comprovantes';
+                break;
 
             default:
                 $tabela = '';
@@ -243,36 +247,36 @@ class CandidatoController extends Controller
     public function comprovante()
     {
         error_reporting(0);
-        $comprovante = DB::table('comprovantes')->where('id', auth()->user()->id)->first();
+        $comprovante = DB::table('comprovantes')->where('id', $_GET['id'])->first();
         $dados = DB::table('dados')->where('user_id', $comprovante->user_id)->first();
         $user = DB::table('users')->where('id', $comprovante->user_id)->first();
 
-        return view('admin.candidato.comprovante',[
-                    'dados' => $dados,
-                    'result' => $comprovante,
-                    'status' => $comprovante->status_id,
+        return view('admin.candidato.comprovante', [
+            'dados' => $dados,
+            'result' => $comprovante,
+            'status' => $comprovante->status_id,
         ]);
     }
 
     public static function statusinclude($id)
     {
-            error_reporting(0); 
-            $dados = DB::table('dados')->where('id', $id)->first();
-            $requerimento = DB::table('requerimentos')->where('id',  $id)->first();
-            $declaracao = DB::table('atestados')->where('id',  $id)->first();
-            $diploma = DB::table('diplomas')->where('id',  $id)->first();
-            $solicitacao = DB::table('solicitacao')->where('id',  $id)->first();
-            $comprovante = DB::table('comprovantes')->where('id',  $id)->first();
-            
-            $array = [
-                        'dados' => $dados,
-                        'requerimento' => $requerimento,
-                        'declaracao' => $declaracao,
-                        'diploma' => $diploma,
-                        'solicitacao' => $solicitacao,
-                        'comprovante' => $comprovante,
-            ];
-            ddd($array);
-            return $array;
+        error_reporting(0);
+        $dados = DB::table('dados')->where('id', $id)->first();
+        $requerimento = DB::table('requerimentos')->where('id',  $id)->first();
+        $declaracao = DB::table('atestados')->where('id',  $id)->first();
+        $diploma = DB::table('diplomas')->where('id',  $id)->first();
+        $solicitacao = DB::table('solicitacao')->where('id',  $id)->first();
+        $comprovante = DB::table('comprovantes')->where('id',  $id)->first();
+
+        $array = [
+            'dados' => $dados,
+            'requerimento' => $requerimento,
+            'declaracao' => $declaracao,
+            'diploma' => $diploma,
+            'solicitacao' => $solicitacao,
+            'comprovante' => $comprovante,
+        ];
+        ddd($array);
+        return $array;
     }
 }
