@@ -43,6 +43,10 @@ Route::namespace('Site')->group(function () {
 
     Route::get('verifica', 'VerificaController@index')->name('site.comprovante');
     Route::post('verifica', 'VerificaController@confirma')->name('site.verifica.confirma');
+
+    Route::get('formacao', 'FormacaoController@index')->name('site.formacao');
+    Route::get('formacao/cadastro', 'FormacaoController@cadastro')->name('site.formacao.cadastro');
+    Route::post('formacao', 'FormacaoController@form')->name('site.formacao.form');
   
 });
 

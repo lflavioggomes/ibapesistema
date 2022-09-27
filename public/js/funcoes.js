@@ -132,6 +132,23 @@ $(function () {
            $("#formdadosadmin").submit();
         });
 
+        //formação cadastro
+
+        $("#nivel").change(function(){
+            let nivel = $(this).find(':selected').data('ponto');
+
+            if(nivel != undefined)
+            {
+                $(".pontoformacao").show("slow");
+                $('#ponto').html(nivel);
+                $('#previaponto').val(nivel);
+            }else{
+                $(".pontoformacao").hide("slow");
+                $('#previaponto').val('');
+            }
+            
+        });
+
 });
 
 

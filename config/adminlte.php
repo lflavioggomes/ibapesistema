@@ -289,6 +289,12 @@ return [
     |
     */
 
+    'extensions' => [
+        'breadcrumb' => [
+            'enable' => true,
+        ]
+        ],
+
     'menu' => [
         // Navbar items:
         // [
@@ -455,6 +461,40 @@ return [
                 'url'  => 'comprovante',
                 'icon'    => 'fas fa-fw fa-barcode',
             ],
+        ],
+    ],
+
+    [
+        'text'    => 'Formação Acadêmica',
+        'icon'    => 'fas fa-fw fa-graduation-cap',
+        'can' => 'candidato',
+        'submenu' => [
+            [
+                'text' => 'Formação Profissional e Acadêmica',
+                'url'  => 'formacao',
+                'icon'    => 'fas fa-fw fa-graduation-cap',
+                'active' => ['formacao/cadastro', 'regex:@^content/[0-9]+$@'],
+            ],
+            // [
+            //     'text' => 'Divulgação de Material Técnico',
+            //     'url'  => '',
+            //     'icon'    => 'fas fa-fw fa-file',
+            // ],
+            // [
+            //     'text' => 'Trabalhos e Palestras Apresentados em Congressos e Correlatos',
+            //     'url'  => '',
+            //     'icon'    => 'fas fa-fw fa-archive',
+            // ],
+            // [
+            //     'text' => 'Trabalhos Premiados em Congressos e correlatos',
+            //     'url'  => '',
+            //     'icon'    => 'fas fa-fw fa-trophy',
+            // ],
+            // [
+            //     'text' => 'Exercício da Docência',
+            //     'url'  => '',
+            //     'icon'    => 'fas fa-fw fa-university',
+            // ],
         ],
     ],
 
