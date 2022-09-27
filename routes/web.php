@@ -47,6 +47,10 @@ Route::namespace('Site')->group(function () {
     Route::get('formacao', 'FormacaoController@index')->name('site.formacao');
     Route::get('formacao/cadastro', 'FormacaoController@cadastro')->name('site.formacao.cadastro');
     Route::post('formacao', 'FormacaoController@form')->name('site.formacao.form');
+
+    Route::get('divulgacao', 'DivulgacaoController@index')->name('site.divulgacao');
+    Route::get('divulgacao/cadastro', 'DivulgacaoController@cadastro')->name('site.divulgacao.cadastro');
+    Route::post('divulgacao', 'DivulgacaoController@form')->name('site.divulgacao.form');
   
 });
 

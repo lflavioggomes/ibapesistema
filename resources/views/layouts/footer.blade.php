@@ -2,7 +2,7 @@
     <strong>Certificação Profissional em Engenharia de Avaliações IBAPE NACIONAL</strong>
 
     <div class="float-right d-none d-sm-inline-block">
-        <b>Version</b> 1.7.1
+        <b>Version</b> 1.9.3
     </div>
 </footer>
 

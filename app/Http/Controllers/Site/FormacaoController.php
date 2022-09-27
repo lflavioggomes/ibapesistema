@@ -31,11 +31,11 @@ class FormacaoController extends Controller
     public function index()
     {
         $formacao = DB::table('formacaos')
-                    ->leftJoin('statuses', 'statuses.id', '=', 'formacaos.status_id')
-                    ->select()
-                    ->where('user_id', '=', auth()->user()->id)->get();
+            ->leftJoin('statuses', 'statuses.id', '=', 'formacaos.status_id')
+            ->select()
+            ->where('user_id', '=', auth()->user()->id)->get();
         return view('site.formacao.index', [
-                    'formacao' => $formacao
+            'formacao' => $formacao
         ]);
     }
 
@@ -51,41 +51,38 @@ class FormacaoController extends Controller
         $post = $request->all();
         $nameFile = null;
 
-        if ($request->hasFile('arquivo') && $request->file('arquivo')->isValid())
-        {
-           $name = uniqid(date('HisYmd'));
-   
-           $extension = $request->arquivo->extension();
-   
-           $nameFile = "{$name}.{$extension}";
-   
-           $upload = $request->arquivo->storeAs('formacao', $nameFile, 'public');
-   
-           if ( !$upload )
-           {
-               return redirect('/formacao')
-               ->back()
-               ->with('error', 'Falha ao fazer upload')
-               ->withInput();
-           }else{
-                   $post = $request->all();
-                   $post['arquivo'] = $nameFile;
-                   $post['user_id'] = auth()->user()->id;
-                   $post['inicio'] = Carbon::parse($post['inicio'])->format('Y-m-d');
-                   $post['termino'] = Carbon::parse($post['termino'])->format('Y-m-d');
-                   $post['status_id'] = 3; //Status Análise
-                   $dados = Formacao::create($post);
+        if ($request->hasFile('arquivo') && $request->file('arquivo')->isValid()) {
+            $name = uniqid(date('HisYmd'));
 
-                   if($dados)
-                   {
-                      toastr()->success('Formação foi enviado com sucesso', 'Sucesso');
-                      return redirect('/formacao/cadastro');
-                   }else{
-                      toastr()->error('Erro ao enviar Formação', 'Erro');
-                      return redirect('/formacao/cadastro');
-                   }
-           }
-       }
+            $extension = $request->arquivo->extension();
+
+            $nameFile = "{$name}.{$extension}";
+
+            $upload = $request->arquivo->storeAs('formacao', $nameFile, 'public');
+
+            if (!$upload) {
+                return redirect('/formacao')
+                    ->back()
+                    ->with('error', 'Falha ao fazer upload')
+                    ->withInput();
+            } else {
+                $post = $request->all();
+                $post['arquivo'] = $nameFile;
+                $post['user_id'] = auth()->user()->id;
+                $post['inicio'] = Carbon::parse($post['inicio'])->format('Y-m-d');
+                $post['termino'] = Carbon::parse($post['termino'])->format('Y-m-d');
+                $post['status_id'] = 3; //Status Análise
+                $dados = Formacao::create($post);
+
+                if ($dados) {
+                    toastr()->success('Formação foi enviado com sucesso', 'Sucesso');
+                    return redirect('/formacao/cadastro');
+                } else {
+                    toastr()->error('Erro ao enviar Formação', 'Erro');
+                    return redirect('/formacao/cadastro');
+                }
+            }
+        }
     }
 
     public static function ponto()
@@ -95,16 +92,18 @@ class FormacaoController extends Controller
 
         if ($formacao) {
             $valortotal = '';
-            foreach($formacao as $ponto)
-            {
-
+            foreach ($formacao as $ponto) {
                 $valortotal += $ponto->previaponto;
             }
-            $return = $valortotal;
+
+            if ($valortotal > 0) {
+                $return = $valortotal;
+            } else {
+                $return = 0;
+            }
         } else {
             $return = 0;
         }
         return $return;
     }
-
 }

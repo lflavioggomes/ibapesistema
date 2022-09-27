@@ -1,5 +1,4 @@
 @extends('adminlte::page')
-@section('title', 'Dashboard')
 @section('content_header')
 @section('plugins.Datatables', true)
 <h1>Formação Profissional e Acadêmica - Cadastro</h1>
