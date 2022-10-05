@@ -5,7 +5,8 @@
 @stop
 @section('content')
 <div class="row">
-    <div class="col-sm-12 col-md-12 ">
+    @include('layouts.aviso')
+    <div class="col-sm-6 col-md-6 ">
         <a class="btn btn-app btn-primary mt-3 float-sm-right" href="divulgacao/cadastro">
             <i class="fas  fa-plus" style="text-align:center;"></i> Cadastrar
         </a>
@@ -37,8 +38,8 @@
                                     <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Idioma</th>
                                     <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Meio Publicação</th>
                                     <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Publicação</th>
-                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Pontos</th>
                                     <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Status</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Pontos</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -51,8 +52,8 @@
                                     <td>{{$value->idioma}}</td>
                                     <td>{{$value->meio}}</td>
                                     <td>{{date('d-m-Y', strtotime($value->ano))}}</td>
-                                    <td>{{$value->previaponto}}</td>
                                     <td>{{$value->status}}</td>
+                                    <td>{{$value->previaponto}}</td>
                                 </tr>
                                @endforeach 
                             </tbody>

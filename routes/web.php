@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +52,18 @@ Route::namespace('Site')->group(function () {
     Route::get('divulgacao', 'DivulgacaoController@index')->name('site.divulgacao');
     Route::get('divulgacao/cadastro', 'DivulgacaoController@cadastro')->name('site.divulgacao.cadastro');
     Route::post('divulgacao', 'DivulgacaoController@form')->name('site.divulgacao.form');
+
+    Route::get('trabalho', 'TrabalhoController@index')->name('site.trabalho');
+    Route::get('trabalho/cadastro', 'TrabalhoController@cadastro')->name('site.trabalho.cadastro');
+    Route::post('trabalho', 'TrabalhoController@form')->name('site.trabalho.form');
+
+    Route::get('premiado', 'PremiadoController@index')->name('site.premiado');
+    Route::get('premiado/cadastro', 'PremiadoController@cadastro')->name('site.premiado.cadastro');
+    Route::post('premiado', 'PremiadoController@form')->name('site.premiado.form');
+
+    Route::get('docencia', 'DocenciaController@index')->name('site.docencia');
+    Route::get('docencia/cadastro', 'DocenciaController@cadastro')->name('site.docencia.cadastro');
+    Route::post('docencia', 'DocenciaController@form')->name('site.docencia.form');
   
 });
 
