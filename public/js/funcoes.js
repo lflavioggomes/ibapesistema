@@ -1,5 +1,9 @@
 $(function () {
 
+     $('.select2').select2({
+        placeholder: 'Selecione os Candidatos'
+     });
+
         // Trecho de código para dados pessoais
 
         $('.date').mask('00-00-0000', {
