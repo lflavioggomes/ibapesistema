@@ -179,9 +179,7 @@ class JulgadorController extends Controller
         {
           unset($campos['password']);
 
-          
           $result_julgador = Julgador::where('id',$post['julgador'])->update($campos);
-          
 
           if ($result_julgador) 
           {
@@ -201,7 +199,6 @@ class JulgadorController extends Controller
                 return redirect('/julgador/'.$post['julgador']);
               }
               
-           
           } else {
               toastr()->error('Erro ao cadastrar julgador', 'Erro');
               return redirect('/julgador/'.$post['julgador']);
