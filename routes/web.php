@@ -82,8 +82,12 @@ Route::namespace('Admin')->group(function () {
 
     Route::get('prequalificacao', 'CandidatoController@prequalificacao')->name('site.verifica.prequalificacao');
 
-
     Route::get('julgador', 'JulgadorController@index')->name('admin.julgador');
+    Route::get('julgador/cadastro', 'JulgadorController@cadastro')->name('admin.julgador.cadastro');
+    Route::get('julgador/{julgador}', 'JulgadorController@edit')->name('admin.julgador.edit');
+    Route::post('julgador/form', 'JulgadorController@form')->name('admin.julgador.form');
+    Route::post('julgador/formedit', 'JulgadorController@formedit')->name('admin.julgador.formedit');
+
     Route::get('perfil', 'PerfilController@index')->name('admin.perfil');
 
     
