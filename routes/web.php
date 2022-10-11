@@ -94,5 +94,9 @@ Route::namespace('Admin')->group(function () {
 
 });
 
+Route::namespace('Julgador')->group(function () {
+    Route::get('listagem', 'ListagemController@index')->name('julgador.listagem');
+});
+
 
 
