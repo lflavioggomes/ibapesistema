@@ -503,6 +503,32 @@ return [
         ],
     ],
 
+
+    //MENU JULGADOR
+    ['header' => 'Painel do Julgador - Inscrição',
+    'can' => 'julgador'    
+   ],
+
+   [
+       'text' => ' Dashboard',
+       'url'  => '/',
+       'icon' => 'fas fa-fw fa-tv',
+       'can'  => 'julgador'
+   ],
+
+  [
+   'text'    => 'Candidatos',
+   'icon'    => 'fas fa-fw fa-share',
+   'can' => 'julgador',
+   'submenu' => [
+       [
+           'text' => 'Listagem',
+           'url'  => 'listagem',
+           'icon'    => 'fas fa-fw fa-user',
+       ],
+   ],
+],
+
     ],
 
     /*
