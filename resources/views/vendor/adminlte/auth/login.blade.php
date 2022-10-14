@@ -18,10 +18,25 @@
     @php( $password_reset_url = $password_reset_url ? url($password_reset_url) : '' )
 @endif
 
-@section('auth_header', __('adminlte::adminlte.login_message'))
+@section('auth_header', __('AVISO IMPORTANTE'))
+
+<!--('auth_header', __('adminlte::adminlte.login_message')) -->
 
 @section('auth_body')
-    <form action="{{ $login_url }}" method="post">
+
+<div class="input-group mb-3">
+    <div class="input-group-append">
+        <div class="">
+           <p> As inscrições para o Exame que será realizado no dia 27/10/2022 estão encerradas.</p>
+           <p> A partir do dia 01/11/2022 as inscrições serão abertas para o exame que será realizado no dia 30/11/2022.</p>
+            
+            <p>Consulte o Regulamento na íntegra e conheça todas as etapas do Processo de Certificação Profissional em Engenharia de Avaliações.</p>
+            <p> <a href="https://ibape-nacional.com.br/site/certificacao/" target="_blank">Veja Aqui</a></p>
+        </div>
+    </div>
+</div> 
+
+   <!-- <form action="{{ $login_url }}" method="post">
         @csrf
 
         {{-- Email field --}}
@@ -80,27 +95,27 @@
             </div>
         </div>
 
-    </form>
+    </form> -->
 @stop
 
 @section('auth_footer')
-    {{-- Password reset link --}}
+    {{-- Password reset link 
     @if($password_reset_url)
         <p class="my-0">
             <a href="{{ $password_reset_url }}">
                {{ __('adminlte::adminlte.i_forgot_my_password') }}
             </a>
         </p>
-    @endif
+    @endif--}}
 
-    {{-- Register link --}}
+    {{-- Register link 
     @if($register_url)
         <p class="my-0">
             <a href="{{ $register_url }}">
                 {{ __('adminlte::adminlte.register_a_new_membership') }}
             </a>
         </p>
-    @endif
+    @endif--}}
 @stop
 
 @section('css')
