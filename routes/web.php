@@ -18,6 +18,9 @@ use Illuminate\Support\Facades\Auth;
 //     return view('welcome');
 // });
 
+
+//Auth::routes(['register' => false]);
+
 Auth::routes();
 
 Route::namespace('Site')->group(function () {

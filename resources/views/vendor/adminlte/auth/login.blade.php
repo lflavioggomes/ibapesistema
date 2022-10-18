@@ -18,13 +18,11 @@
     @php( $password_reset_url = $password_reset_url ? url($password_reset_url) : '' )
 @endif
 
-@section('auth_header', __('AVISO IMPORTANTE'))
-
-<!--('auth_header', __('adminlte::adminlte.login_message')) -->
+@section('auth_header', __('adminlte::adminlte.login_message'))
 
 @section('auth_body')
-
-<div class="input-group mb-3">
+@if( !empty($_GET['error']) == 'candidato')
+ <div class="input-group mb-3">
     <div class="input-group-append">
         <div class="">
            <p> As inscrições para o Exame que será realizado no dia 27/10/2022 estão encerradas.</p>
@@ -35,8 +33,9 @@
         </div>
     </div>
 </div> 
+@endif 
 
-   <!-- <form action="{{ $login_url }}" method="post">
+    <form action="{{ $login_url }}" method="post">
         @csrf
 
         {{-- Email field --}}
@@ -95,7 +94,7 @@
             </div>
         </div>
 
-    </form> -->
+    </form> 
 @stop
 
 @section('auth_footer')
