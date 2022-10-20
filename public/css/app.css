@@ -11028,6 +11028,10 @@ textarea.form-control-lg {
     padding: 0.25rem 1rem !important;
 }
 
+.has-treeview{
+  border-bottom: 1px ridge;
+}
+
 
 @media (max-width:1000px){
   .mobileform{

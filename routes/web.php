@@ -67,6 +67,22 @@ Route::namespace('Site')->group(function () {
     Route::get('docencia', 'DocenciaController@index')->name('site.docencia');
     Route::get('docencia/cadastro', 'DocenciaController@cadastro')->name('site.docencia.cadastro');
     Route::post('docencia', 'DocenciaController@form')->name('site.docencia.form');
+
+    Route::get('atuacao', 'AtuacaoController@index')->name('site.atuacao');
+    Route::get('atuacao/cadastro', 'AtuacaoController@cadastro')->name('site.atuacao.cadastro');
+    Route::post('atuacao', 'AtuacaoController@form')->name('site.atuacao.form');
+
+    Route::get('analise', 'AnaliseController@index')->name('site.analise');
+    Route::get('analise/cadastro', 'AnaliseController@cadastro')->name('site.analise.cadastro');
+    Route::post('analise', 'AnaliseController@form')->name('site.analise.form');
+
+    Route::get('exercicio', 'ExercicioController@index')->name('site.exercicio');
+    Route::get('exercicio/cadastro', 'ExercicioController@cadastro')->name('site.exercicio.cadastro');
+    Route::post('exercicio', 'ExercicioController@form')->name('site.exercicio.form');
+
+    Route::get('participacao', 'ParticipacaoController@index')->name('site.participacao');
+    Route::get('participacao/cadastro', 'ParticipacaoController@cadastro')->name('site.participacao.cadastro');
+    Route::post('participacao', 'ParticipacaoController@form')->name('site.participacao.form');
   
 });
 
@@ -92,9 +108,7 @@ Route::namespace('Admin')->group(function () {
     Route::post('julgador/formedit', 'JulgadorController@formedit')->name('admin.julgador.formedit');
 
     Route::get('perfil', 'PerfilController@index')->name('admin.perfil');
-
     
-
 });
 
 Route::namespace('Julgador')->group(function () {
