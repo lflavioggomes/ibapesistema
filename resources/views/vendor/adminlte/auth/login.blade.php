@@ -21,8 +21,13 @@
 @section('auth_header', __('adminlte::adminlte.login_message'))
 
 @section('auth_body')
+<<<<<<< HEAD
 
 {{-- <div class="input-group mb-3">
+=======
+@if( !empty($_GET['error']) == 'candidato')
+ <div class="input-group mb-3">
+>>>>>>> 1.9.8
     <div class="input-group-append">
         <div class="">
            <p> As inscrições para o Exame que será realizado no dia 27/10/2022 estão encerradas.</p>
@@ -32,7 +37,12 @@
             <p> <a href="https://ibape-nacional.com.br/site/certificacao/" target="_blank">Veja Aqui</a></p>
         </div>
     </div>
+<<<<<<< HEAD
 </div>  --}}
+=======
+</div> 
+@endif 
+>>>>>>> 1.9.8
 
     <form action="{{ $login_url }}" method="post">
         @csrf

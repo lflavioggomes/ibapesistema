@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class LoginController extends Controller
 {
@@ -37,4 +39,22 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    // public function login()
+    // {
+
+    //     $user = DB::table('users')->where('email', $_POST['email'])->first();
+
+    //     if($user->tipo_id == 1)
+    //     {
+    //         if (Auth::attempt(['email' => $_POST['email'], 'password' => $_POST['password']]))
+    //         {
+    //             return redirect()->intended('home');
+    //         }else{
+    //             return redirect('/login');
+    //         }                      
+    //     }else{
+    //      return redirect('/login?error=candidato');
+    //     }
+    // }
 }
