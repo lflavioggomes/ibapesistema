@@ -503,6 +503,39 @@ return [
         ],
     ],
 
+    [
+        'text'    => 'Capacidade Técnica',
+        'icon'    => 'fas fa-fw fa-gavel',
+        
+        'can' => 'candidato',
+        'submenu' => [
+            [
+                'text' => 'Tempo de Atuação',
+                'url'  => 'atuacao',
+                'icon'    => 'fas fa-fw fa-clock',
+                'active' => ['atuacao/cadastro', 'regex:@^content/[0-9]+$@'],
+            ],
+            [
+                'text' => 'Análise Curricular Certificação',
+                'url'  => 'analise',
+                'icon'    => 'fas fa-fw fa-search-plus',
+                'active' => ['analise/cadastro', 'regex:@^content/[0-9]+$@'],
+            ],
+            [
+                'text' => 'Exercício Regular da Profissão',
+                'url'  => 'exercicio',
+                'icon'    => 'fas fa-fw fa-user-md',
+                'active' => ['exercicio/cadastro', 'regex:@^content/[0-9]+$@'],
+            ],
+            [
+                'text' => 'Participação em Congressos',
+                'url'  => 'participacao',
+                'icon'    => 'fas fa-fw  fa-comment',
+                'active' => ['participacao/cadastro', 'regex:@^content/[0-9]+$@'],
+            ],
+        ],
+    ],
+
 
     //MENU JULGADOR
     ['header' => 'Painel do Julgador - Inscrição',

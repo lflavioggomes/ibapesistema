@@ -153,6 +153,63 @@ $(function () {
             
         });
 
+      // trecho de código cadastro Tempo de Atuação Profissional no Âmbito da Certificação
+
+        $('input#numero_ano').blur(function() {
+
+            let numero = $("#numero_ano").val();
+
+            if( numero > 50 )
+            {
+                $(".pontoformacao").hide("slow");
+                $('#previaponto').val('');
+                $("#total_hora").val('');
+                $("#alert").html("Número de anos não pode ser maior que 50");
+                $("#modalalert").modal();
+
+            }else if ( numero == 0 ){
+                $("#alert").html("Número de anos não pode ser 0");
+                $("#modalalert").modal();
+                $("#total_hora").val('');
+            }
+            else{
+                let result = numero * 1920;
+                $("#total_hora").val(result);
+                $(".pontoformacao").show("slow");
+                $('#ponto').html(numero);
+                $('#previaponto').val(numero);
+            }
+        });
+
+        $('.numero').keyup(function() {
+            $(this).val(this.value.replace(/\D/g, ''));
+          });
+
+     // trecho de código cadastro Análise Curricular no âmbito da Certificação
+     
+     $('input#previapontoanalise').blur(function() {
+
+        let numero = $("#previapontoanalise").val();
+
+        if( numero > 30 )
+        {
+            $(".pontoformacao").hide("slow");
+            $('#previapontoanalise').val('');
+            $("#alert").html("Número de anos não pode ser maior que 30");
+            $("#modalalert").modal();
+
+        }else if ( numero == 0 ){
+            $("#alert").html("Número de anos não pode ser 0");
+            $("#modalalert").modal();
+            $("#total_hora").val('');
+        }
+        else{
+            let result = numero * 1920;
+            $(".pontoformacao").show("slow");
+            $('#ponto').html(numero);
+        }
+    });
+
 });
 
 
