@@ -33,10 +33,21 @@
             @csrf
             <input type="hidden" name="previaponto" id="previaponto" value="">
                 <div class="card-body">
+
+                <div class="form-group">
+                    <label for="graduacao">Evento</label>
+                    <select class="form-control trabalhopremiado" id="eventopremiado" name="evento" required>
+                                <option value="">Selecione</option>
+                                <option value="Congresso">Congresso</option>
+                                <option value="Seminário">Seminário</option>
+                                <option value="Simpósio">Simpósio</option>
+                                <option value="Outros">Outros</option>
+                    </select>
+                </div>    
                     
                 <div class="form-group">
                         <label for="graduacao">Entidade</label>
-                        <select class="form-control" id="nivel" name="entidade" required>
+                        <select class="form-control trabalhopremiado" id="entidadepremiado" name="entidade" required>
                                     <option value="">Selecione</option>
                                     <option value="IBAPE/UPAV" data-ponto="3">IBAPE/UPAV</option>
                                     <option value="Outros" data-ponto="2">Outros</option>
@@ -59,17 +70,6 @@
                     <div class="form-group">
                         <label for="graduacao">Nome do Trabalho</label>
                         <input type="text" class="form-control" id="trabalho" name="trabalho" value="" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="graduacao">Evento</label>
-                        <select class="form-control" name="evento" required>
-                                    <option value="">Selecione</option>
-                                    <option value="Congresso">Congresso</option>
-                                    <option value="Seminário">Seminário</option>
-                                    <option value="Simpósio">Simpósio</option>
-                                    <option value="Outros">Outros</option>
-                        </select>
                     </div>
 
                     <div class="form-group">
