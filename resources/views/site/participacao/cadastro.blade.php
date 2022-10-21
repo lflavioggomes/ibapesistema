@@ -36,13 +36,22 @@
                     
                 <div class="form-group">
                         <label for="graduacao">Evento</label>
-                        <select class="form-control" id="nivel" name="evento" required>
+                        <select class="form-control trabalhoparticipacao" id="eventoparticipacao" name="evento" required>
                                     <option value="">Selecione</option>
                                     <option value="Congresso" data-ponto="5">Congresso</option>
                                     <option value="Seminário" data-ponto="4">Seminário</option>
                                     <option value="Cursos" data-ponto="3">Cursos</option>
                                     <option value="Outros" data-ponto="3">Outros</option>
 
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="graduacao">Entidade</label>
+                        <select class="form-control trabalhoparticipacao" id="entidadeparticipacao" name="entidade" required>
+                                    <option value="">Selecione</option>
+                                    <option value="IBAPE/UPAV" data-pontoentidade="1">IBAPE/UPAV</option>
+                                    <option value="Outros"  data-pontoentidade="1">Outros</option>
                         </select>
                     </div>
 
@@ -64,11 +73,6 @@
                     <div class="form-group">
                         <label for="graduacao">Nome do Evento</label>
                         <input type="text" class="form-control" id="nome" name="nome" value="" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="graduacao">Entidade</label>
-                        <input type="text" class="form-control" id="entidade" name="entidade" value="" required>
                     </div>
 
                     <div class="form-group">

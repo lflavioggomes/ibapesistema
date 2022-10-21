@@ -153,6 +153,344 @@ $(function () {
             
         });
 
+        // trabalho e palestras
+
+        $(".trabalho").change(function(){
+            let evento = $("#eventotrabalho").find(':selected').val();
+            let entidade = $("#entidadetrabalho").find(':selected').val();
+
+            
+            if(evento != '' && entidade != '')
+            {
+                if( entidade  == 'IBAPE/UPAV')
+                {
+                    switch (evento) {
+                        case 'Congresso':
+                                $(".pontoformacao").show("slow");
+                                $('#ponto').html(3);
+                                $('#previaponto').val(3);
+                            break;
+
+                            case 'Seminário':
+                                $(".pontoformacao").show("slow");
+                                $('#ponto').html(2);
+                                $('#previaponto').val(2);
+                            break;
+
+                            case 'Simpósio':
+                                $(".pontoformacao").show("slow");
+                                $('#ponto').html(1);
+                                $('#previaponto').val(1);
+                            break;
+
+                            case 'Outros':
+                                $(".pontoformacao").show("slow");
+                                $('#ponto').html(1);
+                                $('#previaponto').val(1);
+                            break;
+                    
+                        default:
+                                $(".pontoformacao").hide("slow");
+                                $('#previaponto').val('');
+                            break;
+                    }
+                }
+
+                if( entidade  == 'Outros')
+                {
+                    switch (evento) {
+                        case 'Congresso':
+                                $(".pontoformacao").show("slow");
+                                $('#ponto').html(2);
+                                $('#previaponto').val(2);
+                            break;
+
+                            case 'Seminário':
+                                $(".pontoformacao").show("slow");
+                                $('#ponto').html(1);
+                                $('#previaponto').val(1);
+                            break;
+
+                            case 'Simpósio':
+                                $(".pontoformacao").show("slow");
+                                $('#ponto').html(1);
+                                $('#previaponto').val(1);
+                            break;
+
+                            case 'Outros':
+                                $(".pontoformacao").show("slow");
+                                $('#ponto').html(1);
+                                $('#previaponto').val(1);
+                            break;
+                    
+                        default:
+                                $(".pontoformacao").hide("slow");
+                                $('#previaponto').val('');
+                            break;
+                    }
+                }
+               
+            }else{
+                $(".pontoformacao").hide("slow");
+                $('#previaponto').val('');
+            }
+            
+        });
+
+
+         // Trabalhos Premiados em Congressos e correlatos
+
+         $(".trabalhopremiado").change(function(){
+            let evento = $("#eventopremiado").find(':selected').val();
+            let entidade = $("#entidadepremiado").find(':selected').val();
+
+            
+            if(evento != '' && entidade != '')
+            {
+                if( entidade  == 'IBAPE/UPAV')
+                {
+                    switch (evento) {
+                        case 'Congresso':
+                                $(".pontoformacao").show("slow");
+                                $('#ponto').html(8);
+                                $('#previaponto').val(8);
+                            break;
+
+                            case 'Seminário':
+                                $(".pontoformacao").show("slow");
+                                $('#ponto').html(3);
+                                $('#previaponto').val(3);
+                            break;
+
+                            case 'Simpósio':
+                                $(".pontoformacao").show("slow");
+                                $('#ponto').html(2);
+                                $('#previaponto').val(2);
+                            break;
+
+                            case 'Outros':
+                                $(".pontoformacao").show("slow");
+                                $('#ponto').html(1);
+                                $('#previaponto').val(1);
+                            break;
+                    
+                        default:
+                                $(".pontoformacao").hide("slow");
+                                $('#previaponto').val('');
+                            break;
+                    }
+                }
+
+                if( entidade  == 'Outros')
+                {
+                    switch (evento) {
+                        case 'Congresso':
+                                $(".pontoformacao").show("slow");
+                                $('#ponto').html(3);
+                                $('#previaponto').val(3);
+                            break;
+
+                            case 'Seminário':
+                                $(".pontoformacao").show("slow");
+                                $('#ponto').html(2);
+                                $('#previaponto').val(2);
+                            break;
+
+                            case 'Simpósio':
+                                $(".pontoformacao").show("slow");
+                                $('#ponto').html(1);
+                                $('#previaponto').val(1);
+                            break;
+
+                            case 'Outros':
+                                $(".pontoformacao").show("slow");
+                                $('#ponto').html(1);
+                                $('#previaponto').val(1);
+                            break;
+                    
+                        default:
+                                $(".pontoformacao").hide("slow");
+                                $('#previaponto').val('');
+                            break;
+                    }
+                }
+               
+            }else{
+                $(".pontoformacao").hide("slow");
+                $('#previaponto').val('');
+            }
+            
+        });
+
+
+         // Exercício da Docência
+
+         $(".trabalhoexercicio").change(function(){
+            let evento = $("#exercicionivel").find(':selected').val();
+            let entidade = $("#exercicioinstituicao").find(':selected').val();
+
+            
+            if(evento != '' && entidade != '')
+            {
+                if( entidade  == 'IBAPE/UPAV')
+                {
+                    switch (evento) {
+                        case 'Curta Duração - Eng. Aval.':
+                                $(".pontoformacao").show("slow");
+                                $('#ponto').html(3);
+                                $('#previaponto').val(3);
+                            break;
+
+                            case 'Docência em Área Afins':
+                                $(".pontoformacao").show("slow");
+                                $('#ponto').html(2);
+                                $('#previaponto').val(2);
+                            break;
+
+                            case 'Especialização - Eng. Aval.':
+                                $(".pontoformacao").show("slow");
+                                $('#ponto').html(3);
+                                $('#previaponto').val(3);
+                            break;
+
+                            case 'Mestrado / Doutourado - Eng. Aval.':
+                                $(".pontoformacao").show("slow");
+                                $('#ponto').html(4);
+                                $('#previaponto').val(4);
+                            break;
+                    
+                        default:
+                                $(".pontoformacao").hide("slow");
+                                $('#previaponto').val('');
+                            break;
+                    }
+                }
+
+                if( entidade  == 'Outros')
+                {
+                    switch (evento) {
+                        case 'Curta Duração - Eng. Aval.':
+                                $(".pontoformacao").show("slow");
+                                $('#ponto').html(2);
+                                $('#previaponto').val(2);
+                            break;
+
+                            case 'Docência em Área Afins':
+                                $(".pontoformacao").show("slow");
+                                $('#ponto').html(1);
+                                $('#previaponto').val(1);
+                            break;
+
+                            case 'Especialização - Eng. Aval.':
+                                $(".pontoformacao").show("slow");
+                                $('#ponto').html(2);
+                                $('#previaponto').val(2);
+                            break;
+
+                            case 'Mestrado / Doutourado - Eng. Aval.':
+                                $(".pontoformacao").show("slow");
+                                $('#ponto').html(3);
+                                $('#previaponto').val(3);
+                            break;
+                    
+                        default:
+                                $(".pontoformacao").hide("slow");
+                                $('#previaponto').val('');
+                            break;
+                    }
+                }
+               
+            }else{
+                $(".pontoformacao").hide("slow");
+                $('#previaponto').val('');
+            }
+            
+        });
+
+        // Participação em Congressos e Correlatos
+
+        $(".trabalhoparticipacao").change(function(){
+            let evento = $("#eventoparticipacao").find(':selected').val();
+            let entidade = $("#entidadeparticipacao").find(':selected').val();
+
+            
+            if(evento != '' && entidade != '')
+            {
+                if( entidade  == 'IBAPE/UPAV')
+                {
+                    switch (evento) {
+                        case 'Congresso':
+                                $(".pontoformacao").show("slow");
+                                $('#ponto').html(5);
+                                $('#previaponto').val(5);
+                            break;
+
+                            case 'Seminário':
+                                $(".pontoformacao").show("slow");
+                                $('#ponto').html(4);
+                                $('#previaponto').val(4);
+                            break;
+
+                            case 'Cursos':
+                                $(".pontoformacao").show("slow");
+                                $('#ponto').html(4);
+                                $('#previaponto').val(4);
+                            break;
+
+                            case 'Outros':
+                                $(".pontoformacao").show("slow");
+                                $('#ponto').html(3);
+                                $('#previaponto').val(3);
+                            break;
+                    
+                        default:
+                                $(".pontoformacao").hide("slow");
+                                $('#previaponto').val('');
+                            break;
+                    }
+                }
+
+                if( entidade  == 'Outros')
+                {
+                    switch (evento) {
+                        case 'Congresso':
+                                $(".pontoformacao").show("slow");
+                                $('#ponto').html(4);
+                                $('#previaponto').val(4);
+                            break;
+
+                            case 'Seminário':
+                                $(".pontoformacao").show("slow");
+                                $('#ponto').html(3);
+                                $('#previaponto').val(3);
+                            break;
+
+                            case 'Cursos':
+                                $(".pontoformacao").show("slow");
+                                $('#ponto').html(2);
+                                $('#previaponto').val(2);
+                            break;
+
+                            case 'Outros':
+                                $(".pontoformacao").show("slow");
+                                $('#ponto').html(2);
+                                $('#previaponto').val(2);
+                            break;
+                    
+                        default:
+                                $(".pontoformacao").hide("slow");
+                                $('#previaponto').val('');
+                            break;
+                    }
+                }
+               
+            }else{
+                $(".pontoformacao").hide("slow");
+                $('#previaponto').val('');
+            }
+            
+        });
+
       // trecho de código cadastro Tempo de Atuação Profissional no Âmbito da Certificação
 
         $('input#numero_ano').blur(function() {

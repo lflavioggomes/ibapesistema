@@ -33,15 +33,28 @@
             @csrf
             <input type="hidden" name="previaponto" id="previaponto" value="">
                 <div class="card-body">
+
+                <div class="form-group">
+                    <label for="graduacao">Evento</label>
+                    <select class="form-control trabalho" id="eventotrabalho" name="evento" required>
+                                    <option value="">Selecione</option>
+                                    <option value="Congresso" data-pontoevento="2">Congresso</option>
+                                    <option value="Seminário" data-pontoevento="1">Seminário</option>
+                                    <option value="Simpósio" data-pontoevento="0">Simpósio</option>
+                                    <option value="Outros" data-pontoevento="0">Outros</option>
+                    </select>
+                </div>
                     
                 <div class="form-group">
                         <label for="graduacao">Entidade</label>
-                        <select class="form-control" id="nivel" name="entidade" required>
+                        <select class="form-control trabalho" id="entidadetrabalho" name="entidade" required>
                                     <option value="">Selecione</option>
-                                    <option value="IBAPE/UPAV" data-ponto="3">IBAPE/UPAV</option>
-                                    <option value="Outros" data-ponto="2">Outros</option>
+                                    <option value="IBAPE/UPAV" data-pontoentidade="1">IBAPE/UPAV</option>
+                                    <option value="Outros"  data-pontoentidade="1">Outros</option>
                         </select>
                     </div>
+
+                   
 
                     <div class="form-group">
                         <label for="graduacao">Avaliação</label>

@@ -33,27 +33,28 @@
             @csrf
             <input type="hidden" name="previaponto" id="previaponto" value="">
                 <div class="card-body">
-                    
+
+                    <div class="form-group">
+                        <label for="graduacao">Nível</label>
+                        <select class="form-control trabalhoexercicio" id="exercicionivel" name="nivel" required>
+                                    <option value="">Selecione</option>
+                                    <option value="Curta Duração - Eng. Aval.">Curta Duração - Eng. Aval.</option>
+                                    <option value="Docência em Área Afins">Docência em Área Afins</option>
+                                    <option value="Especialização - Eng. Aval.">Especialização - Eng. Aval.</option>
+                                    <option value="Mestrado / Doutourado - Eng. Aval.">Mestrado / Doutourado - Eng. Aval.</option>
+                        </select>
+                    </div>
+
                 <div class="form-group">
                         <label for="graduacao">Instituição</label>
-                        <select class="form-control" id="nivel" name="instituicao" required>
+                        <select class="form-control trabalhoexercicio" id="exercicioinstituicao" name="instituicao" required>
                                     <option value="">Selecione</option>
                                     <option value="IBAPE/UPAV" data-ponto="3">IBAPE/UPAV</option>
                                     <option value="Outros" data-ponto="2">Outros</option>
                         </select>
                     </div>
 
-                    <div class="form-group">
-                        <label for="graduacao">Nível</label>
-                        <select class="form-control" name="nivel" required>
-                                    <option value="">Selecione</option>
-                                    <option value="Curta Duração - Eng. Aval.">Curta Duração - Eng. Aval.</option>
-                                    <option value="Docência em Área Afins">Docência em Área Afins</option>
-                                    <option value="Especialização - Eng. Aval.">Especialização - Eng. Aval.</option>
-                                    <option value="Máq Eq Inst Industriais">Máq Eq Inst Industriais</option>
-                                    <option value="Mestrado / Doutourado - Eng. Aval.">Mestrado / Doutourado - Eng. Aval.</option>
-                        </select>
-                    </div>
+                   
                     <div class="form-group">
                         <label for="graduacao">Curso</label>
                         <input type="text" class="form-control" id="curso" name="curso" value="" required>
