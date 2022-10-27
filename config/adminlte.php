@@ -421,7 +421,7 @@ return [
         ],
 
         [
-            'text' => ' Dashboard',
+            'text' => ' Resumo Cerficicação',
             'url'  => '/',
             'icon' => 'fas fa-fw fa-tv',
             'can'  => 'candidato'
@@ -543,7 +543,7 @@ return [
    ],
 
    [
-       'text' => ' Dashboard',
+       'text' => ' Resumo Cerficicação',
        'url'  => '/',
        'icon' => 'fas fa-fw fa-tv',
        'can'  => 'julgador'

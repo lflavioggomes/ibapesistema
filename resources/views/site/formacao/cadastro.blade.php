@@ -5,6 +5,7 @@
 @stop
 @section('content')
 
+
 <div class="row">
     <div class="col-sm-12">
         <ol class="breadcrumb float-sm-right">
@@ -14,7 +15,26 @@
     </div>
 </div>
 
+
 <div class="row">  
+    <div class="col-sm-12 col-md-12">
+        <div class="card card-default col-md-6">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <i class="fas fa-bullhorn"></i>
+                    Atenção
+                </h3>
+            </div>
+    
+            <div class="card-body">
+                <div class="callout callout-danger">
+                    <p><strong> Análise curricular detalhada poderá ser solicitada pela Comissão Examinadora com esclarecimentos, inclusive presenciais.
+                        Ordenar o preenchimento, do titulo mais recente para o mais antigo.</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <div class="col-md-6">
 
         <div class="card card-primary">

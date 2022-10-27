@@ -15,6 +15,22 @@
 </div>
 
 <div class="row">  
+    <div class="col-sm-12 col-md-12">
+        <div class="card card-default col-md-6">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <i class="fas fa-bullhorn"></i>
+                    Atenção
+                </h3>
+            </div>
+    
+            <div class="card-body">
+                <div class="callout callout-danger">
+                    <p><strong> Trabalhos e Palestras apresentados em congressos, Seminários, Simpósios e correlatos na área da Certificação e publicados. Não devem ser relacionados, Trabalhos Premiados que serão relacionados no menu correspondente.</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="col-md-6">
         <div class="card card-primary">
             <div class="card-header">

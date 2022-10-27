@@ -45,25 +45,8 @@ class AtuacaoController extends Controller
     public function form(Request $request)
     {
         $post = $request->all();
-        $nameFile = null;
-
-        if ($request->hasFile('arquivo') && $request->file('arquivo')->isValid()) {
-            $name = uniqid(date('HisYmd'));
-
-            $extension = $request->arquivo->extension();
-
-            $nameFile = "{$name}.{$extension}";
-
-            $upload = $request->arquivo->storeAs('atuacao', $nameFile, 'public');
-
-            if (!$upload) {
-                return redirect('/atuacao')
-                    ->back()
-                    ->with('error', 'Falha ao fazer upload')
-                    ->withInput();
-            } else {
+      
                 $post = $request->all();
-                $post['arquivo'] = $nameFile;
                 $post['user_id'] = auth()->user()->id;
                 $post['status_id'] = 3; //Status Análise
                 $dados = Atuacao::create($post);
@@ -75,8 +58,6 @@ class AtuacaoController extends Controller
                     toastr()->error('Erro ao enviar Tempo de Atuação Profissional no Âmbito da Certificação', 'Erro');
                     return redirect('/atuacao/cadastro');
                 }
-            }
-        }
     }
 
     public static function ponto()
