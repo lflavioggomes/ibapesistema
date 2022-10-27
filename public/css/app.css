@@ -11032,6 +11032,10 @@ textarea.form-control-lg {
   border-bottom: 1px ridge;
 }
 
+.nav-item{
+  font-size: 13px !important;
+}
+
 
 @media (max-width:1000px){
   .mobileform{

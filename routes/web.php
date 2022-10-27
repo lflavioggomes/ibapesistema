@@ -51,38 +51,47 @@ Route::namespace('Site')->group(function () {
     Route::get('formacao', 'FormacaoController@index')->name('site.formacao');
     Route::get('formacao/cadastro', 'FormacaoController@cadastro')->name('site.formacao.cadastro');
     Route::post('formacao', 'FormacaoController@form')->name('site.formacao.form');
+    Route::get('formacao/ponto', 'FormacaoController@ponto')->name('site.formacao');
 
     Route::get('divulgacao', 'DivulgacaoController@index')->name('site.divulgacao');
     Route::get('divulgacao/cadastro', 'DivulgacaoController@cadastro')->name('site.divulgacao.cadastro');
     Route::post('divulgacao', 'DivulgacaoController@form')->name('site.divulgacao.form');
+    Route::get('divulgacao/ponto', 'DivulgacaoController@ponto')->name('site.divulgacao');
 
     Route::get('trabalho', 'TrabalhoController@index')->name('site.trabalho');
     Route::get('trabalho/cadastro', 'TrabalhoController@cadastro')->name('site.trabalho.cadastro');
     Route::post('trabalho', 'TrabalhoController@form')->name('site.trabalho.form');
+    Route::get('trabalho/ponto', 'TrabalhoController@ponto')->name('site.trabalho');
 
     Route::get('premiado', 'PremiadoController@index')->name('site.premiado');
     Route::get('premiado/cadastro', 'PremiadoController@cadastro')->name('site.premiado.cadastro');
     Route::post('premiado', 'PremiadoController@form')->name('site.premiado.form');
+    Route::get('premiado/ponto', 'PremiadoController@ponto')->name('site.premiado');
 
     Route::get('docencia', 'DocenciaController@index')->name('site.docencia');
     Route::get('docencia/cadastro', 'DocenciaController@cadastro')->name('site.docencia.cadastro');
     Route::post('docencia', 'DocenciaController@form')->name('site.docencia.form');
+    Route::get('docencia/ponto', 'DocenciaController@ponto')->name('site.docencia');
 
     Route::get('atuacao', 'AtuacaoController@index')->name('site.atuacao');
     Route::get('atuacao/cadastro', 'AtuacaoController@cadastro')->name('site.atuacao.cadastro');
     Route::post('atuacao', 'AtuacaoController@form')->name('site.atuacao.form');
+    Route::get('atuacao/ponto', 'AtuacaoController@ponto')->name('site.atuacao');
 
     Route::get('analise', 'AnaliseController@index')->name('site.analise');
     Route::get('analise/cadastro', 'AnaliseController@cadastro')->name('site.analise.cadastro');
     Route::post('analise', 'AnaliseController@form')->name('site.analise.form');
+    Route::get('analise/ponto', 'AnaliseController@ponto')->name('site.analise');
 
     Route::get('exercicio', 'ExercicioController@index')->name('site.exercicio');
     Route::get('exercicio/cadastro', 'ExercicioController@cadastro')->name('site.exercicio.cadastro');
     Route::post('exercicio', 'ExercicioController@form')->name('site.exercicio.form');
+    Route::get('exercicio/ponto', 'ExercicioController@ponto')->name('site.exercicio');
 
     Route::get('participacao', 'ParticipacaoController@index')->name('site.participacao');
     Route::get('participacao/cadastro', 'ParticipacaoController@cadastro')->name('site.participacao.cadastro');
     Route::post('participacao', 'ParticipacaoController@form')->name('site.participacao.form');
+    Route::get('participacao/ponto', 'ParticipacaoController@ponto')->name('site.participacao');
   
 });
 
