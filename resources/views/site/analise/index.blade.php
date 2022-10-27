@@ -33,8 +33,7 @@
                         <table id="example1" class="table table-bordered table-hover dataTable dtr-inline" aria-describedby="example2_info">
                             <thead>
                                 <tr>
-                                    <th class="sorting sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Titulo</th>
-                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Limitado</th>
+                                    <th class="sorting sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Arquivo</th>
                                     <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Status</th>
                                     <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Pontos</th>
                                 </tr>
@@ -42,10 +41,14 @@
                             <tbody>
                                 @forelse($analise as $value)
                                 <tr class="odd">
-                                    <td>{{$value->titulo}}</td>
-                                    <td>{{$value->limitado}}</td>
+                                    <td><a href="{{ url('storage/analise/'.$value->arquivo) }}" target="_blank">Ver Arquivo </a></td>
                                     <td>{{$value->status}}</td>
-                                    <td>{{$value->previaponto}}</td>
+                                    @if ($value->previaponto)
+                                        <td>{{$value->previaponto}}</td>
+                                    @else
+                                        <td>-</td>
+                                    @endif
+                                
                                 </tr>
                                @endforeach 
                             </tbody>

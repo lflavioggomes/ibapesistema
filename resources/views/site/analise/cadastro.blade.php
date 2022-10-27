@@ -14,7 +14,24 @@
     </div>
 </div>
 
-<div class="row">  
+<div class="row"> 
+    <div class="col-sm-12 col-md-12">
+        <div class="card card-default col-md-7">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <i class="fas fa-bullhorn"></i>
+                    Atenção
+                </h3>
+            </div>
+    
+            <div class="card-body">
+                <div class="callout callout-danger">
+                    <p><strong>Certifique-se de enviar um documento que demonstre sua trajetória profissional
+                        no âmbito da engenharia de avaliações.</strong></p>
+                </div>
+            </div>
+        </div>
+    </div> 
     <div class="col-md-7">
         <div class="card card-primary">
             <div class="card-header">
@@ -34,21 +51,6 @@
                 <div class="card-body">
                     <p>Limitado a 30 pontos</p>
                     
-                    <div class="form-group">
-                        <label for="graduacao">Titulo</label>
-                        <input type="text" class="form-control" id="titulo" name="titulo" value="" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="graduacao">Limitado</label>
-                        <input type="text" class="form-control" id="limitado" name="limitado" value="" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="graduacao">Pontos</label>
-                        <input type="text" class="form-control numero" id="previapontoanalise" name="previaponto" value="" required>
-                    </div>
-
                     <div class="form-group">
                         <label for="diploma">Arquivo</label>
                         <div class="input-group">

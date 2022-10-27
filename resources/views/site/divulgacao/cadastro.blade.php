@@ -15,6 +15,22 @@
 </div>
 
 <div class="row">  
+    <div class="col-sm-12 col-md-12">
+        <div class="card card-default col-md-6">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <i class="fas fa-bullhorn"></i>
+                    Atenção
+                </h3>
+            </div>
+    
+            <div class="card-body">
+                <div class="callout callout-danger">
+                    <p><strong> Ordenar o preenchimento, do tiutlo mais recente para o mais antigo</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="col-md-6">
         <div class="card card-primary">
             <div class="card-header">

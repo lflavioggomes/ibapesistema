@@ -34,9 +34,6 @@
                             <thead>
                                 <tr>
                                     <th class="sorting sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">N° de anos de atuação</th>
-                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">N° de horas / ano</th>
-                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Total de Horas</th>
-                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Área de Atuação</th>
                                     <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Status</th>
                                     <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Pontos</th>
                                 </tr>
@@ -45,9 +42,6 @@
                                 @forelse($atuacao as $value)
                                 <tr class="odd">
                                     <td>{{$value->numero_ano}}</td>
-                                    <td>{{$value->numero_hora}}</td>
-                                    <td>{{$value->total_hora}}</td>
-                                    <td>{{$value->atuacao}}</td>
                                     <td>{{$value->status}}</td>
                                     <td>{{$value->previaponto}}</td>
                                 </tr>
