@@ -92,6 +92,10 @@ Route::namespace('Site')->group(function () {
     Route::get('participacao/cadastro', 'ParticipacaoController@cadastro')->name('site.participacao.cadastro');
     Route::post('participacao', 'ParticipacaoController@form')->name('site.participacao.form');
     Route::get('participacao/ponto', 'ParticipacaoController@ponto')->name('site.participacao');
+
+    Route::get('laudo', 'LaudoController@index')->name('site.laudo');
+    Route::post('laudo/uploadlargefiles', 'LaudoController@uploadlargefiles')->name('site.laudo.uploadLargeFiles');
+    Route::get('laudo/trabalho', 'LaudoController@trabalho')->name('site.laudo.trabalho');
   
 });
 

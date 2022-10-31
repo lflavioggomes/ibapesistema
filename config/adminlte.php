@@ -563,6 +563,13 @@ return [
         ],
     ],
 
+    [
+        'text' => 'Análise de trabalhos',
+        'url'  => 'laudo',
+        'icon' => 'fas fa-fw fa-tv',
+        'can'  => 'candidato'
+    ],
+
 
     //MENU JULGADOR
     ['header' => 'Painel do Julgador - Inscrição',
