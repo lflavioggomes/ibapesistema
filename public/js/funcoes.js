@@ -550,41 +550,41 @@ $(function () {
 
         // formação academica
 
-        $.get( "formacao/ponto", function( data ) {
+        $.get( "/formacao/ponto", function( data ) {
             $( "#formacaoacademica" ).find( "span" ).html(data);
          });
 
-         $.get( "divulgacao/ponto", function( data ) {
+         $.get( "/divulgacao/ponto", function( data ) {
             $( "#materialtecnico" ).find( "span" ).html(data);
          });
 
-         $.get( "trabalho/ponto", function( data ) {
+         $.get( "/trabalho/ponto", function( data ) {
             $( "#trabalhopalestra" ).find( "span" ).html(data);
          });
 
-         $.get( "premiado/ponto", function( data ) {
+         $.get( "/premiado/ponto", function( data ) {
             $( "#trabalhopremiado" ).find( "span" ).html(data);
          });
 
-         $.get( "docencia/ponto", function( data ) {
+         $.get( "/docencia/ponto", function( data ) {
             $( "#exerciciodocencia" ).find( "span" ).html(data);
          });
 
          // capacidade tecnica
 
-         $.get( "atuacao/ponto", function( data ) {
+         $.get( "/atuacao/ponto", function( data ) {
             $( "#tempoatuacao" ).find( "span" ).html(data);
          });
 
-         $.get( "analise/ponto", function( data ) {
+         $.get( "/analise/ponto", function( data ) {
             $( "#analisecurricular" ).find( "span" ).html(data);
          });
 
-         $.get( "exercicio/ponto", function( data ) {
+         $.get( "/exercicio/ponto", function( data ) {
             $( "#exercicioregular" ).find( "span" ).html(data);
          });
 
-         $.get( "participacao/ponto", function( data ) {
+         $.get( "/participacao/ponto", function( data ) {
             $( "#participacaocongresso" ).find( "span" ).html(data);
          });
 

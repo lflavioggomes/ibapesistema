@@ -73,6 +73,11 @@ class LaudoController extends Controller
         $receiver = new FileReceiver('file', $request, HandlerFactory::classFromRequest($request));
 
         if (!$receiver->isUploaded()) {
+
+        return [
+                'error' => 1
+            ];
+            exit;
             // file not uploaded   
         }
 
@@ -84,7 +89,7 @@ class LaudoController extends Controller
             $fileName .= '_' . md5(time()) . '.' . $extension; // a unique file name
 
             $disk = Storage::disk(config('filesystems.default'));
-            $path = $disk->putFileAs('public/laudo', $file, $fileName);
+            $path = $disk->putFileAs('laudo', $file, $fileName);
 
             $post['arquivo'] = $fileName;
             $post['numero'] = 1;
