@@ -31,5 +31,7 @@
 
 @section('js')
 <script type="text/javascript" src="{{asset('js/jquery.mask.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/resumablejs@1.1.0/resumable.min.js"></script>
 <script type="text/javascript" src="{{asset('js/funcoes.js')}}"></script>
+
 @stop

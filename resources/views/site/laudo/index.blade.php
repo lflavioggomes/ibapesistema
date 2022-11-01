@@ -89,9 +89,14 @@
 
 
 </div>
+
+
+@include('layouts.footer')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/resumablejs@1.1.0/resumable.min.js"></script>
-@section('js')
+
 <script type="text/javascript">
+
     let browseFile = $('#browseFile');
          let resumable = new Resumable({
              target: 'laudo/uploadlargefiles',
@@ -142,7 +147,7 @@
              alert(file)
          });
      
-     
+            
          let progress = $('.progress');
          function showProgress() {
              progress.find('.progress-bar').css('width', '0%');
@@ -160,7 +165,6 @@
              progress.hide();
          }
 </script>
-@stop
-@include('layouts.footer')
+
 
 @stop
