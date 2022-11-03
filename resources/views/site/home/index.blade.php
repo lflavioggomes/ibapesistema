@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 @section('content_header')
-<h1>DashBoard</h1>
+<h1>Resumo</h1>
 @stop
 
 @section('content')
@@ -147,7 +147,7 @@
 @elsecan('candidato')
 <p class="mt-3">Bem vindo candidato(a).</p>
 
-<div class="col-md-12">
+{{-- <div class="col-md-12">
     <div class="card card-default">
         <div class="card-header">
             <h3 class="card-title">
@@ -172,9 +172,9 @@ Comprovante de Pagamento.</p>
 
     </div>
 
-</div>
+</div> --}}
 
-<div class="card col-md-6">
+<div class="card col-md-12">
     <div class="card-header">
         <h3 class="card-title">Pré-Qualificação</h3>
         <div class="card-tools">

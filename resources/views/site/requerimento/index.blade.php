@@ -37,10 +37,8 @@ endif;
             <div class="card-body">
                 <h6 class="card-title"></h6>
                 <p class="card-text">Eu <strong>{{$nome}},</strong> </p>
-                <p class="card-text">{{$dados->formacao}} CREA/CAU {{$dados->crea}}</p>
-                <p class="card-text">residente {{$dados->cidade.' - '.$dados->estado}}, </p>
-                <p class="card-text">vem na oportunidade requerer ao Instituto Brasileiro de Engenharia de Avaliações e Perícias.  </p>
-                <p class="card-text">a outorga do Certificado em Engenharia de Avaliações, </p>
+                <p class="card-text">{{$dados->formacao}}, Registro no órgão de classe {{$dados->crea}} residente em {{$dados->cidade.' - '.$dados->estado}}.</p>
+                <p class="card-text">Vem na oportunidade requerer ao Instituto Brasileiro de Engenharia de Avaliações e Perícias, a outorga do Certificado em Engenharia de Avaliações, </p>
                 <p class="card-text">conforme o Regulamento do IBAPE.</p>
                 <form method="POST" action="{{route('site.requerimento.form')}}">
                 @csrf

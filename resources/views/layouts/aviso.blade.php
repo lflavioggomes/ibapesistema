@@ -1,4 +1,4 @@
-<div class="col-sm-6 col-md-6 ">
+<div class="col-sm-6 col-md-12" style="padding-left: 0px !important;">
     <div class="card card-default">
         <div class="card-header">
             <h3 class="card-title">
@@ -10,7 +10,14 @@
         <div class="card-body">
             <div class="callout callout-danger">
                 <p>Os Pontos estão sujeitos a avaliação de nossos Julgadores</strong></p>
-                <p><strong><a href="#" data-toggle="modal" data-target="#exampleModal">Clique para saber mais</a></strong></p>
+                <div class="col-sm-12">
+                    <p>Entenda os Status:</p>
+                    <ul>
+                      <li>Aprovado - Pontos serão somados.</li>
+                      <li>Reprovado - Pontos não serão somados.</li>
+                      <li>Análise - Pontos em avaliação pelo Julgador</li>
+                    </ul>
+                 </div>
             </div>
         </div>
 

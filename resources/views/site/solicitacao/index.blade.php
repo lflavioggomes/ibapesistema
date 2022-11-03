@@ -36,10 +36,8 @@ endif;
             <div class="card-body">
                 <h6 class="card-title"></h6>
                 <p class="card-text">Eu <strong>{{$nome}},</strong> </p>
-                <p class="card-text">{{$dados->formacao}} CREA/CAU {{$dados->crea}}</p>
-                <p class="card-text">residente {{$dados->cidade.' - '.$dados->estado}}, </p>
-                <p class="card-text">vem na oportunidade solicitar</p>
-                <p class="card-text">acomodação de necessidades especiais no local do exame. </p>
+                <p class="card-text">{{$dados->formacao}}, Registro no órgão de classe {{$dados->crea}}, residente em {{$dados->cidade.' - '.$dados->estado}}.</p>
+                <p class="card-text">Vem na oportunidade solicitar acomodação de necessidades especiais no local do exame.</p>
                 <form method="POST" action="{{route('site.solicitacao.form')}}" id="enviasolicitacao">
                 @csrf
                 <input type="hidden" name="aceita" value="" id="solicitacao">
