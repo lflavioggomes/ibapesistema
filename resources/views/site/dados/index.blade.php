@@ -1,10 +1,10 @@
 @extends('adminlte::page')
 @section('content_header')
-
 <h1>Dados Pessoais Candidato</h1>
 @stop
-
+@section('plugins.Datatables', true)
 @section('content')
+
 @php
 if( empty($result->status_id) || $result->status_id == 2 ):
 @endphp

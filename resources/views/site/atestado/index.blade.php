@@ -37,11 +37,10 @@ endif;
             <div class="card-body">
                 <h6 class="card-title"></h6>
                 <p class="card-text">Eu <strong>{{$nome}},</strong> </p>
-                <p class="card-text">{{$dados->formacao}} CREA/CAU {{$dados->crea}}, CPF {{$result->cpf}}</p>
-                <p class="card-text">residente {{$dados->cidade.' - '.$dados->estado}}, </p>
-                <p class="card-text">declaro que não existem processos administrativos, judiciais ou disciplinares   </p>
-                <p class="card-text">decorrentes do exercício da minha atividade como {{$dados->formacao}}, e, </p>
-                <p class="card-text">em particular, no exercício de funções na área de Engenharia de Avaliações. </p>
+                <p class="card-text">{{$dados->formacao}}, Registro no órgão de classe {{$dados->crea}}, CPF {{$dados->cpf}} residente em {{$dados->cidade.' - '.$dados->estado}}.</p>
+                <p class="card-text">Declaro que não existem processos administrativos, judiciais ou disciplinares,   </p>
+                <p class="card-text">decorrentes do exercício da minha atividade como {{$dados->formacao}}, e, em particular no exercício</p>
+                <p class="card-text"> de funções na área de Engenharia de Avaliações. </p>
                 <form method="POST" action="{{route('site.atestado.form')}}">
                 @csrf
                 <input type="hidden" name="solicitacao" value="1">

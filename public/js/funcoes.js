@@ -1,3 +1,5 @@
+//const { Alert } = require("bootstrap");
+
 $(function () {
 
      $('.select2').select2({
@@ -36,7 +38,60 @@ $(function () {
             });
         });
 
-        //Trecho de código para solicitação justificada
+        $('#cpf').blur(function() {
+            var exp = /\.|\-/g;
+            
+            var cpf = $('#cpf').val().replace(exp,'').toString();
+            
+            if(cpf.length == 11 ){
+            
+            var v = [];
+        
+            //Calcula o primeiro dígito de verificação.
+            v[0] = 1 * cpf[0] + 2 * cpf[1] + 3 * cpf[2];
+            v[0] += 4 * cpf[3] + 5 * cpf[4] + 6 * cpf[5];
+            v[0] += 7 * cpf[6] + 8 * cpf[7] + 9 * cpf[8];
+            v[0] = v[0] % 11;
+            v[0] = v[0] % 10;
+        
+            //Calcula o segundo dígito de verificação.
+            v[1] = 1 * cpf[1] + 2 * cpf[2] + 3 * cpf[3];
+            v[1] += 4 * cpf[4] + 5 * cpf[5] + 6 * cpf[6];
+            v[1] += 7 * cpf[7] + 8 * cpf[8] + 9 * v[0];
+            v[1] = v[1] % 11;
+            v[1] = v[1] % 10;
+        
+            //Retorna Verdadeiro se os dígitos de verificação são os esperados.
+                    
+            if ((v[0] != cpf[9]) || (v[1] != cpf[10]))
+            {
+                $("#alert").html('CPF inválido - ' + cpf);
+                $("#modalalert").modal();
+                $("#cpf").val('');
+                return false;
+            }
+            
+            else if (cpf[0] == cpf[1] && cpf[1] == cpf[2] && cpf[2] == cpf[3] && cpf[3] == cpf[4] && cpf[4] == cpf[5] && cpf[5] == cpf[6] && cpf[6] == cpf[7] && cpf[7] == cpf[8] && cpf[8] == cpf[9] && cpf[9] == cpf[10])
+            {
+                $("#alert").html('CPF inválido - ' + cpf);
+                $("#modalalert").modal();
+                $("#cpf").val('');
+                return false;
+            }        
+             else
+             {
+               return true
+             }       
+            }else
+             {
+                $("#alert").html('CPF inválido - ' + cpf);
+                $("#modalalert").modal();
+                $("#cpf").val('');
+                return false
+            } 
+        });   
+
+       //Trecho de código para solicitação justificada
 
         $("#solicitar").click(function(){
             $("#solicitacao").val(1);
@@ -550,46 +605,44 @@ $(function () {
 
         // formação academica
 
-        $.get( "/formacao/ponto", function( data ) {
+        $.get( "formacao/ponto", function( data ) {
             $( "#formacaoacademica" ).find( "span" ).html(data);
          });
 
-         $.get( "/divulgacao/ponto", function( data ) {
+         $.get( "divulgacao/ponto", function( data ) {
             $( "#materialtecnico" ).find( "span" ).html(data);
          });
 
-         $.get( "/trabalho/ponto", function( data ) {
+         $.get( "trabalho/ponto", function( data ) {
             $( "#trabalhopalestra" ).find( "span" ).html(data);
          });
 
-         $.get( "/premiado/ponto", function( data ) {
+         $.get( "premiado/ponto", function( data ) {
             $( "#trabalhopremiado" ).find( "span" ).html(data);
          });
 
-         $.get( "/docencia/ponto", function( data ) {
+         $.get( "docencia/ponto", function( data ) {
             $( "#exerciciodocencia" ).find( "span" ).html(data);
          });
 
          // capacidade tecnica
 
-         $.get( "/atuacao/ponto", function( data ) {
+         $.get( "atuacao/ponto", function( data ) {
             $( "#tempoatuacao" ).find( "span" ).html(data);
          });
 
-         $.get( "/analise/ponto", function( data ) {
+         $.get( "analise/ponto", function( data ) {
             $( "#analisecurricular" ).find( "span" ).html(data);
          });
 
-         $.get( "/exercicio/ponto", function( data ) {
+         $.get( "exercicio/ponto", function( data ) {
             $( "#exercicioregular" ).find( "span" ).html(data);
          });
 
-         $.get( "/participacao/ponto", function( data ) {
+         $.get( "participacao/ponto", function( data ) {
             $( "#participacaocongresso" ).find( "span" ).html(data);
          });
 
-
-      
 });
 
 
@@ -597,3 +650,10 @@ function maiuscula(z) {
     v = z.value.toUpperCase();
     z.value = v;
 }
+
+
+    
+            
+    
+        
+

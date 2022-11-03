@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'use_ico_only' => false,
+    'use_ico_only' => true,
     'use_full_favicon' => false,
 
     /*
@@ -63,7 +63,7 @@ return [
     |
     */
 
-    'logo' => '<b style="font-weight: 900; color:#275289 !important;">IBAPE NACIONAL</b>',
+    'logo' => '<b style="color:#fff !important;font-size: 15px;">IBAPE NACIONAL</b>',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -89,8 +89,8 @@ return [
             'path' => 'vendor/adminlte/dist/img/AdminLTELogonovo.png',
             'alt' => 'Auth Logo',
             'class' => '',
-            'width' => 100,
-            'height' => 100,
+            'width' => 200,
+            'height' => 200,
         ],
     ],
 
@@ -110,7 +110,7 @@ return [
         'enabled' => true,
         'img' => [
             'path' => 'vendor/adminlte/dist/img/AdminLTELogonovo.png',
-            'alt' => 'AdminLTE Preloader Image',
+            'alt' => 'IBAPE NACIONAL',
             'effect' => 'animation__shake',
             'width' => 365,
             'height' => 134,
@@ -129,7 +129,7 @@ return [
     |
     */
 
-    'usermenu_enabled' => true,
+    'usermenu_enabled' => false,
     'usermenu_header' => false,
     'usermenu_header_class' => 'bg-primary',
     'usermenu_image' => false,
@@ -148,7 +148,7 @@ return [
     |
     */
 
-    'layout_topnav' => null,
+    'layout_topnav' => 'navbar-expand-lg',
     'layout_boxed' => null,
     'layout_fixed_sidebar' => null,
     'layout_fixed_navbar' => null,
@@ -305,7 +305,7 @@ return [
         // ],
         [
             'type'         => 'fullscreen-widget',
-            'topnav_right' => true,
+            'topnav_right' => false,
         ],
         // [
         //     'type'         => 'navbar-notification',
@@ -421,7 +421,7 @@ return [
         ],
 
         [
-            'text' => ' Resumo Cerficicação',
+            'text' => ' Resumo',
             'url'  => '/',
             'icon' => 'fas fa-fw fa-tv',
             'can'  => 'candidato'
@@ -436,137 +436,166 @@ return [
                 'text' => 'Dados Pessoais',
                 'url'  => 'dados',
                 'icon'    => 'fas fa-fw fa-user',
+                'shift'   => 'ml-2',
+                //'label'       => ' aprovado',
+               // 'label_color' => 'success',
             ],
             [
                 'text' => 'Requerimento',
                 'url'  => 'requerimento',
                 'icon'    => 'fas fa-fw fa-book',
+                'shift'   => 'ml-2',
             ],
             [
                 'text' => 'Declaração de regularidade',
                 'url'  => 'atestado',
                 'icon'    => 'fas fa-clone',
+                'shift'   => 'ml-2',
+               // 'label'       => ' aprovado',
+               // 'label_color' => 'success',
             ],
             [
                 'text' => 'Diploma de Graduação',
                 'url'  => 'diploma',
                 'icon'    => 'fas fa-fw fa-university',
+                'shift'   => 'ml-2',
             ],
             [
                 'text' => 'Solicitação justificada',
                 'url'  => 'solicitacao',
                 'icon'    => 'fas fa-wheelchair',
+                'shift'   => 'ml-2',
             ],
             [
                 'text' => 'Dados para Pagamento',
                 'url'  => 'comprovante',
                 'icon'    => 'fas fa-fw fa-barcode',
+                'shift'   => 'ml-2',
             ],
         ],
     ],
 
     [
-        'text'    => 'Formação Acadêmica',
+        'text'    => ' 1 - Formação Acadêmica',
         'icon'    => 'fas fa-fw fa-graduation-cap',
         'can' => 'candidato',
+        'class' => 'teste',
         'submenu' => [
             [
-                'text' => 'Profissional e Acadêmica',
+                'text' => '1.1 - Profissional e Acadêmica',
                 'url'  => 'formacao',
                 'icon'    => 'fas fa-fw fa-graduation-cap',
                 'active' => ['formacao/cadastro', 'regex:@^content/[0-9]+$@'],
                 'label'       => 0,
                 'label_color' => 'success',
                 'id'           => 'formacaoacademica',
+                'shift'   => 'ml-2',
             ],
             [
-                'text' => 'Material Técnico',
+                'text' => '1.2 - Material Técnico',
                 'url'  => 'divulgacao',
                 'icon'    => 'fas fa-fw fa-file',
                 'active' => ['divulgacao/cadastro', 'regex:@^content/[0-9]+$@'],
                 'label'       => 0,
                 'label_color' => 'success',
                 'id'           => 'materialtecnico',
+                'shift'   => 'ml-2',
             ],
             [
-                'text' => 'Trabalhos e Palestras Apresentados em Congressos e Correlatos',
+                'text' => '1.3 - Trabalhos e Palestras Apresentados em Congressos e Correlatos',
                 'url'  => 'trabalho',
                 'icon'    => 'fas fa-fw fa-archive',
                 'active' => ['trabalho/cadastro', 'regex:@^content/[0-9]+$@'],
                 'label'       => 0,
                 'label_color' => 'success',
                 'id'           => 'trabalhopalestra',
+                'shift'   => 'ml-2',
             ],
             [
-                'text' => 'Trabalhos Premiados em Congressos e correlatos',
+                'text' => '1.4 Trabalhos Premiados em Congressos e correlatos',
                 'url'  => 'premiado',
                 'icon'    => 'fas fa-fw fa-trophy',
                 'active' => ['premiado/cadastro', 'regex:@^content/[0-9]+$@'],
                 'label'       => 0,
                 'label_color' => 'success',
                 'id'           => 'trabalhopremiado',
+                'shift'   => 'ml-2',
             ],
             [
-                'text' => 'Exercício da Docência',
+                'text' => '1.5 Exercício da Docência',
                 'url'  => 'docencia',
                 'icon'    => 'fas fa-fw fa-university',
                 'active' => ['docencia/cadastro', 'regex:@^content/[0-9]+$@'],
                 'label'       => 0,
                 'label_color' => 'success',
                 'id'           => 'exerciciodocencia',
+                'shift'   => 'ml-2',
             ],
         ],
     ],
 
     [
-        'text'    => 'Capacidade Técnica',
+        'text'    => ' 2 - Capacidade Técnica',
         'icon'    => 'fas fa-fw fa-gavel',
         
         'can' => 'candidato',
+        
         'submenu' => [
             [
-                'text' => 'Tempo de Atuação',
+                'text' => '2.1 Tempo de Atuação',
                 'url'  => 'atuacao',
                 'icon'    => 'fas fa-fw fa-clock',
                 'active' => ['atuacao/cadastro', 'regex:@^content/[0-9]+$@'],
                 'label'       => 0,
                 'label_color' => 'success',
                 'id'           => 'tempoatuacao',
+                'shift'   => 'ml-2',
             ],
             [
-                'text' => 'Análise Curricular',
+                'text' => '2.2 Análise Curricular',
                 'url'  => 'analise',
                 'icon'    => 'fas fa-fw fa-search-plus',
                 'active' => ['analise/cadastro', 'regex:@^content/[0-9]+$@'],
                 'label'       => 0,
                 'label_color' => 'success',
                 'id'           => 'analisecurricular',
+                'shift'   => 'ml-2',
             ],
             [
-                'text' => 'Exercício Regular',
+                'text' => '2.3 Exercício Regular',
                 'url'  => 'exercicio',
                 'icon'    => 'fas fa-fw fa-user-md',
                 'active' => ['exercicio/cadastro', 'regex:@^content/[0-9]+$@'],
                 'label'       => 0,
                 'label_color' => 'success',
                 'id'           => 'exercicioregular',
+                'shift'   => 'ml-2',
             ],
             [
-                'text' => 'Part. em Congressos',
+                'text' => '2.4 Part. em Congressos',
                 'url'  => 'participacao',
                 'icon'    => 'fas fa-fw  fa-comment',
                 'active' => ['participacao/cadastro', 'regex:@^content/[0-9]+$@'],
                 'label'       => 0,
                 'label_color' => 'success',
                 'id'           => 'participacaocongresso',
+                'shift'   => 'ml-2',
             ],
         ],
     ],
 
     [
-        'text' => 'Análise de trabalhos',
+        'text' => ' 3 - Análise de trabalhos',
         'url'  => 'laudo',
         'icon' => 'fas fa-fw fa-tv',
+        'can'  => 'candidato',
+        'id'   => 'finalizarprocesso',
+    ],
+
+    [
+        'text' => ' 4 - Finalizar',
+        'url'  => '#',
+        'icon' => 'fas fa-fw fa-check-square',
         'can'  => 'candidato'
     ],
 
@@ -577,7 +606,7 @@ return [
    ],
 
    [
-       'text' => ' Resumo Cerficicação',
+       'text' => ' Resumo Certificação',
        'url'  => '/',
        'icon' => 'fas fa-fw fa-tv',
        'can'  => 'julgador'

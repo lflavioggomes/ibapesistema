@@ -1,19 +1,19 @@
 @extends('adminlte::page')
 @section('content_header')
 @section('plugins.Datatables', true)
-<h1>Formação Profissional e Acadêmica</h1>
+<h1>1.1 - Formação Profissional e Acadêmica</h1>
 @stop
 
 @section('content')
 
 <div class="row">
-    @include('layouts.aviso')
-    <div class="col-sm-6 col-md-6 ">
-        <a class="btn btn-app btn-primary mt-3 float-sm-right" href="formacao/cadastro">
+   
+    <div class="col-sm-6 col-md-6">
+        <a class="btn btn-app btn-primary mt-3 float-sm-left" href="formacao/cadastro">
             <i class="fas  fa-plus" style="text-align:center;"></i> Cadastrar
         </a>
 
-        <a class="btn btn-app bg-success mt-3 float-sm-right">
+        <a class="btn btn-app bg-success mt-3 float-sm-left">
             <i class="fas">{{ App\Http\Controllers\Site\FormacaoController::ponto()}}</i> Pontos
         </a>
     </div>
@@ -62,7 +62,7 @@
         </div>
 
     </div>
-
+    @include('layouts.aviso')
 
 </div>
 
