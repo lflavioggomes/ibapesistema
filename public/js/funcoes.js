@@ -2,6 +2,19 @@
 
 $(function () {
 
+let text = window.location.pathname;
+const myArray = text.split("/");
+
+var urlstring = '';
+if(myArray[1] == 'ibapesistema')
+{
+    var urlstring =  '/ibapesistema/public/';
+}else{
+    var urlstring =  '/';
+}
+
+    $("#textototal").hide();
+
      $('.select2').select2({
         placeholder: 'Selecione os Candidatos'
      });
@@ -566,11 +579,20 @@ $(function () {
                 $("#total_hora").val('');
             }
             else{
+                let numeroreal = '';
+                
+                if(numero > 20)
+                {
+                     numeroreal = 20;
+                }else{
+                     numeroreal = numero;
+                }
+                
                 let result = numero * 1920;
                 $("#total_hora").val(result);
                 $(".pontoformacao").show("slow");
-                $('#ponto').html(numero);
-                $('#previaponto').val(numero);
+                $('#ponto').html(numeroreal);
+                $('#previaponto').val(numeroreal);
             }
         });
 
@@ -605,42 +627,63 @@ $(function () {
 
         // formação academica
 
-        $.get( "formacao/ponto", function( data ) {
+        $.get( urlstring+"formacao/ponto", function( data ) {
             $( "#formacaoacademica" ).find( "span" ).html(data);
          });
 
-         $.get( "divulgacao/ponto", function( data ) {
+         $.get( urlstring+"divulgacao/ponto", function( data ) {
             $( "#materialtecnico" ).find( "span" ).html(data);
          });
 
-         $.get( "trabalho/ponto", function( data ) {
+         $.get( urlstring+"trabalho/ponto", function( data ) {
             $( "#trabalhopalestra" ).find( "span" ).html(data);
          });
 
-         $.get( "premiado/ponto", function( data ) {
+         $.get( urlstring+"premiado/ponto", function( data ) {
             $( "#trabalhopremiado" ).find( "span" ).html(data);
          });
 
-         $.get( "docencia/ponto", function( data ) {
+         $.get( urlstring+"docencia/ponto", function( data ) {
             $( "#exerciciodocencia" ).find( "span" ).html(data);
          });
 
          // capacidade tecnica
 
-         $.get( "atuacao/ponto", function( data ) {
+         $.get( urlstring+"atuacao/ponto", function( data ) {
             $( "#tempoatuacao" ).find( "span" ).html(data);
          });
 
-         $.get( "analise/ponto", function( data ) {
+         $.get( urlstring+"analise/ponto", function( data ) {
             $( "#analisecurricular" ).find( "span" ).html(data);
          });
 
-         $.get( "exercicio/ponto", function( data ) {
+         $.get( urlstring+"exercicio/ponto", function( data ) {
             $( "#exercicioregular" ).find( "span" ).html(data);
          });
 
-         $.get( "participacao/ponto", function( data ) {
+         $.get( urlstring+"participacao/ponto", function( data ) {
             $( "#participacaocongresso" ).find( "span" ).html(data);
+         });
+
+         $.get( urlstring+"total/total", function( data ) {
+            $( "#totalpontos" ).find( "span" ).html(data);
+            if(data >= 70)
+            {
+                $("#textototal").show();
+            }
+         });
+
+         $.get( urlstring+"total/totalcapacidade", function( data ) {
+            $( "#totalpontosdois" ).find( "span" ).html(data);
+            if(data >= 70)
+            {
+                $("#textototal").show();
+            }
+         });
+
+         $("#finalizarprocesso").click(function(){
+            $("#alertfinaliza").html('Deseja Finalizar o processo de certificação?');
+            $("#modalfinaliza").modal();
          });
 
 });

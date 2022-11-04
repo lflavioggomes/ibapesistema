@@ -49,7 +49,7 @@
             @csrf
             <input type="hidden" name="previaponto" id="previaponto" value="">
                 <div class="card-body">
-                    
+                    <p>Limitado a 30 pontos</p>
                 <div class="form-group">
                         <label for="graduacao">Evento</label>
                         <select class="form-control trabalhoparticipacao" id="eventoparticipacao" name="evento" required>

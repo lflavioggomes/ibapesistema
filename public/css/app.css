@@ -11036,6 +11036,17 @@ textarea.form-control-lg {
   font-size: 14px !important;
 }
 
+#totalpontosdois{
+  background: #ccc;
+}
+
+#totalpontos{
+  background: #ccc;
+}
+
+#textototal{
+  background: #ccc;
+}
 
 @media (max-width:1000px){
   .mobileform{

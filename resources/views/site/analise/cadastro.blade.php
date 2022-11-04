@@ -48,6 +48,7 @@
 
             <form method="POST" action="{{route('site.analise.form')}}" enctype="multipart/form-data">
             @csrf
+            <input type="hidden" name="previaponto" id="previaponto" value="30">
                 <div class="card-body">
                     <p>Limitado a 30 pontos</p>
                     

@@ -17,11 +17,36 @@
     </div>
 </div>
 
+
+<div class="modal fade bd-example-modal-lg" id="modalfinaliza" tabindex="-1" role="dialog" aria-labelledby="modalalertLabel">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLabel">    <i class="fas fa-bullhorn"></i> Atenção</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="col-sm-12">
+                    <p>Deseja finalizar o processo de Certificação?</p>
+                    <p>Ao finalizar o processo não poderá ser enviado mais nenhuma informação.</p>
+                </div>
+                <div class="card-footer">
+                  
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
+                <button type="submit" class="btn btn-primary">Sim</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <footer class="main-footer">
     <strong>Certificação Profissional em Engenharia de Avaliações IBAPE NACIONAL</strong>
 
     <div class="float-right d-none d-sm-inline-block">
-        <b>Version</b> 1.10.3
+        <b>Version</b> 1.11.4
     </div>
 </footer>
 

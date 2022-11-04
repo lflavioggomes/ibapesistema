@@ -531,6 +531,23 @@ return [
                 'id'           => 'exerciciodocencia',
                 'shift'   => 'ml-2',
             ],
+
+            [
+                'text' => 'Item 1 - Total',
+                'url'  => '#',
+                'icon'    => 'fas fa-fw fa-graduation-cap',
+                'label'       => 0,
+                'label_color' => 'success',
+                'id'           => 'totalpontos',
+                'shift'   => 'ml-2',
+            ],
+
+            [
+                'text' => '(pontuação máxima para o item)',
+                'url'  => '#',
+                'id'           => 'textototal',
+                'shift'   => 'ml-2',
+            ],
         ],
     ],
 
@@ -581,6 +598,16 @@ return [
                 'id'           => 'participacaocongresso',
                 'shift'   => 'ml-2',
             ],
+
+            [
+                'text' => 'Item 2 - Total',
+                'url'  => '#',
+                'icon'    => 'fas fa-fw fa-gavel',
+                'label'       => 0,
+                'label_color' => 'success',
+                'id'           => 'totalpontosdois',
+                'shift'   => 'ml-2',
+            ],
         ],
     ],
 
@@ -589,14 +616,14 @@ return [
         'url'  => 'laudo',
         'icon' => 'fas fa-fw fa-tv',
         'can'  => 'candidato',
-        'id'   => 'finalizarprocesso',
     ],
 
     [
         'text' => ' 4 - Finalizar',
         'url'  => '#',
         'icon' => 'fas fa-fw fa-check-square',
-        'can'  => 'candidato'
+        'can'  => 'candidato',
+        'id'   => 'finalizarprocesso',
     ],
 
 
