@@ -6,12 +6,10 @@
 @stop
 
 @section('content')
-
-
 <div class="row">
-    @include('layouts.aviso')
+    
     <div class="col-sm-6 col-md-6 ">
-        <a class="btn btn-app bg-success mt-3 float-sm-right">
+        <a class="btn btn-app bg-success mt-3 float-sm-left">
             <i class="fas">0</i> Pontos
         </a>
     </div>
@@ -86,8 +84,7 @@
         </div>
 
     </div>
-
-
+    @include('layouts.aviso')
 </div>
 
 

@@ -72,7 +72,12 @@ class AtuacaoController extends Controller
             }
 
             if ($valortotal > 0) {
-                $return = $valortotal;
+                    if($valortotal > 20)
+                    {
+                        $return = 20;
+                    }else{
+                        $return = $valortotal;
+                    }
             } else {
                 $return = 0;
             }

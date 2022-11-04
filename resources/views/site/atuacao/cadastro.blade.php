@@ -46,6 +46,7 @@
             <input type="hidden" name="previaponto" id="previaponto" value="">
                 <div class="card-body">
                     <p>Deverá ser informado o n° de anos de experiência na atividade no âmbito da Certificação</p>
+                    <p>Limitado a 20 pontos</p>
 
                     <div class="form-group">
                         <label for="graduacao">N° de anos de atuação</label>

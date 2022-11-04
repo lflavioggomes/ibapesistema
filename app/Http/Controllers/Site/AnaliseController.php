@@ -91,7 +91,12 @@ class AnaliseController extends Controller
             }
 
             if ($valortotal > 0) {
-                $return = $valortotal;
+                if($valortotal > 30)
+                {
+                    $return = 30;
+                }else{
+                    $return = $valortotal;
+                }
             } else {
                 $return = 0;
             }

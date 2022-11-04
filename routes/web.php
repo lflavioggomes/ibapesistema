@@ -96,6 +96,9 @@ Route::namespace('Site')->group(function () {
     Route::get('laudo', 'LaudoController@index')->name('site.laudo');
     Route::post('laudo/uploadlargefiles', 'LaudoController@uploadlargefiles')->name('site.laudo.uploadLargeFiles');
     Route::get('laudo/trabalho', 'LaudoController@trabalho')->name('site.laudo.trabalho');
+
+    Route::get('total/total', 'TotalController@total')->name('site.total');
+    Route::get('total/totalcapacidade', 'TotalController@totalcapacidade')->name('site.total');
   
 });
 

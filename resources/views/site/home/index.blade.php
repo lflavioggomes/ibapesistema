@@ -1,5 +1,6 @@
 @extends('adminlte::page')
 @section('content_header')
+@section('plugins.Datatables', true)
 <h1>Resumo</h1>
 @stop
 
