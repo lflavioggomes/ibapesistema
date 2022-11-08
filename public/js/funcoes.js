@@ -13,6 +13,19 @@ if(myArray[1] == 'ibapesistema')
     var urlstring =  '/';
 }
 
+// Verifica se candidato finalizou
+
+$.get( urlstring+"finaliza/verifica", function( data ) {
+    if(data == 1)
+    {
+       $("#cadastroplus").attr("href", "#")
+       // $("#cadastroplus").addClass("isDisabled");
+       $("#browseFile").attr("disabled", true);
+    }
+ });
+
+
+
     $("#textototal").hide();
 
      $('.select2').select2({
@@ -682,9 +695,33 @@ if(myArray[1] == 'ibapesistema')
          });
 
          $("#finalizarprocesso").click(function(){
-            $("#alertfinaliza").html('Deseja Finalizar o processo de certificação?');
-            $("#modalfinaliza").modal();
+
+            $.get( urlstring+"finaliza/verifica", function( data ) {
+                if(data == 1)
+                {
+                 $("#alert").html("Documentação já foi finalizada");
+                 $("#modalalert").modal();
+                }else{
+                 $("#alertfinaliza").html('Deseja Finalizar o processo de certificação?');
+                 $("#modalfinaliza").modal();
+                }
+            });
+
+
+           
          });
+
+         
+
+         $("#cadastroplus").click(function(){
+             $.get( urlstring+"finaliza/verifica", function( data ) {
+                    if(data == 1)
+                    {
+                     $("#alert").html("Não é possível cadastrar após ter finalizado a documentação.");
+                     $("#modalalert").modal();
+                    }
+                });
+             });
 
 });
 

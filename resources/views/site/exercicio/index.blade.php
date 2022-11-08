@@ -9,7 +9,7 @@
 <div class="row">
     
     <div class="col-sm-6 col-md-6 ">
-        <a class="btn btn-app btn-primary mt-3 float-sm-left" href="exercicio/cadastro">
+        <a class="btn btn-app btn-primary mt-3 float-sm-left" href="exercicio/cadastro" id="cadastroplus">
             <i class="fas  fa-plus" style="text-align:center;"></i> Cadastrar
         </a>
 
@@ -33,6 +33,7 @@
                         <table id="example1" class="table table-bordered table-hover dataTable dtr-inline" aria-describedby="example2_info">
                             <thead>
                                 <tr>
+                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Arquivo</th>
                                     <th class="sorting sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Comprovado</th>
                                     <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">ART / RRT</th>
                                     <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Contratante</th>
@@ -43,6 +44,7 @@
                             <tbody>
                                 @forelse($analise as $value)
                                 <tr class="odd">
+                                    <td> <a target="_blank" href="{{ url('storage/exercicio/'.$value->arquivo) }}">Ver</a></td>
                                     <td>{{$value->comprovou}}</td>
                                     <td>{{$value->art_rrt}}</td>
                                     <td>{{$value->contratante}}</td>

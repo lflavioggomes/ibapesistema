@@ -27,8 +27,8 @@
             </div>
             <div class="modal-body">
                 <div class="col-sm-12">
-                    <p>Deseja finalizar o processo de Certificação?</p>
-                    <p>Ao finalizar o processo não poderá ser enviado mais nenhuma informação.</p>
+                    <p>Tem certeza que deseja finalizar o envio de sua documentação?</p>
+                    <p>Ao clicar em Sim, as informações serão enviadas para análise e não poderão ser editadas novamente.</p>
                 </div>
                 <div class="card-footer">
                   
@@ -36,7 +36,11 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
+                <form method="POST" action="{{route('site.finaliza')}}">
+                    @csrf
+                    <input type="hidden" name="finaliza" value="1">
                 <button type="submit" class="btn btn-primary">Sim</button>
+                </form>
             </div>
         </div>
     </div>

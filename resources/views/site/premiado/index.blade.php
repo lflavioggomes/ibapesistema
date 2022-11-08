@@ -6,7 +6,7 @@
 @section('content')
 <div class="row">
     <div class="col-sm-6 col-md-6 ">
-        <a class="btn btn-app btn-primary mt-3 float-sm-left" href="{{url('premiado/cadastro')}}">
+        <a class="btn btn-app btn-primary mt-3 float-sm-left" href="{{url('premiado/cadastro')}}" id="cadastroplus">
             <i class="fas  fa-plus" style="text-align:center;"></i> Cadastrar
         </a>
 
@@ -30,6 +30,7 @@
                         <table id="example1" class="table table-bordered table-hover dataTable dtr-inline" aria-describedby="example2_info">
                             <thead>
                                 <tr>
+                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Arquivo</th>
                                     <th class="sorting sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Trabalho</th>
                                     <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Entiade</th>
                                     <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Avaliação</th>
@@ -41,6 +42,7 @@
                             <tbody>
                                 @foreach($premiado as $value)
                                 <tr class="odd">
+                                    <td> <a target="_blank" href="{{ url('storage/premiado/'.$value->arquivo) }}">Ver</a></td>
                                     <td>{{$value->trabalho}}</td>
                                     <td>{{$value->entidade}}</td>
                                     <td>{{$value->avaliacao}}</td>
