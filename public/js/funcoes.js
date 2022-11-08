@@ -514,8 +514,8 @@ $.get( urlstring+"finaliza/verifica", function( data ) {
 
                             case 'Cursos':
                                 $(".pontoformacao").show("slow");
-                                $('#ponto').html(4);
-                                $('#previaponto').val(4);
+                                $('#ponto').html(3);
+                                $('#previaponto').val(3);
                             break;
 
                             case 'Outros':
