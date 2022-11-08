@@ -99,6 +99,9 @@ Route::namespace('Site')->group(function () {
 
     Route::get('total/total', 'TotalController@total')->name('site.total');
     Route::get('total/totalcapacidade', 'TotalController@totalcapacidade')->name('site.total');
+
+    Route::post('finaliza', 'FinalizaController@index')->name('site.finaliza');
+    Route::get('finaliza/verifica', 'FinalizaController@verifica')->name('site.finaliza.verifica');
   
 });
 

@@ -7,7 +7,7 @@
 @section('content')
 <div class="row">
     <div class="col-sm-6 col-md-6 ">
-        <a class="btn btn-app btn-primary mt-3 float-sm-left" href="analise/cadastro">
+        <a class="btn btn-app btn-primary mt-3 float-sm-left" href="analise/cadastro" id="cadastroplus">
             <i class="fas  fa-plus" style="text-align:center;"></i> Cadastrar
         </a>
 
