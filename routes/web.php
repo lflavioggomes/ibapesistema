@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +21,45 @@ use Illuminate\Support\Facades\Auth;
 
 
 //Auth::routes(['register' => false]);
-
 Auth::routes();
+
+Route::namespace('Auth')->group(function () {
+    Route::post('reset_password_without_token', 'ResetPasswordController@validatePasswordRequest')->name('site.resetpassword');
+    Route::post('reset_password_with_token', 'ResetPasswordController@resetPassword')->name('site.resetpassword');
+});
+
+Route::get('envio-email', function () {
+    $details = [
+
+                'title' => 'Mail from ItSolutionStuff.com',
+        
+                'body' => 'This is for testing email using smtp'
+        
+            ];
+    return new \App\Mail\Send($details);
+});
+// Route::get('envio-email', function () {
+
+   
+
+//     $details = [
+
+//         'title' => 'Mail from ItSolutionStuff.com',
+
+//         'body' => 'This is for testing email using smtp'
+
+//     ];
+
+   
+
+//     $mail = Mail::to('flaviopyro@gmail.com')->send(new \App\Mail\Send($details));
+
+   
+
+//     ddd($mail);
+
+// });
+
 
 Route::namespace('Site')->group(function () {
     Route::get('/', 'HomeController@index')->name('site.home');
