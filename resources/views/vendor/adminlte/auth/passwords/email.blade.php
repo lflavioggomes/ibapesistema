@@ -29,7 +29,7 @@
         </div>
     @endif
 
-    <form action="{{ $password_email_url }}" method="post">
+    <form action="{{ url('/reset_password_without_token') }}" method="post">
         @csrf
 
         {{-- Email field --}}
