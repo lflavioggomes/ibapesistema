@@ -76,10 +76,10 @@ class ResetPasswordController extends Controller
         $data['token'] = $token;
 
         try {
-           $envio = Mail::to('sistema@ibape-nacional.com.br', $user->name)->send(new Send($data));
+           $envio = Mail::to($user->email, $user->name)->send(new Send($data));
            toastr()->success('Enviamos as informações por email', 'Sucesso');
         } catch (\Exception $e) {
-           ddd($e);
+            toastr()->error('Erro ao enviar email', 'Erro');
         }
     }
 
@@ -110,14 +110,15 @@ class ResetPasswordController extends Controller
            // Auth::login($user);
 
             //Delete the token
-            DB::table('password_resets')->where('email', $user->email)
+            $delete = DB::table('password_resets')->where('email', $user->email)
             ->delete();
 
             //Send Email Reset Success Email
-            if ($this->sendSuccessEmail($tokenData->email)) {
-                return view('index');
+            if ($delete) {
+                 return redirect('login');
             } else {
-                return redirect()->back()->withErrors(['email' => trans('Ocorreu um erro de rede. Por favor, tente novamente.')]);
+                toastr()->error('Ocorreu um erro de rede. Por favor, tente novamente.', 'Erro');
+                return redirect('password/reset');
             }
     }
     
