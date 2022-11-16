@@ -52,7 +52,12 @@ class HomeController extends Controller
                 $diploma = DB::table('diplomas')->where('user_id', auth()->user()->id)->first();
                 $solicitacao = DB::table('solicitacao')->where('user_id', auth()->user()->id)->first();
                 $comprovante = DB::table('comprovantes')->where('user_id', auth()->user()->id)->first();
-                
+
+                $laudo = DB::table('laudos')
+                ->select('laudos.id as idtabela','laudos.*', 'statuses.*' )
+                ->leftJoin('statuses', 'statuses.id', '=', 'laudos.status_id')
+                ->where('user_id', '=', auth()->user()->id)->get();
+        
                 return view('site.home.index', [
                             'dados' => $dados,
                             'requerimento' => $requerimento,
@@ -60,6 +65,7 @@ class HomeController extends Controller
                             'diploma' => $diploma,
                             'solicitacao' => $solicitacao,
                             'comprovante' => $comprovante,
+                            'laudo' => $laudo
                 ]);
             break;
 
