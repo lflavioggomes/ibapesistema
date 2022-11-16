@@ -35,6 +35,7 @@
                                     <th class="sorting sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">N° de anos de atuação</th>
                                     <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Status</th>
                                     <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Pontos</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Excluir</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -43,6 +44,7 @@
                                     <td>{{$value->numero_ano}}</td>
                                     <td>{{$value->status}}</td>
                                     <td>{{$value->previaponto}}</td>
+                                    <td><i style="cursor: pointer;" data-id="@php echo $value->idtabela @endphp" data-table="atuacaos" data-caminho="atuacao"  data-toggle="modal" data-target="#modalexcluitrabalho" class="fas fa-fw fa-trash"></i></td>
                                 </tr>
                                @endforeach 
                             </tbody>

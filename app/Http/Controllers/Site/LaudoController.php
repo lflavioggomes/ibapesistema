@@ -46,8 +46,8 @@ class LaudoController extends Controller
     public function index()
     {
         $laudo = DB::table('laudos')
+        ->select('laudos.id as idtabela','laudos.*', 'statuses.*' )
         ->leftJoin('statuses', 'statuses.id', '=', 'laudos.status_id')
-        ->select()
         ->where('user_id', '=', auth()->user()->id)->get();
 
        return view('site.laudo.index', [

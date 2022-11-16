@@ -27,8 +27,8 @@ class DocenciaController extends Controller
     public function index()
     {
         $docencia = DB::table('docencias')
+        ->select('docencias.id as idtabela','docencias.*', 'statuses.*' )
         ->leftJoin('statuses', 'statuses.id', '=', 'docencias.status_id')
-        ->select()
         ->where('user_id', '=', auth()->user()->id)->get();
 
         return view('site.docencia.index', [

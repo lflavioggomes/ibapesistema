@@ -279,4 +279,24 @@ class CandidatoController extends Controller
         ddd($array);
         return $array;
     }
+
+    public function exclui(Request $request)
+    {
+        $post = $request->all();
+        $deleted = DB::table('users')->where('id', '=', $post['excluircandidatoid'])->delete();
+        $deleted1 = DB::table('dados')->where('user_id', '=', $post['excluircandidatoid'])->delete();
+        $deleted2 = DB::table('requerimentos')->where('user_id', '=', $post['excluircandidatoid'])->delete();
+        $deleted3 = DB::table('divulgacaos')->where('user_id', '=', $post['excluircandidatoid'])->delete();
+        $deleted4 = DB::table('diplomas')->where('user_id', '=', $post['excluircandidatoid'])->delete();
+        $deleted5 = DB::table('atestados')->where('user_id', '=', $post['excluircandidatoid'])->delete();
+        $deleted6 = DB::table('comprovantes')->where('user_id', '=', $post['excluircandidatoid'])->delete();
+
+        if ($deleted) {
+            toastr()->success('Candidato Excluído com sucesso', 'Sucesso');
+            return redirect('candidato');
+        } else {
+            toastr()->error('Erro ao enviar Excluir Candidato', 'Erro');
+            return redirect('candidato');
+        }
+    }
 }

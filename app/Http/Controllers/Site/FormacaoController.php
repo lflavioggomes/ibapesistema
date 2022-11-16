@@ -31,9 +31,10 @@ class FormacaoController extends Controller
     public function index()
     {
         $formacao = DB::table('formacaos')
+            ->select('formacaos.id as idtabela','formacaos.*', 'statuses.*' )
             ->leftJoin('statuses', 'statuses.id', '=', 'formacaos.status_id')
-            ->select()
             ->where('user_id', '=', auth()->user()->id)->get();
+
         return view('site.formacao.index', [
             'formacao' => $formacao
         ]);

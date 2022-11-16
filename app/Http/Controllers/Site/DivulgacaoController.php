@@ -28,8 +28,8 @@ class DivulgacaoController extends Controller
     public function index()
     {
         $divulgacao = DB::table('divulgacaos')
+        ->select('divulgacaos.id as idtabela','divulgacaos.*', 'statuses.*' )
         ->leftJoin('statuses', 'statuses.id', '=', 'divulgacaos.status_id')
-        ->select()
         ->where('user_id', '=', auth()->user()->id)->get();
 
         return view('site.divulgacao.index', [

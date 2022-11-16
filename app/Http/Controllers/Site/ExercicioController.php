@@ -28,8 +28,8 @@ class ExercicioController extends Controller
     public function index()
     {
         $analise = DB::table('exercicios')
+        ->select('exercicios.id as idtabela','exercicios.*', 'statuses.*' )
         ->leftJoin('statuses', 'statuses.id', '=', 'exercicios.status_id')
-        ->select()
         ->where('user_id', '=', auth()->user()->id)->get();
 
         return view('site.exercicio.index', [

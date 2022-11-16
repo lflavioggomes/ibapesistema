@@ -28,8 +28,8 @@ class AnaliseController extends Controller
     public function index()
     {
         $analise = DB::table('analises')
+        ->select('analises.id as idtabela','analises.*', 'statuses.*' )
         ->leftJoin('statuses', 'statuses.id', '=', 'analises.status_id')
-        ->select()
         ->where('user_id', '=', auth()->user()->id)->get();
 
         return view('site.analise.index', [
