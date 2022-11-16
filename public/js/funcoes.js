@@ -27,6 +27,7 @@ $.get( urlstring+"finaliza/verifica", function( data ) {
 
 
     $("#textototal").hide();
+    $(".textototal").hide();
 
      $('.select2').select2({
         placeholder: 'Selecione os Candidatos'
@@ -704,17 +705,22 @@ $.get( urlstring+"finaliza/verifica", function( data ) {
 
          $.get( urlstring+"total/total", function( data ) {
             $( "#totalpontos" ).find( "span" ).html(data);
-            if(data >= 70)
+            $( "#totalpontosdash" ).html(data);
+            
+            if(Number.isInteger(data) >= Number.isInteger(70))
             {
+                console.log(data);
                 $("#textototal").show();
+                $(".textototal").show();
             }
          });
 
          $.get( urlstring+"total/totalcapacidade", function( data ) {
             $( "#totalpontosdois" ).find( "span" ).html(data);
+            $( "#totalpontosdashcapacidade" ).html(data);
             if(data >= 70)
             {
-                $("#textototal").show();
+                $("#textototalcapacidade").show();
             }
          });
 

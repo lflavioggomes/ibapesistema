@@ -429,7 +429,322 @@ Comprovante de Pagamento.</p>
         </table>
     </div>
 
+
+    
+
 </div>
+
+
+<div class="card col-md-12">
+    <div class="card-header">
+        <h3 class="card-title">1 - Formação Acadêmica</h3>
+        <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+    <div class="card-body p-0">
+        <table class="table table-striped projects">
+            <thead>
+                <tr>
+                    <th style="width: 1%">
+                        #
+                    </th>
+                    <th style="width: 20%">
+                        Informações
+                    </th>
+                    <th style="width: 8%" class="text-center">
+                        Pontos
+                    </th>
+                    <!-- <th style="width: 20%">
+                    </th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        #
+                    </td>
+                    <td>
+                        1.1 Profissional e Acadêmica
+                        <br>
+                        <small>
+                            @if(!empty($dados->updated_at))
+                            @endif
+                        </small>
+                    </td>
+                    <td class="project-state">
+                        {{ App\Http\Controllers\Site\FormacaoController::ponto()}}
+                    </td>
+                       </tr>
+                <tr>
+                    <td>
+                        #
+                    </td>
+                    <td>
+                        1.2 Material Técnico
+                        <br>
+                        <small>
+                            @if(!empty($requerimento->updated_at))
+                            @endif
+                        </small>
+                    </td>
+                    <td class="project-state">
+                        {{ App\Http\Controllers\Site\DivulgacaoController::ponto()}}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        #
+                    </td>
+                    <td>
+                        1.3 Trabalhos e Palestras Apresentados em Congressos e Correlatos
+                        <br>
+                        <small>
+                            @if(!empty($declaracao->updated_at))
+                            @endif
+                        </small>
+                    </td>
+                    <td class="project-state">
+                        {{ App\Http\Controllers\Site\TrabalhoController::ponto()}}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        #
+                    </td>
+                    <td>
+                        1.4 Trabalhos Premiados em Congressos e correlatos
+                        <br>
+                        <small>
+                            @if(!empty($diploma->updated_at))
+                            @endif
+                        </small>
+                    </td>
+                    <td class="project-state">
+                        {{ App\Http\Controllers\Site\PremiadoController::ponto()}}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        #
+                    </td>
+                    <td>
+                        1.5 Exercício de Docência
+                        <br>
+                        <small>
+                            @if(!empty($solicitacao->updated_at))
+                            @endif
+                        </small>
+                    </td>
+                    <td class="project-state">
+                        {{ App\Http\Controllers\Site\DocenciaController::ponto()}}
+                    </td>
+                </tr>
+
+                <tr style="background:#03b22a6b;">
+                    <td>
+                        #
+                    </td>
+                    <td>
+                        Total
+                        <br>
+                        <small class="textototal">
+                            (Pontuação máxima para o item)
+                        </small>
+                    </td>
+                    <td class="project-state">
+                       <span id="totalpontosdash"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    
+
+</div>
+
+
+
+<div class="card col-md-12">
+    <div class="card-header">
+        <h3 class="card-title">2 - Capacidade Técnica</h3>
+        <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+    <div class="card-body p-0">
+        <table class="table table-striped projects">
+            <thead>
+                <tr>
+                    <th style="width: 1%">
+                        #
+                    </th>
+                    <th style="width: 20%">
+                        Informações
+                    </th>
+                    <th style="width: 8%" class="text-center">
+                        Pontos
+                    </th>
+                    <!-- <th style="width: 20%">
+                    </th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        #
+                    </td>
+                    <td>
+                        2.1 Tempo de Atuação 
+                        <br>
+                       
+                    </td>
+                    <td class="project-state">
+                        {{ App\Http\Controllers\Site\AtuacaoController::ponto()}}
+                    </td>
+                       </tr>
+                <tr>
+                    <td>
+                        #
+                    </td>
+                    <td>
+                        2.2 Análise Curricular
+                        <br>
+                        
+                    </td>
+                    <td class="project-state">
+                        {{ App\Http\Controllers\Site\AnaliseController::ponto()}}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        #
+                    </td>
+                    <td>
+                       2.3 Exercício Regular
+                        <br>
+                       
+                    </td>
+                    <td class="project-state">
+                        {{ App\Http\Controllers\Site\ExercicioController::ponto()}}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        #
+                    </td>
+                    <td>
+                        2.4 Participação em Congressos
+                        <br>
+                       
+                    </td>
+                    <td class="project-state">
+                        {{ App\Http\Controllers\Site\ParticipacaoController::ponto()}}
+                    </td>
+                </tr>
+
+
+                <tr style="background:#03b22a6b;">
+                    <td>
+                        #
+                    </td>
+                    <td>
+                        Total
+                        <br>
+                    </td>
+                    <td class="project-state">
+                       <span id="totalpontosdashcapacidade"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+<div class="card col-md-12">
+    <div class="card-header">
+        <h3 class="card-title">3 - Análise de trabalhos</h3>
+        <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+    <div class="card-body p-0">
+        <table class="table table-striped projects">
+            <thead>
+                <tr>
+                    <th style="">#</th>
+                    <th style="">
+                        Informações
+                    </th>
+                    <th style="text-align: left !important;" class="text-center">
+                        Status
+                    </th>
+                     <th style="">Pontos
+                    </th> 
+                  
+                </tr>
+            </thead>
+            <tbody>
+                @php $cont = 1; @endphp
+                @foreach($laudo as $value)
+                <tr class="odd">
+                    <td>{{$cont}}</td>
+                    <td><a target="_blank" href="{{ url('storage/laudo/'.$value->arquivo) }}">{{$value->arquivo}}</a></td>
+                    <td>{{$value->status}}</td>
+                    @if ($value->previaponto)
+                    <td>{{$value->previaponto}}</td>
+                    @else
+                    <td align="">-</td>    
+                    @endif
+
+                </tr>
+                @php $cont++; @endphp
+               @endforeach 
+
+
+                <tr style="background:#03b22a6b;">
+                    <td>
+                        #
+                    </td>
+                    <td>
+                        Total
+                    </td>
+                    <td>
+                    </td>
+                    <td class="project-state">
+                       <span id="totalpontosdashcapacidade"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
 
 @elsecan('julgador')
 <p>Bem vindo julgador.</p>
