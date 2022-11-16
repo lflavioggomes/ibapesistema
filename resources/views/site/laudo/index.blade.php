@@ -59,6 +59,7 @@
                                     <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Arquivo</th>
                                     <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Status</th>
                                     <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Pontos</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Excluir</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -73,6 +74,8 @@
                                     @else
                                     <td align="center">-</td>    
                                     @endif
+
+                                    <td><i style="cursor: pointer;" data-id="@php echo $value->idtabela @endphp" data-table="laudos" data-caminho="laudo"  data-toggle="modal" data-target="#modalexcluitrabalho" class="fas fa-fw fa-trash"></i></td>
                                 </tr>
                                 @php $cont++; @endphp
                                @endforeach 

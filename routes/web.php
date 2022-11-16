@@ -140,6 +140,7 @@ Route::namespace('Site')->group(function () {
 
     Route::post('finaliza', 'FinalizaController@index')->name('site.finaliza');
     Route::get('finaliza/verifica', 'FinalizaController@verifica')->name('site.finaliza.verifica');
+    Route::post('finaliza/exclui', 'FinalizaController@exclui')->name('site.finaliza.exclui');
   
 });
 
@@ -153,6 +154,7 @@ Route::namespace('Admin')->group(function () {
     Route::get('candidato/diploma', 'CandidatoController@diploma')->name('admin.candidato.diploma');
     Route::get('candidato/solicitacao', 'CandidatoController@solicitacao')->name('admin.candidato.solicitacao');
     Route::get('candidato/comprovante', 'CandidatoController@comprovante')->name('admin.candidato.comprovante');
+    Route::post('candidato/exclui', 'CandidatoController@exclui')->name('admin.candidato.exclui');
 
     Route::post('statusdado', 'CandidatoController@statusdado')->name('admin.candidato.statusdado');
 

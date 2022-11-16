@@ -195,6 +195,30 @@ $.get( urlstring+"finaliza/verifica", function( data ) {
                         modal.find('.modalbody').html('Nenhuma Informação preenchida.');
                     });
             })
+
+        // Excluir candidato
+        
+        $('#modalexclui').on('show.bs.modal', function(event) {
+            let button = $(event.relatedTarget);
+            var modal = $(this);
+            let id = button.data('candidatoex');
+            let name = button.data('nomecandidato');
+            modal.find('#excluircandidato').val(id);
+            modal.find('#nomecandidato').html(name);
+        })
+
+        // Excluir trabalhos
+
+        $('#modalexcluitrabalho').on('show.bs.modal', function(event) {
+            let button = $(event.relatedTarget);
+            var modal = $(this);
+            let id = button.data('id');
+            let table = button.data('table');
+            let caminho = button.data('caminho');
+            modal.find('#trabalhoid').val(id);
+            modal.find('#table').val(table);
+            modal.find('#caminho').val(caminho);
+        })
             
         // Admin dados pessoais
 

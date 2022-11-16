@@ -55,4 +55,22 @@ class FinalizaController extends Controller
 
         return $finaliza->finaliza;
     }
+
+    public function exclui(Request $request)
+    {
+        $post = $request->all();
+        try {
+            $deleted = DB::table($post['table'])->where('id', '=', $post['trabalhoid'])->delete();
+            if ($deleted) {
+                toastr()->success('Resgistro Excluído com Sucesso', 'Sucesso');
+                return redirect($post['caminho']);
+            } else {
+                toastr()->error('Erro ao enviar Excluir Resgistro', 'Erro');
+                return redirect($post['caminho']);
+            }
+         } catch (\Exception $e) {
+            toastr()->error('Erro ao enviar Excluir Resgistroaa', 'Erro');
+         }
+
+    }
 }

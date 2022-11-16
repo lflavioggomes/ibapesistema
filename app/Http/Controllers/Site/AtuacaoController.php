@@ -28,8 +28,8 @@ class AtuacaoController extends Controller
     public function index()
     {
         $atuacao = DB::table('atuacaos')
+        ->select('atuacaos.id as idtabela','atuacaos.*', 'statuses.*' )
         ->leftJoin('statuses', 'statuses.id', '=', 'atuacaos.status_id')
-        ->select()
         ->where('user_id', '=', auth()->user()->id)->get();
 
         return view('site.atuacao.index', [

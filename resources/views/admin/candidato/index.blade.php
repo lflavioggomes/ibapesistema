@@ -1,5 +1,4 @@
 @extends('adminlte::page')
-@section('title', 'Dashboard')
 @section('content_header')
 <h1>Candidatos Cadastrados</h1>
 @stop
@@ -20,7 +19,6 @@ function verificastatus()
             <div class="card-header">
                 <!-- <h3 class="card-title"></h3> -->
             </div>
-
             <div class="card-body">
                 <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
                     <div class="row">
@@ -35,6 +33,7 @@ function verificastatus()
                                         <th class="sorting sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Nome</th>
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" >Formação</th>
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" >Pré-Qualificação</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" >Excluir</th>
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" >Ver</th>
                                     </tr>
                                 </thead>
@@ -44,7 +43,8 @@ function verificastatus()
                                         <td>@php echo strtoupper($value->name) @endphp</td>
                                         <td>{{ App\Http\Controllers\Admin\CandidatoController::profissao($value->id) }} </td>
                                         <td>{{ App\Http\Controllers\Admin\CandidatoController::prequalificacao($value->id) }} </td>
-                                        <td><i data-candidato="@php echo $value->id @endphp" data-toggle="modal" data-target="#exampleModal" class="fas  fa-edit"></i></td>
+                                        <td><i style="cursor: pointer;" data-candidatoex="@php echo $value->id @endphp"  data-nomecandidato="@php echo $value->name @endphp" data-toggle="modal" data-target="#modalexclui" class="fas fa-fw fa-trash"></i></td>
+                                        <td><i style="cursor: pointer;" data-candidato="@php echo $value->id @endphp" data-toggle="modal" data-target="#exampleModal" class="fas  fa-edit"></i></td>
                                     </tr>
                                     @php endforeach; @endphp
                                 </tbody>
@@ -53,12 +53,8 @@ function verificastatus()
                     </div>
                 </div>
             </div>
-
         </div>
-
-
     </div>
-
 </div>
 
 <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">

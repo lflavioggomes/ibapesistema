@@ -28,8 +28,8 @@ class ParticipacaoController extends Controller
     public function index()
     {
         $analise = DB::table('participacaos')
+        ->select('participacaos.id as idtabela','participacaos.*', 'statuses.*' )
         ->leftJoin('statuses', 'statuses.id', '=', 'participacaos.status_id')
-        ->select()
         ->where('user_id', '=', auth()->user()->id)->get();
 
         return view('site.participacao.index', [

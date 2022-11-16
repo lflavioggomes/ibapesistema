@@ -27,8 +27,8 @@ class TrabalhoController extends Controller
     public function index()
     {
         $trabalho = DB::table('trabalhos')
+        ->select('trabalhos.id as idtabela','trabalhos.*', 'statuses.*' )
         ->leftJoin('statuses', 'statuses.id', '=', 'trabalhos.status_id')
-        ->select()
         ->where('user_id', '=', auth()->user()->id)->get();
 
         return view('site.trabalho.index', [

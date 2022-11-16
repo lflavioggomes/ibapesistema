@@ -27,8 +27,8 @@ class PremiadoController extends Controller
     public function index()
     {
         $premiado = DB::table('premiados')
+        ->select('premiados.id as idtabela','premiados.*', 'statuses.*' )
         ->leftJoin('statuses', 'statuses.id', '=', 'premiados.status_id')
-        ->select()
         ->where('user_id', '=', auth()->user()->id)->get();
 
         return view('site.premiado.index', [
