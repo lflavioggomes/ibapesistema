@@ -137,6 +137,19 @@ class CandidatoController extends Controller
         return $return;
     }
 
+    public static function finalizado($id)
+    {
+        error_reporting(0);
+        $finalizado =  DB::table('finalizas')->where('user_id', $id)->first();
+        if ($finalizado->finaliza == 1) {
+            $return = 'Sim';
+        } else {
+            $return = 'Não';
+        }
+        return $return;
+
+    }
+
     public function statusdado(Request $request)
     {
         $post = $request->all();
