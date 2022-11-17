@@ -33,6 +33,7 @@ function verificastatus()
                                         <th class="sorting sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Nome</th>
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" >Formação</th>
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" >Pré-Qualificação</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" >Finalizado</th>
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" >Excluir</th>
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" >Ver</th>
                                     </tr>
@@ -43,6 +44,7 @@ function verificastatus()
                                         <td>@php echo strtoupper($value->name) @endphp</td>
                                         <td>{{ App\Http\Controllers\Admin\CandidatoController::profissao($value->id) }} </td>
                                         <td>{{ App\Http\Controllers\Admin\CandidatoController::prequalificacao($value->id) }} </td>
+                                        <td>{{ App\Http\Controllers\Admin\CandidatoController::finalizado($value->id) }} </td>
                                         <td><i style="cursor: pointer;" data-candidatoex="@php echo $value->id @endphp"  data-nomecandidato="@php echo $value->name @endphp" data-toggle="modal" data-target="#modalexclui" class="fas fa-fw fa-trash"></i></td>
                                         <td><i style="cursor: pointer;" data-candidato="@php echo $value->id @endphp" data-toggle="modal" data-target="#exampleModal" class="fas  fa-edit"></i></td>
                                     </tr>
