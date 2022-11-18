@@ -5,7 +5,6 @@
 @section('plugins.Datatables', true)
 @section('content')
 @can('julgador')
-
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -25,18 +24,42 @@
                                 <thead>
                                     <tr>
                                         <th class="sorting sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Nome</th>
+                                       @if ( !empty(App\Http\Controllers\julgador\ListagemController::avaliacao($julgador,'formacao')) )
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" >Formação Acadêmica</th>
+                                       @endif
+
+                                       @if ( !empty(App\Http\Controllers\julgador\ListagemController::avaliacao($julgador,'capacidade')) )
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" >Capacidade Técnica</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" >Pontos</th>
+                                       @endif
+
+                                       @if ( !empty(App\Http\Controllers\julgador\ListagemController::avaliacao($julgador,'analisetrabalho')) )
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" >Análise de Trabalhos</th>
+                                       @endif
+
+                                       @if ( !empty(App\Http\Controllers\julgador\ListagemController::avaliacao($julgador,'analisecurricular')) )
+                                       <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" >Análise Curricular</th>
+                                      @endif
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @php foreach( $dados as $value ): @endphp
                                     <tr class="odd">
                                         <td>@php echo strtoupper($value->name) @endphp</td>
-                                        <td><i data-candidato="@php echo $value->id @endphp" data-toggle="modal" data-target="#exampleModal" class="fas  fa-edit"></i></td>
-                                        <td><i data-candidato="@php echo $value->id @endphp" data-toggle="modal" data-target="#exampleModal" class="fas  fa-edit"></i></td>
-                                        <td>70</td>
+                                        @if ( !empty(App\Http\Controllers\julgador\ListagemController::avaliacao($julgador,'formacao')) )
+                                        <td><i style="cursor: pointer" data-candidato="@php echo $value->id @endphp" data-nome="@php echo strtoupper($value->name) @endphp" data-toggle="modal" data-target="#analisetrabalho" class="fas  fa-edit"></i></td>
+                                        @endif
+
+                                        @if ( !empty(App\Http\Controllers\julgador\ListagemController::avaliacao($julgador,'capacidade')) )
+                                        <td><i style="cursor: pointer" data-candidato="@php echo $value->id @endphp" data-nome="@php echo strtoupper($value->name) @endphp"  data-toggle="modal" data-target="#exampleModal" class="fas  fa-edit"></i></td>
+                                        @endif
+
+                                        @if ( !empty(App\Http\Controllers\julgador\ListagemController::avaliacao($julgador,'analisetrabalho')) )
+                                        <td><i style="cursor: pointer" data-candidato="@php echo $value->id @endphp" data-nome="@php echo strtoupper($value->name) @endphp" data-toggle="modal" data-target="#analisetrabalho" class="fas  fa-edit"></i></td>
+                                        @endif
+
+                                        @if ( !empty(App\Http\Controllers\julgador\ListagemController::avaliacao($julgador,'analisecurricular')) )
+                                        <td><i style="cursor: pointer" data-candidato="@php echo $value->id @endphp" data-nome="@php echo strtoupper($value->name) @endphp" data-toggle="modal" data-target="#analisecurricular" class="fas  fa-edit"></i></td>
+                                        @endif
                                     </tr>
                                     @php endforeach; @endphp
                                 </tbody>

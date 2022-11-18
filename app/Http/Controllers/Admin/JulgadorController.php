@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\Julgador;
 use App\Models\Candidato_julgador;
+use App\Models\Avaliacao_julgador;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -71,7 +72,7 @@ class JulgadorController extends Controller
 
         if($julgador_user->id)
         {
-          $julgador['nome'] = $request->nome;
+          $julgador['name'] = $request->nome;
           $julgador['email'] = $request->email;
           $julgador['email'] = $request->email;
           $julgador['status_id'] =  $request->status_id;
@@ -89,6 +90,15 @@ class JulgadorController extends Controller
                 $insert['candidato_id'] = $value;
 
                 $candidato_julgador = Candidato_julgador::create($insert);
+                
+              }
+
+              foreach ($post['avaliacao'] as $value)
+              {
+                $avaliacao['julgador_id'] = $result_julgador->id;
+                $avaliacao['avaliacao'] = $value;
+
+                $avaliacao_julgador = avaliacao_julgador::create($avaliacao);
                 
               }
 
@@ -193,6 +203,16 @@ class JulgadorController extends Controller
                 $candidato_julgador = Candidato_julgador::create($insert);
               }
 
+              $deletedavaliacao = Avaliacao_julgador::where('julgador_id', $post['julgador'])->delete();
+
+              foreach ($post['avaliacao'] as $value)
+              {
+                $insert['julgador_id'] = $post['julgador'];
+                $insert['avaliacao'] = $value;
+
+                $candidato_julgador = Avaliacao_julgador::create($insert);
+              }
+
               if($candidato_julgador)
               {
                 toastr()->success('Julgador cadastrado com sucesso', 'Sucesso');
@@ -224,6 +244,19 @@ class JulgadorController extends Controller
             $return = 'selected';
         } else {
             $return = '';
+        }
+        return $return;
+    }
+
+    public static function buscaavaliacao($julgador_id,$avaliacao)
+    {
+        error_reporting(0);
+        $avaliacao = DB::table('avaliacao_julgadors')->select()->where('avaliacao', '=', $avaliacao)->where('julgador_id', '=', $julgador_id)->first(); 
+
+        if ($avaliacao->julgador_id) {
+          $return = 'selected';
+        } else {
+          $return = '';
         }
         return $return;
     }

@@ -4,7 +4,6 @@
 <h1>Julgador - Editar</h1>
 @stop
 @section('content')
-
 <div class="row">
     <div class="col-sm-12">
         <ol class="breadcrumb float-sm-right">
@@ -56,6 +55,17 @@
                                     @foreach ($candidato as $item)
                                         <option value="{{ $item->id  }}" {{ App\Http\Controllers\Admin\JulgadorController::buscacandidato($item->id,$julgador->id) }}>{{ $item->name }}</option>
                                     @endforeach
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="graduacao">Avaliações</label>
+                        <select class="form-control select2 " multiple name="avaliacao[]" required>
+                                    <option value="">Selecione</option>
+                                    <option value="formacao" {{ App\Http\Controllers\Admin\JulgadorController::buscaavaliacao($julgador->id,'formacao') }}>Formação Acadêmica</option>
+                                    <option value="capacidade" {{ App\Http\Controllers\Admin\JulgadorController::buscaavaliacao($julgador->id,'capacidade') }}>Capacidade Técnica</option>
+                                    <option value="analisetrabalho" {{ App\Http\Controllers\Admin\JulgadorController::buscaavaliacao($julgador->id,'analisetrabalho') }}>Análise de Trabalhos</option>
+                                    <option value="analisecurricular" {{ App\Http\Controllers\Admin\JulgadorController::buscaavaliacao($julgador->id,'analisecurricular') }}>Análise Curricular</option>
                         </select>
                     </div>
 

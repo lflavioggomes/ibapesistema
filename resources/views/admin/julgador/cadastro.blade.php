@@ -58,6 +58,17 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="graduacao">Avaliações</label>
+                        <select class="form-control select2 " multiple name="avaliacao[]" required>
+                                    <option value="">Selecione</option>
+                                    <option value="formacao">Formação Acadêmica</option>
+                                    <option value="capacidade">Capacidade Técnica</option>
+                                    <option value="analisetrabalho">Análise de Trabalhos</option>
+                                    <option value="analisecurricular">Análise Curricular</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
                         <label for="graduacao">E-mail</label>
                         <input type="text" class="form-control" id="email" name="email" value="" required>
                     </div>  
