@@ -172,6 +172,8 @@ Route::namespace('Admin')->group(function () {
 
 Route::namespace('Julgador')->group(function () {
     Route::get('listagem', 'ListagemController@index')->name('julgador.listagem');
+    Route::get('listagem/analisetrabalho', 'ListagemController@list')->name('julgador.listagem.list');
+    Route::get('listagem/analisecurricular', 'ListagemController@listcurricular')->name('julgador.listagem.listcurricular');
 });
 
 

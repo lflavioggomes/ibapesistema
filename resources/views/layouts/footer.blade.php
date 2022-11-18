@@ -132,6 +132,73 @@
     </div>
 </div>
 
+
+<div class="modal fade bd-example-modal-lg" id="analisetrabalho" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLabel" id="nometrabalhojulgador"></h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="col-sm-12">
+                    <table id="example1" class="table table-bordered table-hover dataTable dtr-inline" aria-describedby="example2_info">
+                        <thead class="thea">
+                            <tr>
+                                <th>#</th>
+                                <th>Arquivo</th>
+                                <th>Status</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody class="modalbody">
+                            <div style="text-align: center">
+                            <img style="width:30%;" class="imgcarregando" src="{{asset('image/carregando.gif')}}">
+                            </div>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade bd-example-modal-lg" id="analisecurricular" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLabel" id="nometrabalhojulgador"></h4>
+            </div>
+            <div class="modal-body">
+                <div class="col-sm-12">
+                    <table id="example1" class="table table-bordered table-hover dataTable dtr-inline" aria-describedby="example2_info">
+                        <thead class="thea">
+                            <tr>
+                                <th>#</th>
+                                <th>Arquivo</th>
+                                <th>Status</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody class="modalbody">
+                            <div style="text-align: center">
+                            <img style="width:30%;" class="imgcarregando" src="{{asset('image/carregando.gif')}}">
+                            </div>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <footer class="main-footer">
     <strong>Certificação Profissional em Engenharia de Avaliações IBAPE NACIONAL</strong>
 

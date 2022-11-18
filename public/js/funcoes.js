@@ -24,13 +24,11 @@ $.get( urlstring+"finaliza/verifica", function( data ) {
     }
  });
 
-
-
     $("#textototal").hide();
     $(".textototal").hide();
 
      $('.select2').select2({
-        placeholder: 'Selecione os Candidatos'
+        placeholder: 'Selecione'
      });
 
         // Trecho de código para dados pessoais
@@ -196,6 +194,55 @@ $.get( urlstring+"finaliza/verifica", function( data ) {
                         modal.find('.modalbody').html('Nenhuma Informação preenchida.');
                     });
             })
+
+            // Painel julgador
+        // Analise de trabalhos
+        
+        $('#analisetrabalho').on('show.bs.modal', function(event) {
+            let button = $(event.relatedTarget);
+            var modal = $(this);
+            let id = button.data('candidato');
+            let nome = button.data('nome');
+            modal.find('.modalbody').html(' ');
+            modal.find('.modal-title').html(' ');
+            modal.find('.imgcarregando').show();
+            modal.find('.thea').hide();
+            $.get("listagem/analisetrabalho", {
+                    id: id
+                })
+                .done(function(data) {
+                    modal.find('.imgcarregando').hide();
+                    modal.find('.thea').show();
+                    modal.find('.modalbody').html(data); 
+                    modal.find('.modal-title').html(nome);
+                })
+                .fail(function() {
+                    modal.find('.modalbody').html('Nenhuma Informação preenchida.');
+                });
+        })
+
+        $('#analisecurricular').on('show.bs.modal', function(event) {
+            let button = $(event.relatedTarget);
+            var modal = $(this);
+            let id = button.data('candidato');
+            let nome = button.data('nome');
+            modal.find('.modalbody').html(' ');
+            modal.find('.modal-title').html(' ');
+            modal.find('.imgcarregando').show();
+            modal.find('.thea').hide();
+            $.get("listagem/analisecurricular", {
+                    id: id
+                })
+                .done(function(data) {
+                    modal.find('.imgcarregando').hide();
+                    modal.find('.thea').show();
+                    modal.find('.modalbody').html(data); 
+                    modal.find('.modal-title').html(nome);
+                })
+                .fail(function() {
+                    modal.find('.modalbody').html('Nenhuma Informação preenchida.');
+                });
+        })
 
         // Excluir candidato
         
@@ -752,6 +799,8 @@ $.get( urlstring+"finaliza/verifica", function( data ) {
                     }
                 });
              });
+
+     
 
 });
 
